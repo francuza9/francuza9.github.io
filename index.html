@@ -4,38 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Your Name - Portfolio</title>
+    <title>George Tskitishvili - Portfolio</title>
 </head>
 <body>
-    <header>
-        <h1>Your Name</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <header>
+            <a href="index.html" class="profile"> <!-- Make this link point to your homepage -->
+                <img src="media/gtskitis.jpg" alt="George Tskitishvili" class="profile-image">
+                <div class="profile-info">
+                    <h1>George Tskitishvili</h1>
+                    <h2>Software Developer</h2>
+                </div>
+            </a>
+        </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Brief introduction about yourself.</p>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Details about your projects.</p>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>How to reach you.</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
-    </footer>
+        <main>
+            <div class="about-box">
+                <h2>About Me</h2>
+                <p>
+                    I am a passionate software developer currently studying at School 42 in Angoulême, France. 
+                    My journey in programming began with C, where I developed a strong foundation. 
+                    I have worked on various projects, including a basic shell implementation (Minishell) 
+                    and a real-time chat application in C++. My interests extend to web technologies, 
+                    and I'm currently exploring Python, JavaScript, and assembly language.
+                </p>
+                <p>
+                    In addition to my technical skills, I have experience in sales and customer service, 
+                    which has enhanced my communication abilities. I am also diving into new areas such as 
+                    personal finance management and freelancing opportunities. My goal is to expand my skillset 
+                    and contribute effectively to innovative projects in software development.
+                </p>
+				<div class="button-container">
+					<a href="/about" class="expand-button">…</a>
+				</div>
+			</div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 George Tskitishvili. All rights reserved.</p>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
