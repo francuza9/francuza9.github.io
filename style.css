@@ -1,40 +1,112 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+/* Existing CSS */
+html, body {
+	height: 100%; /* Ensure body takes full height */
+	margin: 0; /* Remove default margin */
+}
+
+.container {
+	display: flex; /* Enable flexbox */
+	flex-direction: column; /* Stack elements vertically */
+	min-height: 100vh; /* Make the container take full height */
 }
 
 header {
-    background: #333;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
+	background: #333;
+	color: #fff;
+	padding: 1rem; /* Adjust padding for header */
+	display: flex; /* Enable flexbox for header */
+	align-items: center; /* Vertically center content */
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+.profile {
+	display: flex; /* Arrange image and text in a row */
+	align-items: center; /* Center image and text vertically */
+	text-decoration: none; /* Remove underline from link */
+	color: #fff; /* Set the color of the link text */
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+.profile-image {
+	width: 80px; /* Set width for profile image */
+	height: 80px; /* Set height for profile image */
+	border-radius: 50%; /* Make image circular */
+	margin-right: 15px; /* Add space between image and text */
 }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
+.about-box {
+	width: 400px; /* Set the width */
+	height: 400px; /* Set the height */
+	padding: 1rem; /* Add padding inside the box */
+	background-color: #f9f9f9; /* Light background color for the box */
+	border: 1px solid #ccc; /* Border for the box */
+	border-radius: 8px; /* Rounded corners */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+	margin: 2rem  ; /* Center the box horizontally */
+	overflow-y: auto; /* Scroll if the content exceeds the box height */
+}
+
+.about-box h2 {
+	font-size: 2rem; /* Adjust size for title */
+	margin-bottom: -0.5rem; /* Space below the title */
+}
+
+.about-box p {
+	font-size: 0.9rem; /* Adjust size for paragraphs */
+	line-height: 1.5; /* Improve readability */
+}
+
+.button-container {
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center the button horizontally */
+    width: 100%; /* Make it take full width of the box */
+    margin-top: 20px; /* Space above the button */
+}
+
+.expand-button {
+    display: inline-block; /* Make it behave like a button */
+    padding: 0px 20px; /* Add some padding */
+    background-color: #000000; /* Button color */
+    color: #fff; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    font-size: 2rem; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.expand-button:hover {
+    background-color: #444444; /* Darker shade on hover */
+}
+
+
+
+h1 {
+	margin: 0; /* Remove default margin */
+	font-size: 2rem; /* Adjust size as needed */
+}
+
+h2 {
+	margin: 0; /* Remove default margin */
+	font-size: 1.2rem; /* Adjust size as needed */
+}
+
+main {
+	flex: 1; /* Allow main to grow and fill space */
+	padding: 2rem; /* Add padding for content */
 }
 
 section {
-    padding: 2rem;
-    margin: 1rem 0;
+	margin: 1rem 0;
 }
 
 footer {
-    text-align: center;
-    padding: 1rem;
-    background: #333;
-    color: #fff;
+	text-align: center;
+	padding: 1rem;
+	background: #333;
+	color: #fff;
+}
+
+/* Add styles to maintain color for visited links */
+a:visited {
+	color: #fff; /* Keep visited links the same color */
 }
