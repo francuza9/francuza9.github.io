@@ -172,10 +172,12 @@
   .term .dim { color: #7C86A6; }
 
   /* Saqme */
-  #saqme { background: var(--saqme-frame); --acc: #B65CE3; padding-bottom: 0; }
+  #saqme { background: var(--saqme-bg); --acc: #C98BF0; }
   #saqme .btn.solid { background: var(--saqme-grad); color: #fff; border-color: transparent; }
-  #saqme .text { padding-bottom: 2.5rem; }
-  #saqme .visual { align-self: center; padding-bottom: 2.5rem; }
+
+  #saqme .visual { align-self: center; }
+  #saqme .media-frame { border: 1px solid rgba(255,255,255,.08); box-shadow: 0 18px 40px rgba(0,0,0,.45); }
+  #saqme .btn.solid:hover { background: var(--saqme-grad); color: #fff; filter: brightness(1.08); }
   #saqme .desk { width: 58%; border-radius: 12px 12px 0 0; box-shadow: 0 10px 30px rgba(60,40,10,.18); }
   #saqme .ph { width: 32%; border-radius: 16px 16px 0 0; box-shadow: 0 10px 30px rgba(60,40,10,.18); }
   #saqme .badge { height: 20px; width: auto; margin-top: 1rem; }
@@ -212,7 +214,6 @@
     #saina { padding: 0; }
     #saina .text { padding: 1.75rem; }
     #saina .pic { min-height: 16rem; order: -1; }
-    #saqme .text { padding-bottom: 0; }
     .stage { grid-template-columns: 1fr; gap: 0.4rem; }
     .repos { grid-template-columns: 1fr; }
   }
@@ -408,7 +409,7 @@
       </div>
     </article>
 
-    <article class="pc" id="saqme">
+    <article class="pc dark" id="saqme">
       <div class="text">
         <p class="brand"><img src="img/saqme-logo.png" alt=""><span>Saqme To Do · open source</span></p>
         <h2>A to-do app your AI can run</h2>

@@ -91,12 +91,16 @@
   .nums b { display: block; font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
   .nums span { font-size: 0.875rem; color: var(--muted); }
   .alta .btns { margin-top: auto; padding-top: 1.25rem; }
-  .alta .btn:hover, .saqme .btn:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .alta .btn:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .saqme .btn:hover { background: #fff; color: #15121A; border-color: #fff; }
+  .saqme .btn.solid:hover { background: var(--saqme-grad); color: #fff; filter: brightness(1.08); }
 
-  .saqme { grid-column: span 3; background: var(--saqme-frame); padding-bottom: 0; display: flex; flex-direction: column; }
+  .saqme { grid-column: span 3; background: var(--saqme-bg); color: #fff; display: flex; flex-direction: column; }
   .saqme .btn.solid { background: var(--saqme-grad); color: #fff; }
   .brand { display: flex; align-items: center; gap: 0.6rem; margin: 0 0 0.6rem; font-size: 0.9375rem; }
   .brand img { width: 2rem; height: 2rem; }
+  .saqme-video { margin-top: 1.5rem; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); box-shadow: 0 18px 40px rgba(0,0,0,.45); }
+  .saqme-video video { display: block; width: 100%; height: auto; }
   .saqme .badge { height: 20px; width: auto; margin-top: 0.9rem; align-self: flex-start; }
   .shots { margin-top: auto; padding-top: 1.75rem; display: flex; align-items: flex-end; gap: 1rem; }
   .shots .desk { width: 50%; border-radius: 12px 12px 0 0; box-shadow: 0 10px 30px rgba(60,40,10,.18); }
@@ -225,7 +229,7 @@
           <a class="btn" href="https://github.com/francuza9/saqme-to-do">Read the code</a>
         </div>
         <img class="badge" src="https://github.com/francuza9/saqme-to-do/actions/workflows/tests.yml/badge.svg" alt="Tests passing" width="104" height="20">
-        <div class="shots"><video class="desk" src="video/saqme-demo.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Saqme To Do demo" style="width:78%;border-radius:12px 12px 0 0;box-shadow:0 10px 30px rgba(60,40,10,.18)"></video></div>
+        <div class="saqme-video"><video src="video/saqme-demo.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Saqme To Do demo: an AI assistant adding and organising tasks"></video></div>
       </section>
 
       <section class="tile saina">
@@ -278,6 +282,17 @@
   </footer>
 
 </div>
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var vids = document.querySelectorAll('video[autoplay]');
+  if (!('IntersectionObserver' in window)) return;
+  var vo = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting && !reduce) e.target.play().catch(function () {}); else e.target.pause(); });
+  }, { threshold: 0.25 });
+  vids.forEach(function (v) { if (reduce) v.removeAttribute('autoplay'); vo.observe(v); });
+})();
+</script>
 <button class="to-top" type="button" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
 <script>
 (function () {

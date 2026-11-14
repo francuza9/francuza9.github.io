@@ -11,6 +11,7 @@
   --mint: #E3EEE7;
   --steel: #E6E9EE;
   --saqme-frame: #E9E2D4;
+  --saqme-bg: radial-gradient(70% 60% at 12% 8%, rgba(182,92,227,.30), transparent 62%), radial-gradient(60% 55% at 92% 96%, rgba(243,161,74,.24), transparent 60%), #15121A;
   --saqme-grad: linear-gradient(90deg, #B65CE3, #F3A14A);
 }
 * { box-sizing: border-box; }
