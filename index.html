@@ -23,8 +23,22 @@
 <style>
   /* Hero */
   .hero {
-    display: grid; grid-template-columns: minmax(0, 1fr); padding: 3.5rem 0 3.5rem;
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 29rem); gap: 3rem; align-items: center; padding: 3.5rem 0 3.5rem;
   }
+  /* Hero demo */
+  .demo { margin: 0; }
+  .demo button { display: block; position: relative; width: 100%; padding: 0; border: 0; border-radius: 16px; overflow: hidden; cursor: pointer;
+    background: #1b1840; box-shadow: 0 18px 40px -18px rgba(27,24,64,.55); }
+  .demo video, .demo img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+  .demo .pill { position: absolute; left: 0.9rem; bottom: 0.9rem; display: inline-flex; align-items: center; gap: 0.55rem;
+    padding: 0.55rem 1rem 0.55rem 0.6rem; border-radius: 999px; background: #fff; color: var(--ink); font: inherit; font-size: 0.9375rem; font-weight: 600;
+    transition: transform .2s ease; }
+  .demo .pill i { display: grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--ink); color: #fff; }
+  .demo .pill small { font-weight: 500; color: var(--muted); }
+  .demo button:hover .pill { transform: scale(1.04); }
+  .demo button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  .demo figcaption { margin-top: 0.75rem; font-size: 0.9375rem; color: var(--muted); }
+  .demo figcaption b { color: var(--ink); font-weight: 600; }
   .hero h1 { font-size: clamp(2.5rem, 5.5vw, 4rem); line-height: 1; letter-spacing: -0.03em; font-weight: 800; margin: 0 0 1.25rem; }
   .hero .line { font-size: clamp(1.2rem, 2vw, 1.45rem); line-height: 1.35; margin: 0 0 0.9rem; max-width: 34rem; font-weight: 500; }
   .hero .method { color: var(--muted); margin: 0 0 2rem; max-width: 34rem; }
@@ -269,6 +283,13 @@
       </div>
       <p class="call-note">It starts in Georgian and switches to English, French or Russian if you do. It knows Satli's products and can pass a message to the team.</p>
     </div>
+    <figure class="demo">
+      <button type="button" data-video="video/yvito-demo.mp4" data-poster="video/yvito-demo-poster.webp" aria-label="Play the Yvito TV demo with sound">
+        <video src="video/yvito-teaser.mp4" poster="video/yvito-teaser-poster.webp" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+        <span class="pill"><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></i>Watch the demo <small>45 s</small></span>
+      </button>
+      <figcaption><b>Yvito TV</b>, a channel that finds, writes, voices and posts its own reels.</figcaption>
+    </figure>
   </header>
 
   <main>
