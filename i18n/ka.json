@@ -96,7 +96,6 @@
     "I ship with AI coding agents and verify every change with automated tests.": "კოდს AI აგენტებთან ერთად ვწერ და ყოველ ცვლილებას ავტომატური ტესტებით ვამოწმებ.",
     "Call my AI agent, live now": "დაურეკეთ ჩემს AI აგენტს, ახლავე",
     "See all projects": "ყველა პროექტი",
-    "It answers in Georgian, knows Satli's products and can pass a message to the team.": "პასუხობს ქართულად, იცნობს Satli-ს პროდუქტებს და შეუძლია გუნდს შეტყობინება გადასცეს.",
     "We would especially highlight Satli's professionalism, fast support and proactive approach to product development. Throughout our cooperation they were always focused on our business needs and on getting the most out of the platform.": "განსაკუთრებით აღვნიშნავდით Satli-ს პროფესიონალიზმს, სწრაფ მხარდაჭერასა და პროდუქტის განვითარებისადმი პროაქტიულ მიდგომას. თანამშრომლობის მთელი პერიოდის განმავლობაში ისინი ყოველთვის ჩვენს ბიზნეს-საჭიროებებზე იყვნენ ორიენტირებულნი და იმაზე, რომ პლატფორმიდან მაქსიმუმი მიგვეღო.",
     "Nona Baindurashvili": "ნონა ბაინდურაშვილი",
     ", CEO of Alta · recommendation letter, translated from Georgian": ", ალტას აღმასრულებელი დირექტორი · სარეკომენდაციო წერილიდან",
@@ -246,7 +245,6 @@
     "Handles inbound and outbound calls and answers from the client's own knowledge base.": "იღებს შემომავალ და რეკავს გამავალ ზარებს, პასუხობს კლიენტის საკუთარი ცოდნის ბაზიდან.",
     "Can trigger actions during a call, like passing a message to the team.": "ზარის დროს შეუძლია მოქმედებების შესრულება, მაგალითად, გუნდისთვის შეტყობინების გადაცემა.",
     "Satli assistant": "Satli-ს ასისტენტი",
-    "Live now, in Georgian": "უკვე მუშაობს, ქართულად",
     "Call +995 32 2 193 384": "დარეკეთ: +995 32 2 193 384",
     "Research · Georgian speech recognition": "კვლევა · ქართული მეტყველების ამოცნობა",
     "In progress": "მიმდინარე",
@@ -335,6 +333,8 @@
     "Video": "ვიდეო",
     "Close": "დახურვა",
     "NVIDIA Inception Program member": "NVIDIA Inception პროგრამის წევრი",
-    "AWS Activate member": "AWS Activate-ის წევრი"
+    "AWS Activate member": "AWS Activate-ის წევრი",
+    "It starts in Georgian and switches to English, French or Russian if you do. It knows Satli's products and can pass a message to the team.": "საუბარს ქართულად იწყებს, მაგრამ თუ ინგლისურად, ფრანგულად ან რუსულად დაელაპარაკებით, იმ ენაზე გადავა. იცნობს Satli-ს პროდუქტებს და შეუძლია გუნდს შეტყობინება გადასცეს.",
+    "Live now · starts in Georgian": "უკვე მუშაობს · იწყებს ქართულად"
   }
 }
