@@ -59,8 +59,6 @@
   .progress { position: sticky; top: 0; z-index: 40; background: rgba(244,244,241,.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
     margin: 0 -1.5rem 1.5rem; padding: 0.75rem 1.5rem 0; border-bottom: 1px solid var(--line); }
   .progress .row { display: flex; align-items: center; gap: 1rem; }
-  .progress .count { font-size: 0.875rem; color: var(--muted); white-space: nowrap; font-feature-settings: "tnum" 1; min-width: 7.5rem; }
-  .progress .count b { color: var(--ink); }
   .progress .home { display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 0.75rem; padding: 0.4rem 0.85rem 0.4rem 0.7rem;
     border-radius: 999px; border: 1px solid var(--ink); text-decoration: none; font-size: 0.9375rem; font-weight: 500; white-space: nowrap; flex: none;
     transition: background .15s, color .15s; }
@@ -72,7 +70,7 @@
   .bar-track { height: 3px; background: transparent; margin: 0 -1.5rem; }
   .bar-fill { height: 3px; width: 0; background: linear-gradient(90deg, #262158, #E8365D, #0E9F6E, #B65CE3); transition: width .1s linear; }
   @media (prefers-reduced-motion: reduce) { .bar-fill { transition: none; } }
-  @media (max-width: 860px) { .progress .count { display: none; } .progress .home { padding: 0.45rem; } .progress .home span { display: none; } }
+  @media (max-width: 860px) { .progress .home { padding: 0.45rem; } .progress .home span { display: none; } }
 
   /* Media */
   .media-frame { border-radius: 18px; overflow: hidden; box-shadow: 0 18px 40px rgba(0,0,0,.18); background: #000; width: 100%; max-width: 26rem; }
@@ -297,7 +295,6 @@
   <div class="progress">
     <div class="row">
       <a class="home" href="./" aria-label="Home"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg><span>Home</span></a>
-      <span class="count" aria-live="polite"><b id="pc-i">1</b> of <span id="pc-n">11</span> · <span id="pc-name">Yvito TV</span></span>
       <nav class="toc" aria-label="Projects">
     <a href="#yvito">Yvito TV</a><a href="#dialyzeai">DialyzeAI</a><a href="#zariai">ZariAI</a><a href="#asrbench">ASR benchmark</a><a href="#vertapi">VertAPI</a><a href="#clientops">Client operations</a><a href="#saqme">Saqme To Do</a><a href="#saina">Saïna · Bordeaux</a><a href="#school42">École 42 · Angoulême</a><a href="#tekstisai">TekstisAI</a><a href="#catalogueai">CatalogueAI</a>
       </nav>
@@ -618,8 +615,6 @@
   var cards = Array.prototype.slice.call(document.querySelectorAll('main .pc'));
   var tocLinks = document.querySelectorAll('.toc a');
   var fill = document.querySelector('.bar-fill');
-  var iEl = document.getElementById('pc-i'), nEl = document.getElementById('pc-n'), nameEl = document.getElementById('pc-name');
-  nEl.textContent = cards.length;
   var names = {};
   tocLinks.forEach(function (a) { names[a.getAttribute('href').slice(1)] = a; });
   var current = -1;
@@ -632,12 +627,10 @@
     fill.style.width = (pct * 100) + '%';
     if (idx !== current) {
       current = idx;
-      iEl.textContent = idx + 1;
       var a = names[cards[idx].id];
       tocLinks.forEach(function (l) { l.classList.remove('active'); });
       if (a) {
         a.classList.add('active');
-        nameEl.textContent = a.textContent;
         var toc = a.parentNode;
         toc.scrollTo({ left: a.offsetLeft - toc.clientWidth / 2 + a.clientWidth / 2, behavior: reduce ? 'auto' : 'smooth' });
       }
