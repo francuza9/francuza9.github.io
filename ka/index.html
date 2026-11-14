@@ -226,6 +226,18 @@
     .saina .text { padding: 1.5rem; }
     .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
+
+  /* Lightbox */
+  .play { display: inline-flex; align-items: center; gap: 0.5rem; }
+  .play svg { flex: none; }
+  button.btn { font: inherit; font-size: 0.9375rem; font-weight: 500; cursor: pointer; }
+  .lb { border: 0; padding: 0; background: transparent; max-width: min(92vw, 1100px); width: 100%; }
+  .lb::backdrop { background: rgba(10,12,16,.82); }
+  .lb .inner { position: relative; border-radius: 14px; overflow: hidden; background: #000; }
+  .lb video { display: block; width: 100%; border: 0; }
+  .lb .close { position: absolute; top: 0.6rem; right: 0.6rem; z-index: 2; width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 0;
+    background: rgba(0,0,0,.6); color: #fff; font-size: 1.3rem; cursor: pointer; }
+  .lb .close:focus-visible { outline: 2px solid #fff; }
 </style>
 </head>
 <body>
@@ -326,9 +338,9 @@
             <div><b>4</b><span>პლატფორმა, ყოველდღე</span></div>
           </div>
           <div class="btns">
-            <a class="btn solid" href="https://www.youtube.com/@yvito_tv/shorts" target="_blank" rel="noopener">ნახეთ YouTube-ზე</a>
+            <button class="btn solid play" type="button" data-video="../video/yvito-demo.mp4" data-poster="../video/yvito-demo-poster.webp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>დემოს ნახვა</button>
+            <a class="btn" href="https://www.youtube.com/@yvito_tv/shorts" target="_blank" rel="noopener">ნახეთ YouTube-ზე</a>
             <a class="btn" href="projects.html#yvito">როგორ მუშაობს</a>
-            <a class="btn" href="https://www.tiktok.com/@yvito_tv" target="_blank" rel="noopener">TikTok</a>
           </div>
         </div>
         <div class="reels" aria-hidden="true">
@@ -397,6 +409,24 @@
   </footer>
 
 </div>
+<dialog class="lb" aria-label="ვიდეო">
+  <div class="inner"><button class="close" type="button" aria-label="დახურვა">×</button><div class="slot"></div></div>
+</dialog>
+<script>
+(function () {
+  var lb = document.querySelector('.lb'), slot = lb.querySelector('.slot');
+  function close() { slot.innerHTML = ''; if (lb.open) lb.close(); }
+  document.querySelectorAll('[data-video]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      slot.innerHTML = '<video src="' + b.dataset.video + '" poster="' + (b.dataset.poster || '') + '" controls autoplay playsinline></video>';
+      lb.showModal();
+    });
+  });
+  lb.querySelector('.close').addEventListener('click', close);
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  lb.addEventListener('close', function () { slot.innerHTML = ''; });
+})();
+</script>
 <script>
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
