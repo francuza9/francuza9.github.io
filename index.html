@@ -1,50 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>George Tskitishvili - Portfolio</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>George Tskitishvili</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231C2430'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' stroke='%2334A86E' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="description" content="I build AI systems that run unattended in production, and the verification discipline that makes them trustworthy.">
+<meta property="og:title" content="George Tskitishvili">
+<meta property="og:description" content="AI systems that run unattended in production. Call the agent: +995 32 2 193 384.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F6F7F5;
+    --ink: #1C2430;
+    --muted: #5A6573;
+    --rule: #D3D9D4;
+    --pass: #1F7A4D;
+    --pass-wash: #E4EFE8;
+    --measure: 40rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Schibsted Grotesk", system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    font-feature-settings: "tnum" 0;
+  }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+  a:hover { color: var(--pass); }
+  a:focus-visible { outline: 2px solid var(--pass); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Header */
+  .top {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+    padding: 2rem 0 0;
+    font-size: 0.9375rem; color: var(--muted);
+  }
+  .top strong { color: var(--ink); font-weight: 700; }
+
+  /* Intro */
+  .intro { padding: 4.5rem 0 3rem; max-width: var(--measure); }
+  .intro h1 {
+    font-size: clamp(1.75rem, 3.6vw, 2.5rem);
+    line-height: 1.15; font-weight: 700; letter-spacing: -0.015em;
+    margin: 0 0 1.5rem;
+  }
+  .intro p { margin: 0; color: var(--muted); font-size: 1.125rem; }
+
+  /* The call */
+  .call {
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding: 2.25rem 0 2.5rem;
+  }
+  .call p { margin: 0; }
+  .call .lead { font-size: 1.125rem; }
+  .number {
+    display: inline-block;
+    font-weight: 800;
+    font-size: clamp(2rem, 9vw, 6.75rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    font-feature-settings: "tnum" 1;
+    text-decoration: none;
+    margin: 0.75rem 0 1.25rem;
+    white-space: nowrap;
+  }
+  .number:hover { color: var(--pass); }
+  .call .what { color: var(--muted); max-width: var(--measure); }
+
+  .also {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem;
+    padding: 2rem 0 3.5rem;
+  }
+  .also h2 { font-size: 1.0625rem; font-weight: 700; margin: 0 0 0.35rem; }
+  .also p { margin: 0; color: var(--muted); }
+  .also .links { margin-top: 0.5rem; color: var(--ink); }
+  .also .links a { margin-right: 1rem; }
+
+  /* Work: claim | how to check */
+  .work-head {
+    display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 3rem;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 0.6rem;
+    font-size: 0.9375rem; color: var(--muted);
+  }
+  .case {
+    display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 3rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .case h3 {
+    font-size: 1.5rem; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em;
+    margin: 0 0 0.25rem;
+  }
+  .case .where { color: var(--muted); margin: 0 0 1.1rem; }
+  .case p { margin: 0 0 0.9rem; max-width: var(--measure); }
+  .case p:last-child { margin-bottom: 0; }
+  .figure { font-weight: 700; font-feature-settings: "tnum" 1; }
+
+  .check {
+    background: var(--pass-wash);
+    border-left: 3px solid var(--pass);
+    padding: 1rem 1.1rem;
+    font-size: 0.9375rem;
+    align-self: start;
+  }
+  .check ul { list-style: none; margin: 0; padding: 0; }
+  .check li { padding-left: 1.35rem; position: relative; margin-bottom: 0.55rem; }
+  .check li:last-child { margin-bottom: 0; }
+  .check li::before {
+    content: ""; position: absolute; left: 0; top: 0.42em;
+    width: 0.7rem; height: 0.38rem;
+    border-left: 2px solid var(--pass); border-bottom: 2px solid var(--pass);
+    transform: rotate(-45deg);
+  }
+  .check .badge { display: block; margin-top: 0.35rem; height: 20px; }
+
+
+  .live { display: inline-flex; align-items: center; gap: 0.5rem; }
+  .dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--pass); position: relative; flex: none; }
+  .dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--pass); animation: ping 2.4s ease-out infinite; }
+  @keyframes ping { 0% { transform: scale(1); opacity: .55; } 70%, 100% { transform: scale(2.6); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .dot::after { animation: none; } }
+
+  .coverage { margin: 1.5rem 0 1.4rem; max-width: var(--measure); font-size: 0.9375rem; }
+  .bar-row { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr) 3rem; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+  .bar-row span:first-child { color: var(--muted); }
+  .bar-row span:last-child { font-weight: 700; font-feature-settings: "tnum" 1; text-align: right; }
+  .bar { height: 0.7rem; background: #E6EAE7; border-radius: 1px; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--muted); }
+  .bar.after i { background: var(--pass); }
+
+  .flow { list-style: none; margin: 1.5rem 0 0.4rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem 0; font-size: 0.875rem; max-width: var(--measure); }
+  .flow li { display: flex; align-items: center; }
+  .flow li span { border: 1px solid var(--rule); background: #fff; padding: 0.2rem 0.55rem; border-radius: 2px; white-space: nowrap; }
+  .flow li:not(:last-child)::after { content: ""; width: 0.9rem; height: 1px; background: var(--muted); margin: 0 0.15rem; }
+  .flow li.human span { border-color: var(--ink); font-weight: 700; }
+  .loop { font-size: 0.875rem; color: var(--pass); margin: 0 0 1.4rem; max-width: var(--measure); }
+
+  /* Footer */
+  .foot {
+    display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 3rem;
+    padding: 3rem 0 4rem;
+  }
+  .foot h2 { font-size: 1.0625rem; font-weight: 700; margin: 0 0 0.4rem; }
+  .foot p { margin: 0; color: var(--muted); max-width: var(--measure); }
+  .foot .contact a { display: block; color: var(--ink); }
+
+  @media (max-width: 760px) {
+    .intro { padding: 3rem 0 2.25rem; }
+    .also { grid-template-columns: 1fr; gap: 1.5rem; }
+    .work-head { display: none; }
+    .case, .foot { grid-template-columns: 1fr; gap: 1.25rem; }
+    .top { flex-direction: column; gap: 0.15rem; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="/" class="profile"> <!-- Make this link point to your homepage -->
-                <img src="media/gtskitis.jpg" alt="George Tskitishvili" class="profile-image">
-                <div class="profile-info">
-                    <h1>George Tskitishvili</h1>
-                    <h2>Software Developer</h2>
-                </div>
-            </a>
-        </header>
+<div class="wrap">
 
-        <main>
-            <div class="about-box">
-                <h2>About Me</h2>
-                <p>
-                    I am a passionate software developer currently studying at School 42 in Angoulême, France. 
-                    My journey in programming began with C, where I developed a strong foundation. 
-                    I have worked on various projects, including a basic shell implementation (Minishell) 
-                    and a real-time chat application in C++. My interests extend to web technologies, 
-                    and I'm currently exploring Python, JavaScript, and assembly language.
-                </p>
-                <p>
-                    In addition to my technical skills, I have experience in sales and customer service, 
-                    which has enhanced my communication abilities. I am also diving into new areas such as 
-                    personal finance management and freelancing opportunities. My goal is to expand my skillset 
-                    and contribute effectively to innovative projects in software development.
-                </p>
-				<div class="button-container">
-					<a href="/about" class="expand-button">…</a>
-				</div>
-			</div>
-        </main>
-        
-        <footer>
-            <p>&copy; 2024 George Tskitishvili. All rights reserved.</p>
-        </footer>
+  <header class="top">
+    <span><strong>George Tskitishvili</strong>, Tbilisi and France</span>
+    <a href="mailto:george.tskitishvili9@gmail.com">george.tskitishvili9@gmail.com</a>
+  </header>
+
+  <section class="intro">
+    <h1>I build AI systems that run unattended in production, and the verification discipline that makes them trustworthy.</h1>
+    <p>I work with AI coding agents to ship more than one engineer normally could, and every change is verified by automated tests. The discipline is the point, not the volume.</p>
+  </section>
+
+  <section class="call" aria-labelledby="call-label">
+    <p class="lead" id="call-label">Don't take my word for any of this. Call it:</p>
+    <a class="number" href="tel:+995322193384">+995 32 2 193 384</a>
+    <p class="what"><span class="live"><span class="dot" aria-hidden="true"></span>Live now.</span> An AI agent I built answers in Georgian. Ask it about Satli and its products, or leave a message and it passes it to the team.</p>
+  </section>
+
+  <section class="also">
+    <div>
+      <h2>Saqme To Do</h2>
+      <p>A to-do app that AI assistants can manage for you. Open source, runs in the browser with nothing to install.</p>
+      <p class="links"><a href="https://francuza9.github.io/saqme-to-do/">Open the demo</a><a href="https://github.com/francuza9/saqme-to-do">Read the code</a></p>
     </div>
+    <div>
+      <h2>Yvito TV</h2>
+      <p>A short-video channel that writes, voices, edits and publishes itself. The view counts are on the channels.</p>
+      <p class="links"><a href="https://www.youtube.com/@yvito_tv/shorts">YouTube</a><a href="https://www.instagram.com/yvito_tv/">Instagram</a><a href="https://www.facebook.com/profile.php?id=61594511499701">Facebook</a></p>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <div class="work-head" aria-hidden="true">
+    <span>What I built</span>
+    <span>How to check it</span>
+  </div>
+
+  <article class="case">
+    <div>
+      <h3>From 1–3% of calls reviewed to 100%</h3>
+      <p class="where">Call analytics for Alta, a Georgian electronics retailer</p>
+      <p>Alta's quality team could listen to 1–3% of its customer calls. I built a pipeline on Vertex AI and Gemini that transcribes every call and scores it against the company's own quality criteria. Before any AI finding reaches a report, a truth-check gate verifies it against the transcript.</p>
+      <div class="coverage" role="img" aria-label="Share of calls reviewed: 1 to 3 percent before, 100 percent after">
+        <div class="bar-row"><span>Before</span><span class="bar"><i style="width:2%"></i></span><span>1–3%</span></div>
+        <div class="bar-row"><span>After</span><span class="bar after"><i style="width:100%"></i></span><span>100%</span></div>
+      </div>
+      <p>Every call is now reviewed. <span class="figure">About 400,000 call minutes</span> have been processed, roughly 6,700 hours of listening. Over seven months Alta sent 11 change requests; each was answered within a business day and shipped within two.</p>
+    </div>
+    <aside class="check" aria-label="How to check it">
+      <ul>
+        <li>The phone agent above is another Satli product</li>
+        <li>Alta is a named client: <a href="https://alta.ge">alta.ge</a></li>
+        <li>Product page: <a href="https://satli.dev">satli.dev</a></li>
+      </ul>
+    </aside>
+  </article>
+
+  <article class="case">
+    <div>
+      <h3>A video channel that runs itself</h3>
+      <p class="where">Yvito TV, my own project</p>
+      <p>Every reel is researched, written, checked, voiced, rendered and published by the system. A human approves one Telegram message a day; the rest runs on its own.</p>
+      <ol class="flow" aria-label="Pipeline steps">
+        <li><span>Sources</span></li><li><span>Topic</span></li><li><span>Script</span></li><li><span>Fact-check</span></li><li><span>Proofread</span></li><li><span>Voice</span></li><li><span>Render</span></li><li class="human"><span>Human approval</span></li><li><span>Publish ×4</span></li><li><span>Metrics, 14 days</span></li>
+      </ol>
+      <p class="loop">↺ Every Sunday, metrics rewrite the prompts</p>
+      <p>The weekly loop uses the best and worst reels of the past month, so measured retention shapes the next script. It took about five days to build. <span class="figure">Week one: 100,000+ views</span> and around 400 followers.</p>
+    </div>
+    <aside class="check" aria-label="How to check it">
+      <ul>
+        <li>Views and followers are public on <a href="https://www.youtube.com/@yvito_tv/shorts">YouTube</a> and <a href="https://www.instagram.com/yvito_tv/">Instagram</a></li>
+        <li>Happy to walk through the code on a call</li>
+      </ul>
+    </aside>
+  </article>
+
+  <article class="case">
+    <div>
+      <h3>A 3D viewer for engineering simulations</h3>
+      <p class="where">Saïna, France, six-month internship</p>
+      <p>I was the sole engineer on a C++ and OpenGL desktop application for viewing ANSYS simulation results, built for Saïna's engineering team: <span class="figure">about 26,000 lines</span>, including a 3D renderer written from scratch.</p>
+    </div>
+    <aside class="check" aria-label="How to check it">
+      <ul>
+        <li>Details and screenshots on request</li>
+      </ul>
+    </aside>
+  </article>
+
+  <article class="case">
+    <div>
+      <h3>Code you can read</h3>
+      <p class="where">Saqme To Do, open source</p>
+      <p>The same task engine is written twice, in PowerShell for Windows and JavaScript for the browser and phone, and a shared test suite keeps the two behaving identically. AI assistants can edit your lists, with limits on how much they can delete at once.</p>
+    </div>
+    <aside class="check" aria-label="How to check it">
+      <ul>
+        <li><a href="https://github.com/francuza9/saqme-to-do">Clone it</a> and run the tests
+          <img class="badge" src="https://github.com/francuza9/saqme-to-do/actions/workflows/tests.yml/badge.svg" alt="Test status"></li>
+        <li><a href="https://francuza9.github.io/saqme-to-do/">Try it in your browser</a></li>
+      </ul>
+    </aside>
+  </article>
+
+  <footer class="foot">
+    <div>
+      <h2>Worked with</h2>
+      <p>Alta and Saïna as clients and employer. Satli, my company, is part of NVIDIA Inception and AWS Activate. I trained at École 42.</p>
+    </div>
+    <div class="contact">
+      <h2>Contact</h2>
+      <a href="mailto:george.tskitishvili9@gmail.com">george.tskitishvili9@gmail.com</a>
+      <a href="https://github.com/francuza9">GitHub</a>
+      <a href="https://www.linkedin.com/in/george-tskitishvili/">LinkedIn</a>
+    </div>
+  </footer>
+
+</div>
 </body>
 </html>
