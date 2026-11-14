@@ -54,6 +54,14 @@
   .quote figcaption img { height: 1.6rem; width: auto; }
   @media (max-width: 860px) { .nav ul li.hide-sm { display: none; } .quote { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem; } }
 
+
+  @media (prefers-reduced-motion: no-preference) {
+    .bars .bar i { transform: scaleX(0); transform-origin: left; }
+    .bars.in .bar i { animation: grow 1s cubic-bezier(.2,.8,.2,1) forwards .2s; }
+    .bars.in .bar.after i { animation-duration: 1.6s; animation-delay: .6s; }
+    @keyframes grow { to { transform: scaleX(1); } }
+  }
+
   /* Tiles */
   .grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.25rem; }
   .tile { border-radius: 20px; padding: 2rem; overflow: hidden; }
@@ -209,7 +217,7 @@
         <img class="logo" src="img/alta-logo.png" alt="Alta">
         <h2>Every customer call, reviewed</h2>
         <p>DialyzeAI transcribes and scores every call at Alta, a Georgian electronics retailer. A truth-check gate verifies each AI finding against the transcript.</p>
-        <div class="bars" role="img" aria-label="Calls reviewed: 1 to 3 percent before, 100 percent after">
+        <div class="bars" data-anim="bars" role="img" aria-label="Calls reviewed: 1 to 3 percent before, 100 percent after">
           <div class="bar-row"><span>Before</span><span class="bar"><i style="width:2.5%"></i></span><b>1–3%</b></div>
           <div class="bar-row"><span>After</span><span class="bar after"><i style="width:100%"></i></span><b>100%</b></div>
         </div>
@@ -291,6 +299,15 @@
     es.forEach(function (e) { if (e.isIntersecting && !reduce) e.target.play().catch(function () {}); else e.target.pause(); });
   }, { threshold: 0.25 });
   vids.forEach(function (v) { if (reduce) v.removeAttribute('autoplay'); vo.observe(v); });
+})();
+</script>
+<script>
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting && e.intersectionRatio >= 0.45) e.target.classList.add('in'); else if (!e.isIntersecting) e.target.classList.remove('in'); });
+  }, { threshold: [0, 0.45] });
+  document.querySelectorAll('[data-anim]').forEach(function (el) { io.observe(el); });
 })();
 </script>
 <button class="to-top" type="button" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>

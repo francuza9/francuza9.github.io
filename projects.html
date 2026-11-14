@@ -163,6 +163,62 @@
   .slip .ring { position: absolute; right: 1.1rem; top: 1rem; width: 2.6rem; height: 2.6rem; border: 4px solid #D8283B; border-radius: 50%; transform: rotate(-12deg); }
   .slip small { display: block; margin-top: 0.8rem; color: #5B6170; }
 
+
+  /* ---------- Scroll-in animations (only when motion is welcome) ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes riseIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    @keyframes slideIn { from { opacity: 0; transform: translateX(-14px); } to { opacity: 1; transform: none; } }
+    @keyframes popIn { from { opacity: 0; transform: scale(.7); } to { opacity: 1; transform: none; } }
+
+    /* ASR waves: bars grow in, then keep "playing" */
+    .waves rect { transform-box: fill-box; transform-origin: center; transform: scaleY(.06); }
+    .waves.in rect { animation: barIn .5s cubic-bezier(.2,.8,.2,1) forwards, barPlay 1.4s ease-in-out infinite;
+      animation-delay: calc(var(--i) * 14ms), calc(1s + var(--i) * 40ms); }
+    .waves.in svg + p + svg rect { animation-timing-function: cubic-bezier(.2,.8,.2,1), steps(3, jump-none);
+      animation-delay: calc(.35s + var(--i) * 22ms), calc(1.2s + var(--i) * 70ms); }
+    @keyframes barIn { to { transform: scaleY(1); } }
+    @keyframes barPlay { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.5); } }
+    .waves .conds > * { opacity: 0; }
+    .waves.in .conds > * { animation: riseIn .4s ease forwards; animation-delay: 1.1s; }
+
+    /* VertAPI: the slip fills in, then gets stamped */
+    .slip h4, .slip .row, .slip small { opacity: 0; }
+    .slip.in h4 { animation: riseIn .35s ease forwards .1s; }
+    .slip.in .row { animation: riseIn .35s ease forwards; animation-delay: calc(.25s + var(--i) * 170ms); }
+    .slip.in small { animation: riseIn .35s ease forwards 1.3s; }
+    .slip .ring { opacity: 0; }
+    .slip.in .ring { animation: stamp .38s cubic-bezier(.2,1.5,.4,1) forwards 1.25s; }
+    @keyframes stamp { from { opacity: 0; transform: scale(2.2) rotate(-40deg); } to { opacity: 1; transform: scale(1) rotate(-12deg); } }
+
+    /* TekstisAI: messages arrive, then get tagged */
+    .bubbles > div { opacity: 0; }
+    .bubbles em { opacity: 0; }
+    .bubbles.in > div { animation: slideIn .4s ease forwards; animation-delay: calc(var(--i) * 380ms); }
+    .bubbles.in em { animation: popIn .3s cubic-bezier(.2,1.4,.4,1) forwards; animation-delay: calc(var(--i) * 380ms + 650ms); }
+
+    /* CatalogueAI: rows load, specs get found */
+    .spec > div:not(:first-child) { opacity: 0; }
+    .spec.in > div:not(:first-child) { animation: riseIn .3s ease forwards; animation-delay: calc(var(--i) * 140ms); }
+    .spec > div:not(:first-child) span:last-child { position: relative; color: transparent; }
+    .spec > div:not(:first-child) span:last-child::after { content: ""; position: absolute; right: 0; top: 50%; width: 4.5rem; height: .7rem; margin-top: -.35rem;
+      border-radius: 4px; background: linear-gradient(90deg, #F3E7CF 0%, #FBF3E2 50%, #F3E7CF 100%); background-size: 200% 100%; animation: shimmer 1s linear infinite; }
+    .spec.in > div:not(:first-child) span:last-child { animation: valueIn .01s forwards; animation-delay: calc(.9s + var(--i) * 260ms); }
+    .spec.in > div:not(:first-child) span:last-child::after { animation: shimmer 1s linear infinite, fadeOut .2s forwards; animation-delay: 0s, calc(.9s + var(--i) * 260ms); }
+    @keyframes shimmer { to { background-position: -200% 0; } }
+    @keyframes valueIn { to { color: var(--muted); } }
+    @keyframes fadeOut { to { opacity: 0; } }
+
+    /* DialyzeAI: coverage bars fill */
+    .meter .bar i { transform: scaleX(0); transform-origin: left; }
+    .meter.in .bar i { animation: grow 1s cubic-bezier(.2,.8,.2,1) forwards .2s; }
+    .meter.in .bar.after i { animation-duration: 1.6s; animation-delay: .6s; }
+    @keyframes grow { to { transform: scaleX(1); } }
+
+    /* Client ops: terminal types itself (JS), cursor */
+    .term .cursor { display: inline-block; width: .55em; height: 1em; vertical-align: -2px; background: #D6DDF5; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+  }
+
   /* Client ops */
   #clientops { background: #E3E8F4; --acc: #3A5BC7; }
   .term { background: #141A2B; color: #D6DDF5; border-radius: 16px; padding: 1.25rem 1.4rem; width: 100%; max-width: 28rem;
@@ -294,7 +350,7 @@
         <div class="btns"><button class="btn solid play" type="button" data-video="video/dialyzeai.mp4" data-poster="video/dialyzeai-poster.webp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>Watch the trailer</button><a class="btn" href="https://satli.dev/products/dialyzeai">Product page</a></div>
       </div>
       <div class="visual">
-        <div class="meter" role="img" aria-label="Calls reviewed: 1 to 3 percent before, 100 percent after; about 400,000 call minutes processed">
+        <div class="meter" data-anim="meter" role="img" aria-label="Calls reviewed: 1 to 3 percent before, 100 percent after; about 400,000 call minutes processed">
           <img src="img/alta-logo.png" alt="">
           <p>Calls reviewed</p>
           <div class="bar-row"><span>Before</span><span class="bar"><i style="width:2.5%"></i></span><b>1–3%</b></div>
@@ -341,11 +397,11 @@
         <div class="chips"><span>Python</span><span>NeMo</span><span>Whisper</span><span>FLEURS</span><span>Common Voice</span></div>
       </div>
       <div class="visual">
-        <div class="waves" role="img" aria-label="The same speech as clean 16 kHz audio and as 8 kHz telephone audio">
+        <div class="waves" data-anim="waves" role="img" aria-label="The same speech as clean 16 kHz audio and as 8 kHz telephone audio">
           <p><b>Clean</b><span>16 kHz</span></p>
-          <svg viewBox="0 0 280 60" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="27.0" width="3" height="6.0" rx="1.5" fill="#6D4AE0"/><rect x="5" y="17.6" width="3" height="24.9" rx="1.5" fill="#6D4AE0"/><rect x="10" y="10.1" width="3" height="39.9" rx="1.5" fill="#6D4AE0"/><rect x="15" y="5.9" width="3" height="48.2" rx="1.5" fill="#6D4AE0"/><rect x="20" y="5.5" width="3" height="49.1" rx="1.5" fill="#6D4AE0"/><rect x="25" y="8.1" width="3" height="43.7" rx="1.5" fill="#6D4AE0"/><rect x="30" y="5.6" width="3" height="48.7" rx="1.5" fill="#6D4AE0"/><rect x="35" y="1.8" width="3" height="56.3" rx="1.5" fill="#6D4AE0"/><rect x="40" y="1.6" width="3" height="56.7" rx="1.5" fill="#6D4AE0"/><rect x="45" y="5.5" width="3" height="49.0" rx="1.5" fill="#6D4AE0"/><rect x="50" y="12.7" width="3" height="34.6" rx="1.5" fill="#6D4AE0"/><rect x="55" y="18.5" width="3" height="23.1" rx="1.5" fill="#6D4AE0"/><rect x="60" y="18.2" width="3" height="23.7" rx="1.5" fill="#6D4AE0"/><rect x="65" y="16.2" width="3" height="27.5" rx="1.5" fill="#6D4AE0"/><rect x="70" y="12.3" width="3" height="35.3" rx="1.5" fill="#6D4AE0"/><rect x="75" y="11.6" width="3" height="36.8" rx="1.5" fill="#6D4AE0"/><rect x="80" y="13.3" width="3" height="33.5" rx="1.5" fill="#6D4AE0"/><rect x="85" y="6.0" width="3" height="48.0" rx="1.5" fill="#6D4AE0"/><rect x="90" y="1.1" width="3" height="57.7" rx="1.5" fill="#6D4AE0"/><rect x="95" y="0.2" width="3" height="59.7" rx="1.5" fill="#6D4AE0"/><rect x="100" y="3.3" width="3" height="53.5" rx="1.5" fill="#6D4AE0"/><rect x="105" y="9.6" width="3" height="40.7" rx="1.5" fill="#6D4AE0"/><rect x="110" y="11.0" width="3" height="38.0" rx="1.5" fill="#6D4AE0"/><rect x="115" y="10.5" width="3" height="39.1" rx="1.5" fill="#6D4AE0"/><rect x="120" y="13.0" width="3" height="34.1" rx="1.5" fill="#6D4AE0"/><rect x="125" y="18.8" width="3" height="22.4" rx="1.5" fill="#6D4AE0"/><rect x="130" y="19.5" width="3" height="21.0" rx="1.5" fill="#6D4AE0"/><rect x="135" y="17.3" width="3" height="25.3" rx="1.5" fill="#6D4AE0"/><rect x="140" y="9.0" width="3" height="42.1" rx="1.5" fill="#6D4AE0"/><rect x="145" y="3.4" width="3" height="53.2" rx="1.5" fill="#6D4AE0"/><rect x="150" y="1.7" width="3" height="56.6" rx="1.5" fill="#6D4AE0"/><rect x="155" y="3.9" width="3" height="52.2" rx="1.5" fill="#6D4AE0"/><rect x="160" y="9.0" width="3" height="42.1" rx="1.5" fill="#6D4AE0"/><rect x="165" y="5.6" width="3" height="48.8" rx="1.5" fill="#6D4AE0"/><rect x="170" y="4.4" width="3" height="51.2" rx="1.5" fill="#6D4AE0"/><rect x="175" y="6.9" width="3" height="46.2" rx="1.5" fill="#6D4AE0"/><rect x="180" y="13.0" width="3" height="33.9" rx="1.5" fill="#6D4AE0"/><rect x="185" y="21.8" width="3" height="16.3" rx="1.5" fill="#6D4AE0"/><rect x="190" y="22.5" width="3" height="15.1" rx="1.5" fill="#6D4AE0"/><rect x="195" y="13.9" width="3" height="32.1" rx="1.5" fill="#6D4AE0"/><rect x="200" y="8.2" width="3" height="43.6" rx="1.5" fill="#6D4AE0"/><rect x="205" y="6.1" width="3" height="47.7" rx="1.5" fill="#6D4AE0"/><rect x="210" y="7.4" width="3" height="45.1" rx="1.5" fill="#6D4AE0"/><rect x="215" y="8.1" width="3" height="43.8" rx="1.5" fill="#6D4AE0"/><rect x="220" y="2.9" width="3" height="54.3" rx="1.5" fill="#6D4AE0"/><rect x="225" y="0.8" width="3" height="58.4" rx="1.5" fill="#6D4AE0"/><rect x="230" y="2.8" width="3" height="54.4" rx="1.5" fill="#6D4AE0"/><rect x="235" y="8.6" width="3" height="42.8" rx="1.5" fill="#6D4AE0"/><rect x="240" y="17.0" width="3" height="26.0" rx="1.5" fill="#6D4AE0"/><rect x="245" y="16.7" width="3" height="26.6" rx="1.5" fill="#6D4AE0"/><rect x="250" y="17.6" width="3" height="24.7" rx="1.5" fill="#6D4AE0"/><rect x="255" y="14.8" width="3" height="30.4" rx="1.5" fill="#6D4AE0"/><rect x="260" y="12.8" width="3" height="34.4" rx="1.5" fill="#6D4AE0"/><rect x="265" y="13.5" width="3" height="33.0" rx="1.5" fill="#6D4AE0"/><rect x="270" y="9.5" width="3" height="41.1" rx="1.5" fill="#6D4AE0"/><rect x="275" y="3.1" width="3" height="53.8" rx="1.5" fill="#6D4AE0"/></svg>
+          <svg viewBox="0 0 280 60" preserveAspectRatio="none" aria-hidden="true"><rect style="--i:1" x="0" y="27.0" width="3" height="6.0" rx="1.5" fill="#6D4AE0"/><rect style="--i:2" x="5" y="17.6" width="3" height="24.9" rx="1.5" fill="#6D4AE0"/><rect style="--i:3" x="10" y="10.1" width="3" height="39.9" rx="1.5" fill="#6D4AE0"/><rect style="--i:4" x="15" y="5.9" width="3" height="48.2" rx="1.5" fill="#6D4AE0"/><rect style="--i:5" x="20" y="5.5" width="3" height="49.1" rx="1.5" fill="#6D4AE0"/><rect style="--i:6" x="25" y="8.1" width="3" height="43.7" rx="1.5" fill="#6D4AE0"/><rect style="--i:7" x="30" y="5.6" width="3" height="48.7" rx="1.5" fill="#6D4AE0"/><rect style="--i:8" x="35" y="1.8" width="3" height="56.3" rx="1.5" fill="#6D4AE0"/><rect style="--i:9" x="40" y="1.6" width="3" height="56.7" rx="1.5" fill="#6D4AE0"/><rect style="--i:10" x="45" y="5.5" width="3" height="49.0" rx="1.5" fill="#6D4AE0"/><rect style="--i:11" x="50" y="12.7" width="3" height="34.6" rx="1.5" fill="#6D4AE0"/><rect style="--i:12" x="55" y="18.5" width="3" height="23.1" rx="1.5" fill="#6D4AE0"/><rect style="--i:13" x="60" y="18.2" width="3" height="23.7" rx="1.5" fill="#6D4AE0"/><rect style="--i:14" x="65" y="16.2" width="3" height="27.5" rx="1.5" fill="#6D4AE0"/><rect style="--i:15" x="70" y="12.3" width="3" height="35.3" rx="1.5" fill="#6D4AE0"/><rect style="--i:16" x="75" y="11.6" width="3" height="36.8" rx="1.5" fill="#6D4AE0"/><rect style="--i:17" x="80" y="13.3" width="3" height="33.5" rx="1.5" fill="#6D4AE0"/><rect style="--i:18" x="85" y="6.0" width="3" height="48.0" rx="1.5" fill="#6D4AE0"/><rect style="--i:19" x="90" y="1.1" width="3" height="57.7" rx="1.5" fill="#6D4AE0"/><rect style="--i:20" x="95" y="0.2" width="3" height="59.7" rx="1.5" fill="#6D4AE0"/><rect style="--i:21" x="100" y="3.3" width="3" height="53.5" rx="1.5" fill="#6D4AE0"/><rect style="--i:22" x="105" y="9.6" width="3" height="40.7" rx="1.5" fill="#6D4AE0"/><rect style="--i:23" x="110" y="11.0" width="3" height="38.0" rx="1.5" fill="#6D4AE0"/><rect style="--i:24" x="115" y="10.5" width="3" height="39.1" rx="1.5" fill="#6D4AE0"/><rect style="--i:25" x="120" y="13.0" width="3" height="34.1" rx="1.5" fill="#6D4AE0"/><rect style="--i:26" x="125" y="18.8" width="3" height="22.4" rx="1.5" fill="#6D4AE0"/><rect style="--i:27" x="130" y="19.5" width="3" height="21.0" rx="1.5" fill="#6D4AE0"/><rect style="--i:28" x="135" y="17.3" width="3" height="25.3" rx="1.5" fill="#6D4AE0"/><rect style="--i:29" x="140" y="9.0" width="3" height="42.1" rx="1.5" fill="#6D4AE0"/><rect style="--i:30" x="145" y="3.4" width="3" height="53.2" rx="1.5" fill="#6D4AE0"/><rect style="--i:31" x="150" y="1.7" width="3" height="56.6" rx="1.5" fill="#6D4AE0"/><rect style="--i:32" x="155" y="3.9" width="3" height="52.2" rx="1.5" fill="#6D4AE0"/><rect style="--i:33" x="160" y="9.0" width="3" height="42.1" rx="1.5" fill="#6D4AE0"/><rect style="--i:34" x="165" y="5.6" width="3" height="48.8" rx="1.5" fill="#6D4AE0"/><rect style="--i:35" x="170" y="4.4" width="3" height="51.2" rx="1.5" fill="#6D4AE0"/><rect style="--i:36" x="175" y="6.9" width="3" height="46.2" rx="1.5" fill="#6D4AE0"/><rect style="--i:37" x="180" y="13.0" width="3" height="33.9" rx="1.5" fill="#6D4AE0"/><rect style="--i:38" x="185" y="21.8" width="3" height="16.3" rx="1.5" fill="#6D4AE0"/><rect style="--i:39" x="190" y="22.5" width="3" height="15.1" rx="1.5" fill="#6D4AE0"/><rect style="--i:40" x="195" y="13.9" width="3" height="32.1" rx="1.5" fill="#6D4AE0"/><rect style="--i:41" x="200" y="8.2" width="3" height="43.6" rx="1.5" fill="#6D4AE0"/><rect style="--i:42" x="205" y="6.1" width="3" height="47.7" rx="1.5" fill="#6D4AE0"/><rect style="--i:43" x="210" y="7.4" width="3" height="45.1" rx="1.5" fill="#6D4AE0"/><rect style="--i:44" x="215" y="8.1" width="3" height="43.8" rx="1.5" fill="#6D4AE0"/><rect style="--i:45" x="220" y="2.9" width="3" height="54.3" rx="1.5" fill="#6D4AE0"/><rect style="--i:46" x="225" y="0.8" width="3" height="58.4" rx="1.5" fill="#6D4AE0"/><rect style="--i:47" x="230" y="2.8" width="3" height="54.4" rx="1.5" fill="#6D4AE0"/><rect style="--i:48" x="235" y="8.6" width="3" height="42.8" rx="1.5" fill="#6D4AE0"/><rect style="--i:49" x="240" y="17.0" width="3" height="26.0" rx="1.5" fill="#6D4AE0"/><rect style="--i:50" x="245" y="16.7" width="3" height="26.6" rx="1.5" fill="#6D4AE0"/><rect style="--i:51" x="250" y="17.6" width="3" height="24.7" rx="1.5" fill="#6D4AE0"/><rect style="--i:52" x="255" y="14.8" width="3" height="30.4" rx="1.5" fill="#6D4AE0"/><rect style="--i:53" x="260" y="12.8" width="3" height="34.4" rx="1.5" fill="#6D4AE0"/><rect style="--i:54" x="265" y="13.5" width="3" height="33.0" rx="1.5" fill="#6D4AE0"/><rect style="--i:55" x="270" y="9.5" width="3" height="41.1" rx="1.5" fill="#6D4AE0"/><rect style="--i:56" x="275" y="3.1" width="3" height="53.8" rx="1.5" fill="#6D4AE0"/></svg>
           <p><b>Phone line</b><span>8 kHz · G.711 μ-law</span></p>
-          <svg viewBox="0 0 280 60" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="27.6" width="8" height="4.8" rx="1.5" fill="#B49CF5"/><rect x="10" y="17.5" width="8" height="25.0" rx="1.5" fill="#B49CF5"/><rect x="20" y="6.4" width="8" height="47.2" rx="1.5" fill="#B49CF5"/><rect x="30" y="10.6" width="8" height="38.8" rx="1.5" fill="#B49CF5"/><rect x="40" y="7.2" width="8" height="45.5" rx="1.5" fill="#B49CF5"/><rect x="50" y="8.5" width="8" height="43.1" rx="1.5" fill="#B49CF5"/><rect x="60" y="10.7" width="8" height="38.6" rx="1.5" fill="#B49CF5"/><rect x="70" y="0.0" width="8" height="60.0" rx="1.5" fill="#B49CF5"/><rect x="80" y="3.3" width="8" height="53.3" rx="1.5" fill="#B49CF5"/><rect x="90" y="8.0" width="8" height="44.0" rx="1.5" fill="#B49CF5"/><rect x="100" y="18.1" width="8" height="23.8" rx="1.5" fill="#B49CF5"/><rect x="110" y="17.9" width="8" height="24.1" rx="1.5" fill="#B49CF5"/><rect x="120" y="15.5" width="8" height="28.9" rx="1.5" fill="#B49CF5"/><rect x="130" y="12.6" width="8" height="34.7" rx="1.5" fill="#B49CF5"/><rect x="140" y="17.7" width="8" height="24.6" rx="1.5" fill="#B49CF5"/><rect x="150" y="17.0" width="8" height="26.0" rx="1.5" fill="#B49CF5"/><rect x="160" y="14.1" width="8" height="31.8" rx="1.5" fill="#B49CF5"/><rect x="170" y="4.3" width="8" height="51.4" rx="1.5" fill="#B49CF5"/><rect x="180" y="0.0" width="8" height="60.0" rx="1.5" fill="#B49CF5"/><rect x="190" y="0.7" width="8" height="58.5" rx="1.5" fill="#B49CF5"/><rect x="200" y="0.0" width="8" height="60.0" rx="1.5" fill="#B49CF5"/><rect x="210" y="10.8" width="8" height="38.5" rx="1.5" fill="#B49CF5"/><rect x="220" y="4.9" width="8" height="50.2" rx="1.5" fill="#B49CF5"/><rect x="230" y="9.0" width="8" height="42.0" rx="1.5" fill="#B49CF5"/><rect x="240" y="17.6" width="8" height="24.9" rx="1.5" fill="#B49CF5"/><rect x="250" y="25.3" width="8" height="9.5" rx="1.5" fill="#B49CF5"/><rect x="260" y="23.9" width="8" height="12.2" rx="1.5" fill="#B49CF5"/><rect x="270" y="12.7" width="8" height="34.6" rx="1.5" fill="#B49CF5"/></svg>
+          <svg viewBox="0 0 280 60" preserveAspectRatio="none" aria-hidden="true"><rect style="--i:1" x="0" y="27.6" width="8" height="4.8" rx="1.5" fill="#B49CF5"/><rect style="--i:2" x="10" y="17.5" width="8" height="25.0" rx="1.5" fill="#B49CF5"/><rect style="--i:3" x="20" y="6.4" width="8" height="47.2" rx="1.5" fill="#B49CF5"/><rect style="--i:4" x="30" y="10.6" width="8" height="38.8" rx="1.5" fill="#B49CF5"/><rect style="--i:5" x="40" y="7.2" width="8" height="45.5" rx="1.5" fill="#B49CF5"/><rect style="--i:6" x="50" y="8.5" width="8" height="43.1" rx="1.5" fill="#B49CF5"/><rect style="--i:7" x="60" y="10.7" width="8" height="38.6" rx="1.5" fill="#B49CF5"/><rect style="--i:8" x="70" y="0.0" width="8" height="60.0" rx="1.5" fill="#B49CF5"/><rect style="--i:9" x="80" y="3.3" width="8" height="53.3" rx="1.5" fill="#B49CF5"/><rect style="--i:10" x="90" y="8.0" width="8" height="44.0" rx="1.5" fill="#B49CF5"/><rect style="--i:11" x="100" y="18.1" width="8" height="23.8" rx="1.5" fill="#B49CF5"/><rect style="--i:12" x="110" y="17.9" width="8" height="24.1" rx="1.5" fill="#B49CF5"/><rect style="--i:13" x="120" y="15.5" width="8" height="28.9" rx="1.5" fill="#B49CF5"/><rect style="--i:14" x="130" y="12.6" width="8" height="34.7" rx="1.5" fill="#B49CF5"/><rect style="--i:15" x="140" y="17.7" width="8" height="24.6" rx="1.5" fill="#B49CF5"/><rect style="--i:16" x="150" y="17.0" width="8" height="26.0" rx="1.5" fill="#B49CF5"/><rect style="--i:17" x="160" y="14.1" width="8" height="31.8" rx="1.5" fill="#B49CF5"/><rect style="--i:18" x="170" y="4.3" width="8" height="51.4" rx="1.5" fill="#B49CF5"/><rect style="--i:19" x="180" y="0.0" width="8" height="60.0" rx="1.5" fill="#B49CF5"/><rect style="--i:20" x="190" y="0.7" width="8" height="58.5" rx="1.5" fill="#B49CF5"/><rect style="--i:21" x="200" y="0.0" width="8" height="60.0" rx="1.5" fill="#B49CF5"/><rect style="--i:22" x="210" y="10.8" width="8" height="38.5" rx="1.5" fill="#B49CF5"/><rect style="--i:23" x="220" y="4.9" width="8" height="50.2" rx="1.5" fill="#B49CF5"/><rect style="--i:24" x="230" y="9.0" width="8" height="42.0" rx="1.5" fill="#B49CF5"/><rect style="--i:25" x="240" y="17.6" width="8" height="24.9" rx="1.5" fill="#B49CF5"/><rect style="--i:26" x="250" y="25.3" width="8" height="9.5" rx="1.5" fill="#B49CF5"/><rect style="--i:27" x="260" y="23.9" width="8" height="12.2" rx="1.5" fill="#B49CF5"/><rect style="--i:28" x="270" y="12.7" width="8" height="34.6" rx="1.5" fill="#B49CF5"/></svg>
           <div class="conds"><b>A</b><span>Clean speech (FLEURS, Common Voice)</span><b>B</b><span>Same audio through a simulated phone line</span><b>C</b><span>Real consented phone calls</span></div>
         </div>
       </div>
@@ -366,14 +422,14 @@
         <div class="btns"><a class="btn solid" href="https://vertapi.app">vertapi.app</a><a class="btn" href="https://vertapi.app/docs">API docs</a></div>
       </div>
       <div class="visual">
-        <div class="slip" aria-hidden="true">
+        <div class="slip" data-anim="slip" aria-hidden="true">
           <span class="ring"></span>
           <h4>New building permit</h4>
-          <div class="row"><span>City</span><span>Tbilisi</span></div>
-          <div class="row"><span>District</span><span>Saburtalo</span></div>
-          <div class="row"><span>Floors</span><span class="mono">14</span></div>
-          <div class="row"><span>Developer</span><span>Example Development LLC</span></div>
-          <div class="row"><span>Cadastral code</span><span class="mono">01.10.13.004.012</span></div>
+          <div class="row" style="--i:1"><span>City</span><span>Tbilisi</span></div>
+          <div class="row" style="--i:2"><span>District</span><span>Saburtalo</span></div>
+          <div class="row" style="--i:3"><span>Floors</span><span class="mono">14</span></div>
+          <div class="row" style="--i:4"><span>Developer</span><span>Example Development LLC</span></div>
+          <div class="row" style="--i:5"><span>Cadastral code</span><span class="mono">01.10.13.004.012</span></div>
           <small>Example. The data is made up.</small>
         </div>
       </div>
@@ -393,7 +449,7 @@
         <div class="chips"><span>Python</span><span>Google Cloud</span><span>python-pptx</span><span>python-docx</span></div>
       </div>
       <div class="visual">
-        <div class="term" role="img" aria-label="Terminal: onboarding a new client">
+        <div class="term" data-anim="term" role="img" aria-label="Terminal: onboarding a new client">
           <div><span class="p">$</span> python bootstrap.py --product all</div>
           <div class="dim">dialyzeai-alta</div>
           <div><span class="ok">✓</span> project created, billing linked</div>
@@ -476,10 +532,10 @@
         <div class="btns"><button class="btn solid play" type="button" data-video="video/tekstisai.mp4" data-poster="video/tekstisai-poster.webp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>Watch the trailer</button><a class="btn" href="https://satli.dev/products/tekstisai">Product page</a></div>
       </div>
       <div class="visual">
-        <div class="bubbles" aria-hidden="true">
-          <div><span>"Delivery was late again"</span><em>negative · delivery</em></div>
-          <div><span>"Do you have this in black?"</span><em>question · stock</em></div>
-          <div><span>"Thanks, fixed in 5 minutes!"</span><em>positive · support</em></div>
+        <div class="bubbles" data-anim="bubbles" aria-hidden="true">
+          <div style="--i:1"><span>"Delivery was late again"</span><em>negative · delivery</em></div>
+          <div style="--i:2"><span>"Do you have this in black?"</span><em>question · stock</em></div>
+          <div style="--i:3"><span>"Thanks, fixed in 5 minutes!"</span><em>positive · support</em></div>
         </div>
       </div>
     </article>
@@ -493,12 +549,12 @@
         <div class="btns"><button class="btn solid play" type="button" data-video="video/catalogueai.mp4" data-poster="video/catalogueai-poster.webp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>Watch the trailer</button><a class="btn" href="https://satli.dev/products/catalogueai">Product page</a></div>
       </div>
       <div class="visual">
-        <div class="spec" aria-hidden="true">
-          <div><span>Model</span><span>Specs found</span></div>
-          <div><span>Screen size</span><span>6.1 in</span></div>
-          <div><span>Storage</span><span>128 GB</span></div>
-          <div><span>Battery</span><span>3,349 mAh</span></div>
-          <div><span>Weight</span><span>171 g</span></div>
+        <div class="spec" data-anim="spec" aria-hidden="true">
+          <div style="--i:1"><span>Model</span><span>Specs found</span></div>
+          <div style="--i:2"><span>Screen size</span><span>6.1 in</span></div>
+          <div style="--i:3"><span>Storage</span><span>128 GB</span></div>
+          <div style="--i:4"><span>Battery</span><span>3,349 mAh</span></div>
+          <div style="--i:5"><span>Weight</span><span>171 g</span></div>
         </div>
       </div>
     </article>
@@ -586,6 +642,51 @@
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
   update();
+})();
+</script>
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+
+  // Terminal: type commands, print results
+  function typeTerm(el) {
+    if (!el._lines) el._lines = Array.prototype.map.call(el.children, function (d) { return d.innerHTML; });
+    var lines = el._lines, run = (el._run || 0) + 1; el._run = run;
+    el.innerHTML = '';
+    var i = 0;
+    function next() {
+      if (el._run !== run) return;
+      if (i >= lines.length) { var c = document.createElement('span'); c.className = 'cursor'; el.lastChild && el.lastChild.appendChild(c); return; }
+      var html = lines[i++], row = document.createElement('div');
+      el.appendChild(row);
+      var isCmd = html.indexOf('class="p"') !== -1;
+      if (!isCmd) { row.innerHTML = html; setTimeout(next, 160); return; }
+      var tmp = document.createElement('div'); tmp.innerHTML = html;
+      var prompt = tmp.querySelector('.p').outerHTML, text = tmp.textContent.replace(/^\$\s*/, ''), k = 0;
+      (function type() {
+        if (el._run !== run) return;
+        row.innerHTML = prompt + ' ' + text.slice(0, k) + '<span class="cursor"></span>';
+        if (k++ < text.length) setTimeout(type, 28); else { row.innerHTML = prompt + ' ' + text; setTimeout(next, 260); }
+      })();
+    }
+    next();
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var el = e.target;
+      if (e.isIntersecting && e.intersectionRatio >= 0.45) {
+        if (!el.classList.contains('in')) {
+          el.classList.add('in');
+          if (el.dataset.anim === 'term') typeTerm(el);
+        }
+      } else if (!e.isIntersecting) {
+        el.classList.remove('in');  // replay next time it scrolls into view
+      }
+    });
+  }, { threshold: [0, 0.45] });
+  document.querySelectorAll('[data-anim]').forEach(function (el) { io.observe(el); });
 })();
 </script>
 <button class="to-top" type="button" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
