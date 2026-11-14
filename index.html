@@ -114,9 +114,12 @@
   .shots .desk { width: 50%; border-radius: 12px 12px 0 0; box-shadow: 0 10px 30px rgba(60,40,10,.18); }
   .shots .phone { width: 27%; border-radius: 16px 16px 0 0; box-shadow: 0 10px 30px rgba(60,40,10,.18); }
 
-  .saina { grid-column: span 6; background: var(--steel); padding: 0;
+  .saina { grid-column: span 6; background: #1E2228; color: #fff; padding: 0;
     display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; }
   .saina .text { padding: 2rem; }
+  .saina .hand { display: inline-block; background: #D8E94A; color: #1E2228; font-weight: 700; font-size: 0.875rem; padding: 0.3rem 0.75rem; border-radius: 999px; margin-bottom: 0.9rem; }
+  .saina .tags span { background: rgba(255,255,255,.12); }
+  .saina .btn:hover { background: #fff; color: #1E2228; border-color: #fff; }
   .saina .pic { min-height: 18rem; background: url("img/saina-weldseam.jpg") center / cover no-repeat; }
   .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
   .tags span { font-size: 0.875rem; padding: 0.3rem 0.75rem; border-radius: 999px; background: rgba(255,255,255,.7); }
@@ -242,7 +245,8 @@
 
       <section class="tile saina">
         <div class="text">
-          <p class="brand"><img src="img/saina-icon.png" alt="" style="background:#fff;border-radius:8px;padding:2px">Saïna, France · written by hand, before AI coding tools</p>
+          <p class="brand"><img src="img/saina-icon.png" alt="" style="background:#fff;border-radius:8px;padding:2px">Saïna, France · internship, 2024–2025</p>
+          <span class="hand">Written by hand, before AI coding tools</span>
           <h2>Weld seam analysis for engineering simulations</h2>
           <p>A desktop tool that parses ANSYS results, finds weld seams, manages materials and fatigue cycles, and renders it all in 3D. I was the only engineer, for six months.</p>
           <div class="tags"><span>C++</span><span>OpenGL</span><span>Plugin architecture</span><span>~26k lines</span></div>
