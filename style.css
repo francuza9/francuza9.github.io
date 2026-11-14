@@ -10,6 +10,8 @@
   --sand: #ECE5D8;
   --mint: #E3EEE7;
   --steel: #E6E9EE;
+  --saqme-frame: #E9E2D4;
+  --saqme-grad: linear-gradient(90deg, #B65CE3, #F3A14A);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }

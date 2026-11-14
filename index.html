@@ -61,8 +61,10 @@
   .alta .btns { margin-top: auto; padding-top: 1.25rem; }
   .alta .btn:hover, .saqme .btn:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
 
-  .saqme { grid-column: span 3; background: var(--sand); padding-bottom: 0; display: flex; flex-direction: column; }
-  .saqme .btn.solid { background: var(--ink); color: #fff; }
+  .saqme { grid-column: span 3; background: var(--saqme-frame); padding-bottom: 0; display: flex; flex-direction: column; }
+  .saqme .btn.solid { background: var(--saqme-grad); color: #fff; }
+  .brand { display: flex; align-items: center; gap: 0.6rem; margin: 0 0 0.6rem; font-size: 0.9375rem; }
+  .brand img { width: 2rem; height: 2rem; }
   .saqme .badge { height: 20px; width: auto; margin-top: 0.9rem; align-self: flex-start; }
   .shots { margin-top: auto; padding-top: 1.75rem; display: flex; align-items: flex-end; gap: 1rem; }
   .shots .desk { width: 50%; border-radius: 12px 12px 0 0; box-shadow: 0 10px 30px rgba(60,40,10,.18); }
@@ -79,7 +81,7 @@
   .all { padding-top: 4rem; }
   .all-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 1.25rem; }
   .all-head h2 { font-size: 1.6rem; margin: 0; letter-spacing: -0.015em; font-weight: 800; }
-  .cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+  .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
   .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1.25rem; text-decoration: none;
     display: flex; flex-direction: column; gap: 0.35rem; transition: border-color .15s, transform .15s; }
   .card:hover { border-color: var(--ink); transform: translateY(-2px); }
@@ -120,7 +122,7 @@
 
       <section class="tile yvito">
         <div>
-          <p class="kicker">Yvito TV</p>
+          <p class="brand"><img src="img/yvito-logo.png" alt="" style="border-radius:8px">Yvito TV</p>
           <h2>A video channel that runs itself, and gets better every week</h2>
           <ul class="feats">
             <li>Finds stories, writes, fact-checks, voices, animates and renders each reel</li>
@@ -160,7 +162,7 @@
       </section>
 
       <section class="tile saqme">
-        <p class="kicker">Saqme To Do, open source</p>
+        <p class="brand"><img src="img/saqme-logo.png" alt="">Saqme To Do, open source</p>
         <h2>A to-do app your AI can run</h2>
         <p>Markdown lists you and your AI edit together, on desktop and phone. The engine exists in two languages, kept identical by one shared test suite.</p>
         <div class="btns">
@@ -176,7 +178,7 @@
 
       <section class="tile saina">
         <div class="text">
-          <p class="kicker">Saïna, France</p>
+          <p class="brand"><img src="img/saina-icon.png" alt="" style="background:#fff;border-radius:8px;padding:2px">Saïna, France · written by hand, before AI coding tools</p>
           <h2>Weld seam analysis for engineering simulations</h2>
           <p>A desktop tool that parses ANSYS results, finds weld seams, manages materials and fatigue cycles, and renders it all in 3D. I was the only engineer, for six months.</p>
           <div class="tags"><span>C++</span><span>OpenGL</span><span>Plugin architecture</span><span>~26k lines</span></div>
@@ -193,14 +195,15 @@
         <a href="projects.html">Full write-ups</a>
       </div>
       <div class="cards">
-        <a class="card" href="projects.html#yvito"><span class="dot" style="background:var(--sun);color:var(--indigo)">Y</span><b>Yvito TV</b><span>Self-running video channel</span></a>
+        <a class="card" href="projects.html#yvito"><img class="mark" src="img/yvito-logo.png" alt="" style="border-radius:10px"><b>Yvito TV</b><span>Self-running video channel</span></a>
         <a class="card" href="projects.html#dialyzeai"><img class="mark" src="img/dialyzeai.png" alt=""><b>DialyzeAI</b><span>Call analytics and QA</span></a>
-        <a class="card" href="projects.html#tekstisai"><img class="mark" src="img/tekstisai.png" alt=""><b>TekstisAI</b><span>Analytics for chats, tickets and comments</span></a>
         <a class="card" href="projects.html#zariai"><img class="mark" src="img/zariai.png" alt=""><b>ZariAI</b><span>Georgian-first AI phone agent</span></a>
+        <a class="card" href="projects.html#clientops"><span class="dot" style="background:#3A5BC7;color:#fff">€</span><b>Client operations</b><span>Onboarding, licensing and billing for Satli clients</span></a>
+        <a class="card" href="projects.html#saqme"><img class="mark" src="img/saqme-logo.png" alt=""><b>Saqme To Do</b><span>Open-source to-do app for you and your AI</span></a>
+        <a class="card" href="projects.html#saina"><img class="mark" src="img/saina-icon.png" alt=""><b>Saïna analysis tool</b><span>Weld seams and fatigue on ANSYS data</span></a>
+        <a class="card" href="projects.html#school42"><img class="mark" src="img/42.svg" alt=""><b>École 42</b><span>Systems projects in C and C++</span></a>
+        <a class="card" href="projects.html#tekstisai"><img class="mark" src="img/tekstisai.png" alt=""><b>TekstisAI</b><span>Analytics for chats, tickets and comments</span></a>
         <a class="card" href="projects.html#catalogueai"><img class="mark" src="img/catalogueai.png" alt=""><b>CatalogueAI</b><span>Product catalogues from a model list</span></a>
-        <a class="card" href="projects.html#saqme"><span class="dot" style="background:var(--sand)">S</span><b>Saqme To Do</b><span>Open-source to-do app for you and your AI</span></a>
-        <a class="card" href="projects.html#saina"><span class="dot" style="background:var(--steel)">W</span><b>Saïna analysis tool</b><span>Weld seams and fatigue on ANSYS data</span></a>
-        <a class="card" href="projects.html#school42"><span class="dot" style="background:var(--ink);color:#fff">42</span><b>École 42</b><span>Systems projects in C and C++</span></a>
       </div>
     </section>
   </main>
