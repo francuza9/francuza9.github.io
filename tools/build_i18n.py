@@ -17,7 +17,7 @@ SITE = 'https://tskdev.org/'
 EXTRA_HEAD = {}
 TOKEN = re.compile(r'(<!--.*?-->|<script\b.*?</script>|<style\b.*?</style>|<[^>]+>)', re.S)
 ATTR = re.compile(r'(\b(?:alt|aria-label|title|content)=")([^"]*)(")')
-PATH = re.compile(r'(\b(?:src|href|poster|data-video|data-poster)=")((?:img|video)/|style\.css|partners\.js)')
+PATH = re.compile(r'(\b(?:src|href|poster|data-video|data-poster)=")((?:img|video)/|style\.css|partners\.js|track\.js)')
 MENU = re.compile(r'<(details|div) class="langs"[^>]*>.*?</\1>', re.S)
 ALTS = re.compile(r'(?:<link rel="alternate" hreflang="[a-z-]+" href="[^"]*">\n?)+')
 
@@ -59,7 +59,7 @@ def main():
 
     # cache-busting: browsers keep style.css / partners.js for a while, so stamp them with a content hash
     stamps = {}
-    for asset in ('style.css', 'partners.js'):
+    for asset in ('style.css', 'partners.js', 'track.js'):
         stamps[asset] = hashlib.sha1(open(os.path.join(ROOT, asset), 'rb').read()).hexdigest()[:8]
 
     for page in PAGES:

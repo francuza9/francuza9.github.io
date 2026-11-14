@@ -379,7 +379,6 @@
     "← George Tskitishvili": "← გიორგი ცქიტიშვილი",
     "Last updated: 15 November 2026": "ბოლო განახლება: 2026 წლის 15 ნოემბერი",
     "This website": "ეს საიტი",
-    "No cookies, no analytics, no ads and no forms.": "არც cookie-ები, არც ანალიტიკა, არც რეკლამა და არც ფორმები.",
     "YouTube videos load from youtube-nocookie.com only when you press play. From then on, YouTube's privacy policy applies.": "YouTube-ის ვიდეოები youtube-nocookie.com-იდან მხოლოდ მაშინ იტვირთება, როცა ჩართვას დააჭერთ. ამის შემდეგ YouTube-ის კონფიდენციალურობის პოლიტიკა მოქმედებს.",
     "Links to other sites open those sites, which have their own policies.": "სხვა საიტების ბმულები იმ საიტებს ხსნის, რომლებსაც საკუთარი პოლიტიკა აქვთ.",
     "Calls to the AI agent": "ზარები AI აგენტთან",
@@ -389,6 +388,12 @@
     "You can ask what is held about you, and ask for it to be corrected or deleted, by writing to": "შეგიძლიათ მოითხოვოთ ინფორმაცია იმის შესახებ, რა მონაცემები ინახება თქვენზე, ასევე მათი გასწორება ან წაშლა, მისამართზე",
     "Who is responsible": "ვინ არის პასუხისმგებელი",
     "George Tskitishvili, individual entrepreneur trading as Satli, Tbilisi, Georgia.": "გიორგი ცქიტიშვილი, ინდივიდუალური მეწარმე (Satli), თბილისი, საქართველო.",
-    "Fonts, images and videos are served from this site; only the live test-status badge loads from GitHub. The site is hosted on GitHub Pages, which may log visitors' IP addresses for security.": "შრიფტები, სურათები და ვიდეოები ამავე საიტიდან იტვირთება; მხოლოდ ტესტების სტატუსის ნიშანი იტვირთება GitHub-იდან. საიტი განთავსებულია GitHub Pages-ზე, რომელმაც უსაფრთხოების მიზნით შეიძლება ვიზიტორების IP მისამართები ჩაიწეროს."
+    "No ads and no forms.": "არც რეკლამა და არც ფორმები.",
+    "Fonts, images and videos are served from this site. The live test-status badge loads from GitHub and the analytics script from Microsoft. The site is hosted on GitHub Pages, which may log visitors' IP addresses for security.": "შრიფტები, სურათები და ვიდეოები ამავე საიტიდან იტვირთება. ტესტების სტატუსის ნიშანი იტვირთება GitHub-იდან, ანალიტიკის სკრიპტი კი Microsoft-იდან. საიტი განთავსებულია GitHub Pages-ზე, რომელმაც უსაფრთხოების მიზნით შეიძლება ვიზიტორების IP მისამართები ჩაიწეროს.",
+    "Analytics": "ანალიტიკა",
+    "I use Microsoft Clarity to see how the site is used. It records clicks, scrolling and mouse movement on these pages, along with your device, browser, screen size and approximate location, and can replay a visit. It sees nothing outside this site, and text typed into pages is masked.": "საიტის გამოყენების სანახავად ვიყენებ Microsoft Clarity-ს. ის იწერს დაწკაპუნებებს, სქროლს და მაუსის მოძრაობას ამ გვერდებზე, ასევე თქვენს მოწყობილობას, ბრაუზერს, ეკრანის ზომას და მიახლოებით მდებარეობას, და შეუძლია ვიზიტის ხელახლა ჩვენება. ის ვერაფერს ხედავს ამ საიტის გარეთ, ხოლო გვერდებზე აკრეფილი ტექსტი დაფარულია.",
+    "For visitors in the EU, the UK and Switzerland, Clarity sets no cookies, so each page view is recorded on its own. Elsewhere it sets cookies (such as _clck and _clsk) to link the pages of one visit. Microsoft processes this data under the ": "ევროკავშირის, დიდი ბრიტანეთისა და შვეიცარიის ვიზიტორებისთვის Clarity cookie-ებს არ იყენებს, ამიტომ თითოეული გვერდის ნახვა ცალკე იწერება. სხვაგან ის იყენებს cookie-ებს (მაგალითად _clck და _clsk), რათა ერთი ვიზიტის გვერდები ერთმანეთს დაუკავშიროს. Microsoft ამ მონაცემებს ამუშავებს ",
+    "Microsoft Privacy Statement": "Microsoft-ის კონფიდენციალურობის განაცხადის შესაბამისად",
+    "Turn off analytics in this browser": "ანალიტიკის გამორთვა ამ ბრაუზერში"
   }
 }
