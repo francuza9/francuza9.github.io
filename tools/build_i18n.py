@@ -21,7 +21,7 @@ EXTRA_HEAD = {
 TOKEN = re.compile(r'(<!--.*?-->|<script\b.*?</script>|<style\b.*?</style>|<[^>]+>)', re.S)
 ATTR = re.compile(r'(\b(?:alt|aria-label|title|content)=")([^"]*)(")')
 PATH = re.compile(r'(\b(?:src|href|poster|data-video|data-poster)=")((?:img|video)/|style\.css|partners\.js)')
-MENU = re.compile(r'<details class="langs">.*?</details>', re.S)
+MENU = re.compile(r'<(details|div) class="langs"[^>]*>.*?</\1>', re.S)
 ALTS = re.compile(r'(?:<link rel="alternate" hreflang="[a-z-]+" href="[^"]*">\n?)+')
 
 
@@ -45,12 +45,10 @@ FLAGV = {l: _flag_version(l) for l in LANGS}
 def menu(page, cur):
     img = 'img/' if cur == 'en' else '../img/'
     items = ''.join(
-        f'<a href="{href(page, cur, l)}" hreflang="{l}" lang="{l}" title="{NAMES[l]}">'
+        f'<a href="{href(page, cur, l)}" hreflang="{l}" lang="{l}" title="{NAMES[l]}"{' aria-current="true"' if l == cur else ""}>'
         f'<img src="{img}flag-{l}.svg?v={FLAGV[l]}" alt="{NAMES[l]}" width="21" height="14"></a>'
-        for l in LANGS if l != cur)
-    return (f'<details class="langs"><summary title="{MENU_LABEL[cur]}" aria-label="{MENU_LABEL[cur]}: {NAMES[cur]}">'
-            f'<img src="{img}flag-{cur}.svg?v={FLAGV[cur]}" alt="{NAMES[cur]}" width="21" height="14"></summary>'
-            f'<div class="langs-menu">{items}</div></details>')
+        for l in LANGS)
+    return f'<div class="langs" role="group" aria-label="{MENU_LABEL[cur]}">{items}</div>'
 
 
 def alternates(page):
@@ -91,7 +89,7 @@ def main():
                 t = tr(m.group(2))
                 return m.group(1) + (t.replace('"', '&quot;') if t is not None else m.group(2)) + m.group(3)
 
-            s = MENU.sub('<details class="langs"></details>', src)
+            s = MENU.sub('<div class="langs"></div>', src)
             done = set()
             for a, b in d.get('raw', {}).items():
                 s = s.replace(a, b)

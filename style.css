@@ -75,14 +75,12 @@ a:focus-visible { outline: 2px solid var(--pass); outline-offset: 3px; border-ra
 .lang { font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.02em; border: 1px solid var(--line); border-radius: 999px;
   padding: 0.25rem 0.6rem; text-decoration: none; background: #fff; }
 .lang:hover { border-color: var(--ink); text-decoration: none; }
-.langs { position: relative; }
-.langs summary { list-style: none; cursor: pointer; display: block; padding: 0.3rem; border-radius: 6px; }
-.langs summary::-webkit-details-marker { display: none; }
-.langs summary:focus-visible { outline: 2px solid var(--pass); outline-offset: 2px; }
-.langs img { max-width: none; width: 1.6rem; height: auto; border-radius: 3px; box-shadow: 0 0 0 1px rgba(22,25,31,.12); display: block; transition: transform .15s; }
-.langs summary:hover img, .langs-menu a:hover img { transform: scale(1.08); }
-.langs-menu { position: absolute; left: 50%; transform: translateX(-50%); width: max-content; top: 100%; z-index: 60; display: flex; flex-direction: column; gap: 0.1rem; }
-.langs-menu a { display: block; padding: 0.3rem; border-radius: 6px; }
+.langs { display: flex; align-items: center; gap: 0.35rem; }
+.langs a { display: block; padding: 0.2rem; border-radius: 5px; line-height: 0; opacity: .45; transition: opacity .15s, transform .15s; }
+.langs a:hover { opacity: 1; transform: translateY(-1px); }
+.langs a[aria-current] { opacity: 1; box-shadow: 0 0 0 2px var(--ink); }
+.langs a:focus-visible { outline: 2px solid var(--pass); outline-offset: 2px; }
+.langs img { max-width: none; width: 1.45rem; height: auto; border-radius: 3px; box-shadow: 0 0 0 1px rgba(22,25,31,.12); display: block; }
 
 @media (max-width: 860px) {
   .foot { grid-template-columns: 1fr; }
