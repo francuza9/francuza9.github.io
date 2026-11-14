@@ -90,6 +90,17 @@
   .phone a { display: block; background: #2BD49A; color: #0F1B16; text-decoration: none; font-weight: 700; padding: 0.7rem 0.5rem; border-radius: 999px; font-size: 0.875rem; white-space: nowrap; font-feature-settings: "tnum" 1; }
 
 
+
+  /* ASR bench */
+  #asrbench { background: #ECE8F7; --acc: #6D4AE0; }
+  .status { display: inline-block; background: #6D4AE0; color: #fff; font-weight: 700; font-size: 0.8125rem; padding: 0.25rem 0.7rem; border-radius: 999px; margin-bottom: 1rem; }
+  .waves { background: #fff; border-radius: 18px; padding: 1.4rem 1.5rem; width: 100%; max-width: 26rem; box-shadow: 0 14px 40px rgba(109,74,224,.15); }
+  .waves p { margin: 0 0 0.4rem; font-size: 0.8125rem; color: var(--muted); display: flex; justify-content: space-between; }
+  .waves p b { color: var(--ink); }
+  .waves svg { display: block; width: 100%; height: 3.25rem; margin-bottom: 1.1rem; }
+  .conds { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 0.75rem; font-size: 0.875rem; margin-top: 0.25rem; }
+  .conds b { color: #6D4AE0; }
+
   /* VertAPI */
   #vertapi { background: #1B2A8A; --acc: #FF6B7D; }
   #vertapi .btn.solid { background: #fff; color: #1B2A8A; border-color: #fff; }
@@ -172,7 +183,7 @@
   </section>
 
   <nav class="toc" aria-label="Projects">
-    <a href="#yvito">Yvito TV</a><a href="#dialyzeai">DialyzeAI</a><a href="#zariai">ZariAI</a><a href="#vertapi">VertAPI</a><a href="#clientops">Client operations</a><a href="#saqme">Saqme To Do</a><a href="#saina">Saïna</a><a href="#school42">École 42</a><a href="#tekstisai">TekstisAI</a><a href="#catalogueai">CatalogueAI</a>
+    <a href="#yvito">Yvito TV</a><a href="#dialyzeai">DialyzeAI</a><a href="#zariai">ZariAI</a><a href="#asrbench">ASR benchmark</a><a href="#vertapi">VertAPI</a><a href="#clientops">Client operations</a><a href="#saqme">Saqme To Do</a><a href="#saina">Saïna</a><a href="#school42">École 42</a><a href="#tekstisai">TekstisAI</a><a href="#catalogueai">CatalogueAI</a>
   </nav>
 
   <main class="stack">
@@ -244,7 +255,7 @@
         <ul>
           <li>Handles inbound and outbound calls and answers from the client's own knowledge base.</li>
           <li>Can trigger actions during a call, like passing a message to the team.</li>
-          <li>Alongside it, I'm benchmarking Georgian speech recognition on clean versus phone-quality audio.</li>
+          <li>Speech recognition is being benchmarked for phone audio in a separate <a href="#asrbench">research project</a>.</li>
         </ul>
         <div class="btns"><a class="btn" href="https://satli.dev/products/zariai">Product page</a></div>
       </div>
@@ -255,6 +266,30 @@
           <small>Live now, in Georgian</small>
           <div class="wave" aria-hidden="true"><i style="animation-delay:0s"></i><i style="animation-delay:.15s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.45s"></i><i style="animation-delay:.6s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.1s"></i></div>
           <a href="tel:+995322193384">Call +995 32 2 193 384</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pc" id="asrbench">
+      <div>
+        <p class="brand"><span class="dot" style="background:#6D4AE0;color:#fff">ka</span><span>Research · Georgian speech recognition</span></p>
+        <span class="status">In progress</span>
+        <h2>How well does Georgian speech recognition survive a phone line?</h2>
+        <p class="lead">An open benchmark of Georgian ASR models, open and commercial, on clean audio versus real telephone audio, because call-center audio is where most of them break.</p>
+        <ul>
+          <li>The same recordings tested clean at 16 kHz, through a simulated phone line (8 kHz, G.711 μ-law) and on real consented calls.</li>
+          <li>One harness: dataset loaders, a model registry, Georgian text normalisation and error metrics, so every model is scored the same way.</li>
+          <li>Planned: a write-up of the results, then fine-tuning a NeMo FastConformer model for Georgian telephone speech.</li>
+        </ul>
+        <div class="chips"><span>Python</span><span>NeMo</span><span>Whisper</span><span>FLEURS</span><span>Common Voice</span></div>
+      </div>
+      <div class="visual">
+        <div class="waves" role="img" aria-label="The same speech as clean 16 kHz audio and as 8 kHz telephone audio">
+          <p><b>Clean</b><span>16 kHz</span></p>
+          <svg viewBox="0 0 280 60" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="27.0" width="3" height="6.0" rx="1.5" fill="#6D4AE0"/><rect x="5" y="17.6" width="3" height="24.9" rx="1.5" fill="#6D4AE0"/><rect x="10" y="10.1" width="3" height="39.9" rx="1.5" fill="#6D4AE0"/><rect x="15" y="5.9" width="3" height="48.2" rx="1.5" fill="#6D4AE0"/><rect x="20" y="5.5" width="3" height="49.1" rx="1.5" fill="#6D4AE0"/><rect x="25" y="8.1" width="3" height="43.7" rx="1.5" fill="#6D4AE0"/><rect x="30" y="5.6" width="3" height="48.7" rx="1.5" fill="#6D4AE0"/><rect x="35" y="1.8" width="3" height="56.3" rx="1.5" fill="#6D4AE0"/><rect x="40" y="1.6" width="3" height="56.7" rx="1.5" fill="#6D4AE0"/><rect x="45" y="5.5" width="3" height="49.0" rx="1.5" fill="#6D4AE0"/><rect x="50" y="12.7" width="3" height="34.6" rx="1.5" fill="#6D4AE0"/><rect x="55" y="18.5" width="3" height="23.1" rx="1.5" fill="#6D4AE0"/><rect x="60" y="18.2" width="3" height="23.7" rx="1.5" fill="#6D4AE0"/><rect x="65" y="16.2" width="3" height="27.5" rx="1.5" fill="#6D4AE0"/><rect x="70" y="12.3" width="3" height="35.3" rx="1.5" fill="#6D4AE0"/><rect x="75" y="11.6" width="3" height="36.8" rx="1.5" fill="#6D4AE0"/><rect x="80" y="13.3" width="3" height="33.5" rx="1.5" fill="#6D4AE0"/><rect x="85" y="6.0" width="3" height="48.0" rx="1.5" fill="#6D4AE0"/><rect x="90" y="1.1" width="3" height="57.7" rx="1.5" fill="#6D4AE0"/><rect x="95" y="0.2" width="3" height="59.7" rx="1.5" fill="#6D4AE0"/><rect x="100" y="3.3" width="3" height="53.5" rx="1.5" fill="#6D4AE0"/><rect x="105" y="9.6" width="3" height="40.7" rx="1.5" fill="#6D4AE0"/><rect x="110" y="11.0" width="3" height="38.0" rx="1.5" fill="#6D4AE0"/><rect x="115" y="10.5" width="3" height="39.1" rx="1.5" fill="#6D4AE0"/><rect x="120" y="13.0" width="3" height="34.1" rx="1.5" fill="#6D4AE0"/><rect x="125" y="18.8" width="3" height="22.4" rx="1.5" fill="#6D4AE0"/><rect x="130" y="19.5" width="3" height="21.0" rx="1.5" fill="#6D4AE0"/><rect x="135" y="17.3" width="3" height="25.3" rx="1.5" fill="#6D4AE0"/><rect x="140" y="9.0" width="3" height="42.1" rx="1.5" fill="#6D4AE0"/><rect x="145" y="3.4" width="3" height="53.2" rx="1.5" fill="#6D4AE0"/><rect x="150" y="1.7" width="3" height="56.6" rx="1.5" fill="#6D4AE0"/><rect x="155" y="3.9" width="3" height="52.2" rx="1.5" fill="#6D4AE0"/><rect x="160" y="9.0" width="3" height="42.1" rx="1.5" fill="#6D4AE0"/><rect x="165" y="5.6" width="3" height="48.8" rx="1.5" fill="#6D4AE0"/><rect x="170" y="4.4" width="3" height="51.2" rx="1.5" fill="#6D4AE0"/><rect x="175" y="6.9" width="3" height="46.2" rx="1.5" fill="#6D4AE0"/><rect x="180" y="13.0" width="3" height="33.9" rx="1.5" fill="#6D4AE0"/><rect x="185" y="21.8" width="3" height="16.3" rx="1.5" fill="#6D4AE0"/><rect x="190" y="22.5" width="3" height="15.1" rx="1.5" fill="#6D4AE0"/><rect x="195" y="13.9" width="3" height="32.1" rx="1.5" fill="#6D4AE0"/><rect x="200" y="8.2" width="3" height="43.6" rx="1.5" fill="#6D4AE0"/><rect x="205" y="6.1" width="3" height="47.7" rx="1.5" fill="#6D4AE0"/><rect x="210" y="7.4" width="3" height="45.1" rx="1.5" fill="#6D4AE0"/><rect x="215" y="8.1" width="3" height="43.8" rx="1.5" fill="#6D4AE0"/><rect x="220" y="2.9" width="3" height="54.3" rx="1.5" fill="#6D4AE0"/><rect x="225" y="0.8" width="3" height="58.4" rx="1.5" fill="#6D4AE0"/><rect x="230" y="2.8" width="3" height="54.4" rx="1.5" fill="#6D4AE0"/><rect x="235" y="8.6" width="3" height="42.8" rx="1.5" fill="#6D4AE0"/><rect x="240" y="17.0" width="3" height="26.0" rx="1.5" fill="#6D4AE0"/><rect x="245" y="16.7" width="3" height="26.6" rx="1.5" fill="#6D4AE0"/><rect x="250" y="17.6" width="3" height="24.7" rx="1.5" fill="#6D4AE0"/><rect x="255" y="14.8" width="3" height="30.4" rx="1.5" fill="#6D4AE0"/><rect x="260" y="12.8" width="3" height="34.4" rx="1.5" fill="#6D4AE0"/><rect x="265" y="13.5" width="3" height="33.0" rx="1.5" fill="#6D4AE0"/><rect x="270" y="9.5" width="3" height="41.1" rx="1.5" fill="#6D4AE0"/><rect x="275" y="3.1" width="3" height="53.8" rx="1.5" fill="#6D4AE0"/></svg>
+          <p><b>Phone line</b><span>8 kHz · G.711 μ-law</span></p>
+          <svg viewBox="0 0 280 60" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="27.6" width="8" height="4.8" rx="1.5" fill="#B49CF5"/><rect x="10" y="17.5" width="8" height="25.0" rx="1.5" fill="#B49CF5"/><rect x="20" y="6.4" width="8" height="47.2" rx="1.5" fill="#B49CF5"/><rect x="30" y="10.6" width="8" height="38.8" rx="1.5" fill="#B49CF5"/><rect x="40" y="7.2" width="8" height="45.5" rx="1.5" fill="#B49CF5"/><rect x="50" y="8.5" width="8" height="43.1" rx="1.5" fill="#B49CF5"/><rect x="60" y="10.7" width="8" height="38.6" rx="1.5" fill="#B49CF5"/><rect x="70" y="0.0" width="8" height="60.0" rx="1.5" fill="#B49CF5"/><rect x="80" y="3.3" width="8" height="53.3" rx="1.5" fill="#B49CF5"/><rect x="90" y="8.0" width="8" height="44.0" rx="1.5" fill="#B49CF5"/><rect x="100" y="18.1" width="8" height="23.8" rx="1.5" fill="#B49CF5"/><rect x="110" y="17.9" width="8" height="24.1" rx="1.5" fill="#B49CF5"/><rect x="120" y="15.5" width="8" height="28.9" rx="1.5" fill="#B49CF5"/><rect x="130" y="12.6" width="8" height="34.7" rx="1.5" fill="#B49CF5"/><rect x="140" y="17.7" width="8" height="24.6" rx="1.5" fill="#B49CF5"/><rect x="150" y="17.0" width="8" height="26.0" rx="1.5" fill="#B49CF5"/><rect x="160" y="14.1" width="8" height="31.8" rx="1.5" fill="#B49CF5"/><rect x="170" y="4.3" width="8" height="51.4" rx="1.5" fill="#B49CF5"/><rect x="180" y="0.0" width="8" height="60.0" rx="1.5" fill="#B49CF5"/><rect x="190" y="0.7" width="8" height="58.5" rx="1.5" fill="#B49CF5"/><rect x="200" y="0.0" width="8" height="60.0" rx="1.5" fill="#B49CF5"/><rect x="210" y="10.8" width="8" height="38.5" rx="1.5" fill="#B49CF5"/><rect x="220" y="4.9" width="8" height="50.2" rx="1.5" fill="#B49CF5"/><rect x="230" y="9.0" width="8" height="42.0" rx="1.5" fill="#B49CF5"/><rect x="240" y="17.6" width="8" height="24.9" rx="1.5" fill="#B49CF5"/><rect x="250" y="25.3" width="8" height="9.5" rx="1.5" fill="#B49CF5"/><rect x="260" y="23.9" width="8" height="12.2" rx="1.5" fill="#B49CF5"/><rect x="270" y="12.7" width="8" height="34.6" rx="1.5" fill="#B49CF5"/></svg>
+          <div class="conds"><b>A</b><span>Clean speech (FLEURS, Common Voice)</span><b>B</b><span>Same audio through a simulated phone line</span><b>C</b><span>Real consented phone calls</span></div>
         </div>
       </div>
     </article>
