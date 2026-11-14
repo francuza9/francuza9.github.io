@@ -52,6 +52,41 @@
   .visual { display: flex; justify-content: center; align-items: center; min-width: 0; }
   .full { grid-column: 1 / -1; }
 
+
+  /* Sticky progress */
+  .progress { position: sticky; top: 0; z-index: 40; background: rgba(244,244,241,.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    margin: 0 -1.5rem 1.5rem; padding: 0.75rem 1.5rem 0; border-bottom: 1px solid var(--line); }
+  .progress .row { display: flex; align-items: center; gap: 1rem; }
+  .progress .count { font-size: 0.875rem; color: var(--muted); white-space: nowrap; font-feature-settings: "tnum" 1; min-width: 7.5rem; }
+  .progress .count b { color: var(--ink); }
+  .toc { display: flex; gap: 0.4rem; overflow-x: auto; padding: 0 0 0.75rem; scrollbar-width: none; flex: 1; }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc a { white-space: nowrap; transition: background .15s, color .15s, border-color .15s; }
+  .toc a.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .bar-track { height: 3px; background: transparent; margin: 0 -1.5rem; }
+  .bar-fill { height: 3px; width: 0; background: linear-gradient(90deg, #262158, #E8365D, #0E9F6E, #B65CE3); transition: width .1s linear; }
+  @media (prefers-reduced-motion: reduce) { .bar-fill { transition: none; } }
+  @media (max-width: 860px) { .progress .count { display: none; } }
+
+  /* Media */
+  .media-frame { border-radius: 18px; overflow: hidden; box-shadow: 0 18px 40px rgba(0,0,0,.18); background: #000; width: 100%; max-width: 26rem; }
+  .media-frame video { display: block; width: 100%; height: auto; }
+  .media-cap { font-size: 0.8125rem; opacity: .75; margin-top: 0.6rem; text-align: center; }
+  .play { display: inline-flex; align-items: center; gap: 0.5rem; }
+  .play svg { flex: none; }
+
+  /* Lightbox */
+  .lb { border: 0; padding: 0; background: transparent; max-width: min(92vw, 1100px); width: 100%; }
+  .lb::backdrop { background: rgba(10,12,16,.82); }
+  .lb .inner { position: relative; border-radius: 14px; overflow: hidden; background: #000; }
+  .lb video, .lb iframe { display: block; width: 100%; border: 0; }
+  .lb iframe { aspect-ratio: 16 / 9; }
+  .lb.vertical { max-width: min(92vw, 420px); }
+  .lb.vertical iframe { aspect-ratio: 9 / 16; }
+  .lb .close { position: absolute; top: 0.6rem; right: 0.6rem; z-index: 2; width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 0;
+    background: rgba(0,0,0,.6); color: #fff; font-size: 1.3rem; cursor: pointer; }
+  .lb .close:focus-visible { outline: 2px solid #fff; }
+
   /* Yvito */
   #yvito { background: var(--indigo); --acc: var(--sun); }
   #yvito .btn.solid { background: var(--sun); color: var(--indigo); border-color: var(--sun); }
@@ -110,6 +145,11 @@
   .conds { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 0.75rem; font-size: 0.875rem; margin-top: 0.25rem; }
   .conds b { color: #6D4AE0; }
 
+  #dialyzeai .btn.solid { background: #E8365D; color: #fff; border-color: #E8365D; }
+  #tekstisai .btn.solid { background: #0FA3C7; color: #fff; border-color: #0FA3C7; }
+  #catalogueai .btn.solid { background: #E0900A; color: #fff; border-color: #E0900A; }
+  button.btn { font: inherit; font-size: 0.9375rem; font-weight: 500; cursor: pointer; }
+
   /* VertAPI */
   #vertapi { background: #1B2A8A; --acc: #FF6B7D; }
   #vertapi .btn.solid { background: #fff; color: #1B2A8A; border-color: #fff; }
@@ -135,7 +175,7 @@
   #saqme { background: var(--saqme-frame); --acc: #B65CE3; padding-bottom: 0; }
   #saqme .btn.solid { background: var(--saqme-grad); color: #fff; border-color: transparent; }
   #saqme .text { padding-bottom: 2.5rem; }
-  #saqme .visual { align-self: end; align-items: flex-end; gap: 1rem; }
+  #saqme .visual { align-self: center; padding-bottom: 2.5rem; }
   #saqme .desk { width: 58%; border-radius: 12px 12px 0 0; box-shadow: 0 10px 30px rgba(60,40,10,.18); }
   #saqme .ph { width: 32%; border-radius: 16px 16px 0 0; box-shadow: 0 10px 30px rgba(60,40,10,.18); }
   #saqme .badge { height: 20px; width: auto; margin-top: 1rem; }
@@ -191,9 +231,15 @@
     <p>What I've built, how it works and how to check it.</p>
   </section>
 
-  <nav class="toc" aria-label="Projects">
+  <div class="progress">
+    <div class="row">
+      <span class="count" aria-live="polite"><b id="pc-i">1</b> of <span id="pc-n">11</span> · <span id="pc-name">Yvito TV</span></span>
+      <nav class="toc" aria-label="Projects">
     <a href="#yvito">Yvito TV</a><a href="#dialyzeai">DialyzeAI</a><a href="#zariai">ZariAI</a><a href="#asrbench">ASR benchmark</a><a href="#vertapi">VertAPI</a><a href="#clientops">Client operations</a><a href="#saqme">Saqme To Do</a><a href="#saina">Saïna</a><a href="#school42">École 42</a><a href="#tekstisai">TekstisAI</a><a href="#catalogueai">CatalogueAI</a>
-  </nav>
+      </nav>
+    </div>
+    <div class="bar-track"><div class="bar-fill"></div></div>
+  </div>
 
   <main class="stack">
 
@@ -209,7 +255,8 @@
         </div>
         <div class="chips"><span>Python</span><span>Claude</span><span>Gemini</span><span>Remotion</span><span>Cloudflare</span><span>Hetzner</span></div>
         <div class="btns">
-          <a class="btn solid" href="https://www.youtube.com/@yvito_tv/shorts">YouTube</a>
+          <button class="btn solid play" type="button" data-yt="I90ZmQuxS9A" data-vertical="1"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>Play a reel</button>
+          <a class="btn" href="https://www.youtube.com/@yvito_tv/shorts">YouTube</a>
           <a class="btn" href="https://www.instagram.com/yvito_tv/">Instagram</a>
           <a class="btn" href="https://www.facebook.com/profile.php?id=61594511499701">Facebook</a>
         </div>
@@ -243,7 +290,7 @@
           <li>11 change requests in 7 months, each answered within a business day and shipped within two.</li>
         </ul>
         <div class="chips"><span>Python</span><span>Vertex AI</span><span>Gemini</span><span>Metabase</span></div>
-        <div class="btns"><a class="btn" href="https://satli.dev/products/dialyzeai">Product page</a></div>
+        <div class="btns"><button class="btn solid play" type="button" data-video="video/dialyzeai.mp4" data-poster="video/dialyzeai-poster.webp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>Watch the trailer</button><a class="btn" href="https://satli.dev/products/dialyzeai">Product page</a></div>
       </div>
       <div class="visual">
         <div class="meter" role="img" aria-label="Calls reviewed: 1 to 3 percent before, 100 percent after; about 400,000 call minutes processed">
@@ -378,9 +425,9 @@
         </div>
         <img class="badge" src="https://github.com/francuza9/saqme-to-do/actions/workflows/tests.yml/badge.svg" alt="Tests passing" width="104" height="20">
       </div>
-      <div class="visual" aria-hidden="true">
-        <img class="desk" src="img/saqme-desktop.jpg" alt="">
-        <img class="ph" src="img/saqme-phone.jpg" alt="">
+      <div class="visual" style="flex-direction:column">
+        <div class="media-frame"><video src="video/saqme-demo.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Saqme To Do demo: an AI assistant adding and organising tasks"></video></div>
+        <p class="media-cap">20-second demo</p>
       </div>
     </article>
 
@@ -413,7 +460,10 @@
           <a href="https://github.com/francuza9/Minishell"><b>Minishell</b><span>A Unix shell in C</span></a>
         </div>
       </div>
-      <div class="visual"><img class="big42" src="img/42.svg" alt="École 42"></div>
+      <div class="visual" style="flex-direction:column">
+        <div class="media-frame"><video src="video/cub3d.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Cub3D: turning around in a raycast maze with animated walls"></video></div>
+        <p class="media-cap">Cub3D: a raycasting engine in C</p>
+      </div>
     </article>
 
     <article class="pc" id="tekstisai">
@@ -422,7 +472,7 @@
         <h2>The same engine, pointed at text</h2>
         <p class="lead">DMs, support tickets, chats and social comments turned into sentiment, intent, topics and per-agent breakdowns, with live dashboards.</p>
         <ul><li>Shares one core engine with DialyzeAI, with a separate layer per product, so a fix in one reaches the other.</li></ul>
-        <div class="btns"><a class="btn" href="https://satli.dev/products/tekstisai">Product page</a></div>
+        <div class="btns"><button class="btn solid play" type="button" data-video="video/tekstisai.mp4" data-poster="video/tekstisai-poster.webp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>Watch the trailer</button><a class="btn" href="https://satli.dev/products/tekstisai">Product page</a></div>
       </div>
       <div class="visual">
         <div class="bubbles" aria-hidden="true">
@@ -439,7 +489,7 @@
         <h2>Product catalogues from a list of models</h2>
         <p class="lead">Give it model names; get back a complete, normalized catalogue with specs, running on the client's own infrastructure.</p>
         <ul><li>For Alta it enriched around 13,000 products using Gemini with grounded web search.</li></ul>
-        <div class="btns"><a class="btn" href="https://satli.dev/products/catalogueai">Product page</a></div>
+        <div class="btns"><button class="btn solid play" type="button" data-video="video/catalogueai.mp4" data-poster="video/catalogueai-poster.webp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>Watch the trailer</button><a class="btn" href="https://satli.dev/products/catalogueai">Product page</a></div>
       </div>
       <div class="visual">
         <div class="spec" aria-hidden="true">
@@ -470,6 +520,73 @@
   </footer>
 
 </div>
+<dialog class="lb" aria-label="Video">
+  <div class="inner"><button class="close" type="button" aria-label="Close">×</button><div class="slot"></div></div>
+</dialog>
+<script>
+(function () {
+  // Lightbox
+  var lb = document.querySelector('.lb'), slot = lb.querySelector('.slot');
+  function close() { slot.innerHTML = ''; lb.classList.remove('vertical'); if (lb.open) lb.close(); }
+  document.querySelectorAll('[data-video],[data-yt]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      if (b.dataset.yt) {
+        lb.classList.toggle('vertical', !!b.dataset.vertical);
+        slot.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Yvito TV reel"></iframe>';
+      } else {
+        slot.innerHTML = '<video src="' + b.dataset.video + '" poster="' + (b.dataset.poster || '') + '" controls autoplay playsinline></video>';
+      }
+      lb.showModal();
+    });
+  });
+  lb.querySelector('.close').addEventListener('click', close);
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  lb.addEventListener('close', function () { slot.innerHTML = ''; });
+
+  // Pause looping demos when off screen; respect reduced motion
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var loops = document.querySelectorAll('video[autoplay]');
+  if ('IntersectionObserver' in window) {
+    var vo = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting && !reduce) e.target.play().catch(function () {}); else e.target.pause(); });
+    }, { threshold: 0.25 });
+    loops.forEach(function (v) { if (reduce) v.removeAttribute('autoplay'); vo.observe(v); });
+  }
+
+  // Progress: which project you are on, and how far down the list
+  var cards = Array.prototype.slice.call(document.querySelectorAll('main .pc'));
+  var tocLinks = document.querySelectorAll('.toc a');
+  var fill = document.querySelector('.bar-fill');
+  var iEl = document.getElementById('pc-i'), nEl = document.getElementById('pc-n'), nameEl = document.getElementById('pc-name');
+  nEl.textContent = cards.length;
+  var names = {};
+  tocLinks.forEach(function (a) { names[a.getAttribute('href').slice(1)] = a; });
+  var current = -1;
+  function update() {
+    var mid = window.innerHeight * 0.35, idx = 0;
+    cards.forEach(function (c, i) { if (c.getBoundingClientRect().top <= mid) idx = i; });
+    var first = cards[0].getBoundingClientRect().top + window.scrollY - mid;
+    var last = cards[cards.length - 1].getBoundingClientRect().bottom + window.scrollY - window.innerHeight;
+    var pct = Math.max(0, Math.min(1, (window.scrollY - first) / Math.max(1, last - first)));
+    fill.style.width = (pct * 100) + '%';
+    if (idx !== current) {
+      current = idx;
+      iEl.textContent = idx + 1;
+      var a = names[cards[idx].id];
+      tocLinks.forEach(function (l) { l.classList.remove('active'); });
+      if (a) {
+        a.classList.add('active');
+        nameEl.textContent = a.textContent;
+        var toc = a.parentNode;
+        toc.scrollTo({ left: a.offsetLeft - toc.clientWidth / 2 + a.clientWidth / 2, behavior: reduce ? 'auto' : 'smooth' });
+      }
+    }
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
 <button class="to-top" type="button" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
 <script>
 (function () {
