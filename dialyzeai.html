@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DialyzeAI case study · George Tskitishvili</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%2316191F'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' stroke='%2334A86E' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="description" content="How Alta went from reviewing 1–3% of its customer calls by hand to reviewing all of them with DialyzeAI.">
+<meta property="og:title" content="DialyzeAI case study · George Tskitishvili">
+<meta property="og:description" content="From 1–3% of calls reviewed by hand to 100%, with every AI finding checked against the transcript.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tskdev.org/dialyzeai.html">
+<meta property="og:image" content="https://tskdev.org/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tskdev.org/img/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=300bf9cb">
+<link rel="alternate" hreflang="en" href="https://tskdev.org/dialyzeai.html">
+<link rel="alternate" hreflang="ka" href="https://tskdev.org/ka/dialyzeai.html">
+<link rel="alternate" hreflang="fr" href="https://tskdev.org/fr/dialyzeai.html">
+<style>
+  .case { max-width: 44rem; padding: 3rem 0 1rem; }
+  .back { display: inline-block; font-size: 0.9375rem; color: var(--muted); text-decoration: none; margin-bottom: 2rem; }
+  .back:hover { color: var(--ink); }
+  .case .brand { display: flex; align-items: center; gap: 0.7rem; margin: 0 0 1rem; font-size: 0.9375rem; color: var(--muted); }
+  .case .brand img { width: 2.25rem; height: 2.25rem; object-fit: contain; }
+  .case h1 { font-size: clamp(2.2rem, 5vw, 3.25rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 800; margin: 0 0 1rem; }
+  .case .lead { font-size: 1.2rem; line-height: 1.45; margin: 0 0 2rem; }
+  .case h2 { font-size: 1.35rem; letter-spacing: -0.01em; font-weight: 800; margin: 2.5rem 0 0.75rem; }
+  .case p { margin: 0 0 1rem; }
+  .case ul { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: 0.9rem; }
+  .case li { padding-left: 1.4rem; position: relative; }
+  .case li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: #E8365D; }
+  .case li b { display: block; }
+  .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 0 0 1rem; }
+  .stats div { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1.1rem 1.2rem; }
+  .stats b { display: block; font-size: 1.9rem; font-weight: 800; letter-spacing: -0.02em; color: #E8365D; line-height: 1.1; }
+  .stats span { font-size: 0.875rem; color: var(--muted); }
+  .meter { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem; margin: 1.25rem 0 1.5rem; }
+  .meter p { margin: 0 0 1rem; font-weight: 700; }
+  .bar-row { display: grid; grid-template-columns: 5.2rem minmax(0, 1fr) 3.2rem; gap: 0.7rem; align-items: center; margin-bottom: 0.7rem; font-size: 0.9375rem; }
+  .bar-row span:first-child { color: var(--muted); }
+  .bar-row b { text-align: right; }
+  .bar { height: 0.7rem; background: #FBE9ED; border-radius: 999px; overflow: hidden; display: block; }
+  .bar i { display: block; height: 100%; background: #9AA1AA; border-radius: 999px; }
+  .bar.after i { background: #E8365D; }
+  .case blockquote { margin: 2rem 0; padding: 1.5rem 1.75rem; background: #fff; border: 1px solid var(--line); border-radius: 18px; font-size: 1.1rem; line-height: 1.5; font-weight: 500; }
+  .case blockquote footer { margin-top: 0.9rem; font-size: 0.9375rem; color: var(--muted); font-weight: 400; }
+  .case blockquote footer b { color: var(--ink); }
+  .case .btns { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 2rem 0 0; }
+  .case .note { font-size: 0.9375rem; color: var(--muted); }
+  @media (prefers-reduced-motion: no-preference) {
+    .meter .bar i { transform: scaleX(0); transform-origin: left; }
+    .meter.in .bar i { animation: grow 1s cubic-bezier(.2,.8,.2,1) forwards .2s; }
+    .meter.in .bar.after i { animation-duration: 1.6s; animation-delay: .6s; }
+    @keyframes grow { to { transform: scaleX(1); } }
+  }
+  @media (max-width: 640px) { .stats { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="topbar">
+    <a class="name" href="./">George Tskitishvili</a>
+    <nav><a href="mailto:george.tskitishvili9@gmail.com">Email</a><details class="langs"><summary title="Language" aria-label="Language: English"><img src="img/flag-en.svg?v=810a2e4f" alt="English" width="21" height="14"></summary><div class="langs-menu"><a href="ka/dialyzeai.html" hreflang="ka" lang="ka" title="ქართული"><img src="img/flag-ka.svg?v=df3a6b2c" alt="ქართული" width="21" height="14"></a><a href="fr/dialyzeai.html" hreflang="fr" lang="fr" title="Français"><img src="img/flag-fr.svg?v=5dcc2e99" alt="Français" width="21" height="14"></a></div></details></nav>
+  </header>
+
+  <article class="case">
+    <a class="back" href="projects.html">← All projects</a>
+    <p class="brand"><img src="img/dialyzeai.png" alt=""><span>DialyzeAI · case study</span></p>
+    <h1>Every call at Alta, reviewed</h1>
+    <p class="lead">How a Georgian electronics retailer went from spot-checking 1–3% of its customer calls to reviewing all of them, with every AI finding checked against the transcript.</p>
+
+    <div class="stats">
+      <div><b>100%</b><span>of calls reviewed since May 2026</span></div>
+      <div><b>~400k</b><span>call minutes processed</span></div>
+      <div><b>11</b><span>change requests, each answered within a business day</span></div>
+    </div>
+
+    <h2>The problem</h2>
+    <p>Alta runs a busy customer call center. Quality review meant the QA team listening to recordings by hand, which covered 1–3% of calls. Everything else went unheard, so a wrong answer or a promise the store couldn't keep only came to light if a customer complained.</p>
+
+    <div class="meter" data-anim="meter" role="img" aria-label="Share of calls that get a quality review: 1 to 3 percent by hand, 100 percent with DialyzeAI">
+      <p>Share of calls that get a quality review</p>
+      <div class="bar-row"><span>By hand</span><span class="bar"><i style="width:2.5%"></i></span><b>1–3%</b></div>
+      <div class="bar-row"><span>DialyzeAI</span><span class="bar after"><i style="width:100%"></i></span><b>100%</b></div>
+    </div>
+
+    <h2>What I built</h2>
+    <ul>
+      <li><b>Transcription that works in Georgian.</b>Georgian is a low-resource language, so I tested several open and commercial speech models on Alta's own calls before choosing. Gemini on Vertex AI came out at about 2% word error rate in those tests.</li>
+      <li><b>Scoring on the client's own criteria.</b>Alta's QA team defines what a good call looks like, and every call is scored on those fields, with optional checks of whether the operator gave the customer correct information.</li>
+      <li><b>A truth-check gate.</b>Before a finding reaches a report, a separate step checks it against the transcript. A finding the transcript doesn't support doesn't get through. This is what makes the numbers usable by people who weren't on the call.</li>
+      <li><b>Delivered inside the client's own cloud.</b>It ships as a signed Windows app with built-in dashboards, running in Alta's own Google Cloud project. Build identity, fingerprints and prompt hashes mean neither the app nor its prompts can change silently.</li>
+    </ul>
+
+    <h2>Results</h2>
+    <p>DialyzeAI went live at Alta in May 2026, and every call back to January was reviewed. Since then it has processed about 400,000 call minutes, roughly 6,700 hours a person would have had to listen to.</p>
+    <p>Over 7 months Alta sent 11 change requests. Each was answered within a business day and shipped within two.</p>
+
+    <blockquote>We would especially highlight Satli's professionalism, fast support and proactive approach to product development. Throughout our cooperation they were always focused on our business needs and on getting the most out of the platform.
+      <footer><b>Nona Baindurashvili</b>, CEO of Alta · recommendation letter, translated from Georgian</footer>
+    </blockquote>
+
+    <h2>What's next</h2>
+    <p>Checking answers against Alta's catalogue and internal guidelines, so the system can tell not just that an operator quoted a price, but whether the price was right.</p>
+    <p class="note">Python, about 16,000 lines of application code and 12,000 lines of tests.</p>
+
+    <div class="btns">
+      <a class="btn solid" href="https://satli.dev/products/dialyzeai" target="_blank" rel="noopener">Product page</a>
+      <a class="btn" href="projects.html">All projects</a>
+    </div>
+  </article>
+
+  <footer class="foot">
+    <div>
+      <p>I founded Satli, which builds AI products for Georgian businesses. I'm an École 42 student and finished its common core in seven months. Based in Tbilisi, often in France.</p>
+      <div class="badges" aria-label="Member of NVIDIA Inception and AWS Activate"><span class="lbl">Member of</span><span class="nv"><img src="img/nvidia-inception.svg" alt="NVIDIA Inception Program member" width="111" height="48"></span><span class="aws"><img src="img/aws-activate.png" alt="AWS Activate member" width="102" height="28"></span></div>
+    </div>
+    <nav>
+      <a href="mailto:george.tskitishvili9@gmail.com">george.tskitishvili9@gmail.com</a>
+      <a href="https://www.linkedin.com/in/george-tskitishvili/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/francuza9" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </footer>
+</div>
+<aside class="partners" aria-label="Member of NVIDIA Inception and AWS Activate">
+  <small>Member of</small>
+  <span class="nv"><img src="img/nvidia-inception.svg" alt="NVIDIA Inception Program" width="74" height="32"></span>
+  <span class="aws"><img src="img/aws-activate.png" alt="AWS Activate" width="70" height="19"></span>
+</aside>
+<script src="partners.js?v=5b1f28c3" defer></script>
+<button class="to-top" type="button" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
+<script>
+(function () {
+  var b = document.querySelector('.to-top');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function update() { b.classList.toggle('show', window.scrollY > 400); }
+  window.addEventListener('scroll', update, { passive: true });
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+  update();
+})();
+</script>
+<script>
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); else e.target.classList.remove('in'); });
+  }, { threshold: 0.45 });
+  document.querySelectorAll('[data-anim]').forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>

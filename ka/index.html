@@ -171,7 +171,8 @@
   .alta { grid-column: span 3; background: var(--mint); display: flex; flex-direction: column; }
   .alta .logo { height: 2rem; width: auto; margin-bottom: 1.5rem; align-self: flex-start; }
   .bars { margin: 0.5rem 0 1.5rem; }
-  .bar-row { display: grid; grid-template-columns: 3.8rem minmax(0, 1fr) 3.2rem; gap: 0.7rem; align-items: center; margin-bottom: 0.6rem; font-size: 0.9375rem; }
+  .bars-label { margin: 0 0 0.6rem; font-size: 0.875rem; font-weight: 700; }
+  .bar-row { display: grid; grid-template-columns: 5.2rem minmax(0, 1fr) 3.2rem; gap: 0.7rem; align-items: center; margin-bottom: 0.6rem; font-size: 0.9375rem; }
   .bar-row span:first-child { color: var(--muted); }
   .bar-row b { text-align: right; }
   .bar { height: 0.9rem; background: rgba(22,25,31,.08); border-radius: 999px; overflow: hidden; }
@@ -323,13 +324,13 @@
           <h2>ვიდეოარხი, რომელიც თავად მუშაობს და ყოველ კვირა უმჯობესდება</h2>
           <ul class="feats">
             <li>პოულობს ისტორიებს, წერს, ამოწმებს ფაქტებს, აჟღერებს, ანიმირებს და არენდერებს თითოეულ რილსს</li>
-            <li>დღეში ორჯერ აქვეყნებს Instagram-ზე, TikTok-ზე, YouTube-სა და Facebook-ზე</li>
+            <li>ყოველ საღამოს აქვეყნებს რილსს Instagram-ზე, TikTok-ზე, YouTube-სა და Facebook-ზე</li>
             <li>ყოველ კვირადღეს საკუთარ პრომპტებს ხელახლა წერს საუკეთესო და ყველაზე სუსტი რილსების მიხედვით</li>
             <li>ჩემი ერთადერთი საქმე: Telegram-ში ერთი შეტყობინების დადასტურება ან უარყოფა</li>
           </ul>
           <div class="stat">
             <div><b>100k+</b><span>ნახვა 1-ელ კვირაში</span></div>
-            <div><b>4</b><span>პლატფორმა, დღეში 2-ჯერ</span></div>
+            <div><b>4</b><span>პლატფორმა, ყოველდღე</span></div>
           </div>
           <div class="btns">
             <a class="btn solid" href="https://www.youtube.com/@yvito_tv/shorts" target="_blank" rel="noopener">ნახეთ YouTube-ზე</a>
@@ -348,15 +349,16 @@
         <img class="logo" src="../img/alta-logo.png" alt="Alta">
         <h2>ყოველი ზარი შემოწმებულია</h2>
         <p>DialyzeAI ტრანსკრიბირებას უკეთებს და აფასებს ყოველ ზარს ალტაში, ელექტრონიკის ქართულ რითეილერში. სიზუსტის შემოწმების ეტაპი AI-ის ყოველ დასკვნას ტრანსკრიპტს ადარებს.</p>
-        <div class="bars" data-anim="bars" role="img" aria-label="შემოწმებული ზარები: ადრე 1–3 პროცენტი, ახლა 100 პროცენტი">
-          <div class="bar-row"><span>ადრე</span><span class="bar"><i style="width:2.5%"></i></span><b>1–3%</b></div>
-          <div class="bar-row"><span>ახლა</span><span class="bar after"><i style="width:100%"></i></span><b>100%</b></div>
+        <div class="bars" data-anim="bars" role="img" aria-label="ხარისხის შემოწმებას გავლილი ზარები: ხელით 1–3 პროცენტი, DialyzeAI-ით 100 პროცენტი">
+          <p class="bars-label">ზარების წილი, რომლებიც ხარისხის შემოწმებას გადის</p>
+          <div class="bar-row"><span>ხელით</span><span class="bar"><i style="width:2.5%"></i></span><b>1–3%</b></div>
+          <div class="bar-row"><span>DialyzeAI</span><span class="bar after"><i style="width:100%"></i></span><b>100%</b></div>
         </div>
         <div class="nums">
           <div><b>400k</b><span>წუთი დამუშავებული ზარი</span></div>
           <div><b>1 დღე</b><span>ცვლილების მოთხოვნაზე პასუხამდე</span></div>
         </div>
-        <div class="btns"><a class="btn" href="projects.html#dialyzeai">დაწვრილებით</a></div>
+        <div class="btns"><a class="btn" href="dialyzeai.html">ქეისის წაკითხვა</a></div>
       </section>
 
       <section class="tile saqme">

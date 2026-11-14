@@ -169,7 +169,8 @@
   .alta { grid-column: span 3; background: var(--mint); display: flex; flex-direction: column; }
   .alta .logo { height: 2rem; width: auto; margin-bottom: 1.5rem; align-self: flex-start; }
   .bars { margin: 0.5rem 0 1.5rem; }
-  .bar-row { display: grid; grid-template-columns: 3.8rem minmax(0, 1fr) 3.2rem; gap: 0.7rem; align-items: center; margin-bottom: 0.6rem; font-size: 0.9375rem; }
+  .bars-label { margin: 0 0 0.6rem; font-size: 0.875rem; font-weight: 700; }
+  .bar-row { display: grid; grid-template-columns: 5.2rem minmax(0, 1fr) 3.2rem; gap: 0.7rem; align-items: center; margin-bottom: 0.6rem; font-size: 0.9375rem; }
   .bar-row span:first-child { color: var(--muted); }
   .bar-row b { text-align: right; }
   .bar { height: 0.9rem; background: rgba(22,25,31,.08); border-radius: 999px; overflow: hidden; }
@@ -321,13 +322,13 @@
           <h2>Une chaîne vidéo qui tourne toute seule et s’améliore chaque semaine</h2>
           <ul class="feats">
             <li>Trouve les sujets, écrit, vérifie les faits, double, anime et produit chaque reel</li>
-            <li>Publie sur Instagram, TikTok, YouTube et Facebook deux fois par jour</li>
+            <li>Publie un reel chaque soir sur Instagram, TikTok, YouTube et Facebook</li>
             <li>Chaque dimanche, elle réécrit ses propres prompts à partir de ses meilleurs et pires reels</li>
             <li>Mon seul rôle : valider ou refuser un message Telegram</li>
           </ul>
           <div class="stat">
             <div><b>100k+</b><span>vues la première semaine</span></div>
-            <div><b>4</b><span>plateformes, deux fois par jour</span></div>
+            <div><b>4</b><span>plateformes, chaque jour</span></div>
           </div>
           <div class="btns">
             <a class="btn solid" href="https://www.youtube.com/@yvito_tv/shorts" target="_blank" rel="noopener">Voir sur YouTube</a>
@@ -346,15 +347,16 @@
         <img class="logo" src="../img/alta-logo.png" alt="Alta">
         <h2>Chaque appel client, analysé</h2>
         <p>DialyzeAI transcrit et évalue chaque appel chez Alta, distributeur géorgien d’électronique. Une étape de vérification confronte chaque conclusion de l’IA à la transcription.</p>
-        <div class="bars" data-anim="bars" role="img" aria-label="Appels analysés : 1 à 3 % avant, 100 % après">
-          <div class="bar-row"><span>Avant</span><span class="bar"><i style="width:2.5%"></i></span><b>1–3%</b></div>
-          <div class="bar-row"><span>Après</span><span class="bar after"><i style="width:100%"></i></span><b>100%</b></div>
+        <div class="bars" data-anim="bars" role="img" aria-label="Part des appels contrôlés : 1 à 3 % à la main, 100 % avec DialyzeAI">
+          <p class="bars-label">Part des appels qui passent un contrôle qualité</p>
+          <div class="bar-row"><span>À la main</span><span class="bar"><i style="width:2.5%"></i></span><b>1–3%</b></div>
+          <div class="bar-row"><span>DialyzeAI</span><span class="bar after"><i style="width:100%"></i></span><b>100%</b></div>
         </div>
         <div class="nums">
           <div><b>400k</b><span>minutes d’appel traitées</span></div>
           <div><b>1 jour</b><span>pour répondre à une demande d’évolution</span></div>
         </div>
-        <div class="btns"><a class="btn" href="projects.html#dialyzeai">En savoir plus</a></div>
+        <div class="btns"><a class="btn" href="dialyzeai.html">Lire l’étude de cas</a></div>
       </section>
 
       <section class="tile saqme">
