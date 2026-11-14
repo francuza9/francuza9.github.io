@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects · George Tskitishvili</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%2316191F'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' stroke='%2334A86E' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="description" content="What George Tskitishvili has built: Yvito TV, DialyzeAI, TekstisAI, ZariAI, CatalogueAI, Saqme To Do and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .intro { padding: 3.5rem 0 1rem; max-width: 40rem; }
+  .intro h1 { font-size: clamp(2.2rem, 5vw, 3.25rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 800; margin: 0 0 1rem; }
+  .intro p { color: var(--muted); margin: 0; font-size: 1.125rem; }
+
+  .toc { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 1.5rem 0 1rem; }
+  .toc a { text-decoration: none; font-size: 0.9375rem; padding: 0.4rem 0.9rem; border-radius: 999px; background: #fff; border: 1px solid var(--line); }
+  .toc a:hover { border-color: var(--ink); }
+
+  .proj { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 3rem; padding: 3.5rem 0; border-top: 1px solid var(--line); scroll-margin-top: 1rem; }
+  .proj:first-of-type { border-top: 0; }
+  .side { align-self: start; }
+  .side .mark { width: 3.5rem; height: auto; margin-bottom: 1rem; }
+  .side .dot { width: 3.5rem; height: 3.5rem; border-radius: 14px; display: grid; place-items: center; font-weight: 800; font-size: 1.25rem; margin-bottom: 1rem; }
+  .side h2 { font-size: 1.6rem; line-height: 1.1; letter-spacing: -0.015em; font-weight: 800; margin: 0 0 0.4rem; }
+  .side .role { color: var(--muted); margin: 0 0 1rem; font-size: 0.9375rem; }
+  .side dl { margin: 0; font-size: 0.9375rem; }
+  .side dt { color: var(--muted); margin-top: 0.7rem; }
+  .side dd { margin: 0.1rem 0 0; }
+  .side .btns { margin-top: 1rem; }
+  .side .btn:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .body { max-width: 42rem; }
+  .body .lead { font-size: 1.3rem; line-height: 1.4; font-weight: 500; margin: 0 0 1.25rem; }
+  .body p { margin: 0 0 1rem; }
+  .body h3 { font-size: 1.0625rem; font-weight: 700; margin: 1.75rem 0 0.6rem; }
+  .body ul { margin: 0 0 1rem; padding-left: 1.2rem; }
+  .body li { margin-bottom: 0.4rem; }
+  .figs { display: flex; gap: 2rem; flex-wrap: wrap; margin: 1.5rem 0; }
+  .figs b { display: block; font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+  .figs span { font-size: 0.875rem; color: var(--muted); }
+  .shot { border-radius: 14px; margin: 1.5rem 0; border: 1px solid var(--line); }
+
+  /* Yvito pipeline */
+  .pipe { background: var(--indigo); color: #fff; border-radius: 20px; padding: 1.5rem; margin: 1.5rem 0; }
+  .stage { display: grid; grid-template-columns: 6rem minmax(0, 1fr); gap: 1rem; align-items: start; padding: 0.7rem 0; border-top: 1px solid rgba(255,255,255,.12); }
+  .stage:first-child { border-top: 0; padding-top: 0.2rem; }
+  .stage > span { font-size: 0.875rem; opacity: .7; padding-top: 0.3rem; }
+  .steps { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .steps i { font-style: normal; font-size: 0.875rem; padding: 0.3rem 0.65rem; border-radius: 8px; background: rgba(255,255,255,.1); }
+  .steps i.ai { background: rgba(167,160,255,.25); }
+  .steps i.me { background: var(--sun); color: var(--indigo); font-weight: 700; }
+  .stage.loop { margin-top: 0.4rem; border-top: 1px dashed rgba(255,225,53,.6); }
+  .stage.loop i { background: transparent; border: 1px solid var(--sun); color: var(--sun); }
+  .legend { display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: 0.8125rem; opacity: .85; margin-top: 1rem; }
+  .legend em { font-style: normal; display: inline-flex; align-items: center; gap: 0.4rem; }
+  .legend em::before { content: ""; width: 0.8rem; height: 0.8rem; border-radius: 3px; background: var(--c); }
+  .reels { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0.5rem; margin: 1.5rem 0; }
+  .reels img { border-radius: 10px; aspect-ratio: 9 / 16; object-fit: cover; }
+
+  .repos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin-top: 1rem; }
+  .repos a { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 0.9rem 1rem; text-decoration: none; }
+  .repos a:hover { border-color: var(--ink); }
+  .repos b { display: block; }
+  .repos span { color: var(--muted); font-size: 0.9375rem; }
+
+  @media (max-width: 860px) {
+    .proj { grid-template-columns: 1fr; gap: 1.5rem; padding: 2.5rem 0; }
+    .stage { grid-template-columns: 1fr; gap: 0.4rem; }
+    .reels { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .repos { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="topbar">
+    <a class="name" href="./">George Tskitishvili</a>
+    <nav><a href="./">Home</a><a href="mailto:george.tskitishvili9@gmail.com">Email</a></nav>
+  </header>
+
+  <section class="intro">
+    <h1>Projects</h1>
+    <p>What I've built, how it works and how to check it.</p>
+  </section>
+
+  <nav class="toc" aria-label="Projects">
+    <a href="#yvito">Yvito TV</a><a href="#dialyzeai">DialyzeAI</a><a href="#tekstisai">TekstisAI</a><a href="#zariai">ZariAI</a><a href="#catalogueai">CatalogueAI</a><a href="#saqme">Saqme To Do</a><a href="#saina">Saïna</a><a href="#school42">École 42</a>
+  </nav>
+
+  <main>
+
+    <article class="proj" id="yvito">
+      <aside class="side">
+        <div class="dot" style="background:var(--sun);color:var(--indigo)">Y</div>
+        <h2>Yvito TV</h2>
+        <p class="role">My own project, 2026</p>
+        <dl>
+          <dt>Stack</dt><dd>Python, Claude, Gemini, Remotion, SQLite, Cloudflare, Hetzner</dd>
+          <dt>Status</dt><dd>Live, publishing daily</dd>
+        </dl>
+        <div class="btns">
+          <a class="btn" href="https://www.youtube.com/@yvito_tv/shorts">YouTube</a>
+          <a class="btn" href="https://www.instagram.com/yvito_tv/">Instagram</a>
+          <a class="btn" href="https://www.facebook.com/profile.php?id=61594511499701">Facebook</a>
+        </div>
+      </aside>
+      <div class="body">
+        <p class="lead">A Georgian short-video channel about education, startups and tech. It finds its own stories, makes the reels, publishes them and learns from how they perform.</p>
+        <div class="figs">
+          <div><b>100k+</b><span>views in week one</span></div>
+          <div><b>~400</b><span>followers in week one</span></div>
+          <div><b>5 days</b><span>from idea to first reel</span></div>
+        </div>
+        <div class="pipe" role="img" aria-label="Yvito pipeline, from finding stories to tracking results, with a weekly learning loop">
+          <div class="stage"><span>Find</span><div class="steps"><i>Vetted sources</i><i>Ingest every 3 h</i><i class="ai">Score and filter · Gemini</i></div></div>
+          <div class="stage"><span>Choose</span><div class="steps"><i>Best story per slot</i><i class="me">I pick, if it's close</i><i class="ai">Key-fact brief · Gemini</i></div></div>
+          <div class="stage"><span>Write</span><div class="steps"><i class="ai">Story · Claude</i><i class="ai">Punch-up · Claude</i><i class="ai">Fact-check · Gemini</i><i class="ai">Caption</i></div></div>
+          <div class="stage"><span>Produce</span><div class="steps"><i class="ai">Voice · Gemini TTS</i><i>Lip sync</i><i class="ai">On-screen images</i><i>Render · Remotion</i></div></div>
+          <div class="stage"><span>Check</span><div class="steps"><i class="ai">QA on frames and voice</i><i class="me">My approval · Telegram</i><i>Redo any part</i></div></div>
+          <div class="stage"><span>Publish</span><div class="steps"><i>Credits page</i><i>Instagram</i><i>TikTok</i><i>YouTube</i><i>Facebook</i></div></div>
+          <div class="stage"><span>After</span><div class="steps"><i>Track for 14 days</i><i>Clean up storage</i><i>Cost alerts</i></div></div>
+          <div class="stage loop"><span>Every Sunday</span><div class="steps"><i>Rewrite the prompts from the best and worst reels of the month</i></div></div>
+          <div class="legend"><em style="--c: rgba(167,160,255,.55)">AI model</em><em style="--c: var(--sun)">Me</em><em style="--c: rgba(255,255,255,.3)">Code and services</em></div>
+        </div>
+        <h3>What makes it work unattended</h3>
+        <ul>
+          <li>Two publishing slots a day, driven by a scheduler. The only human step is one approve-or-redo message in Telegram.</li>
+          <li>A separate model fact-checks every script against its sources before anything is voiced.</li>
+          <li>Automatic QA looks at rendered frames and re-records the voice when it's off.</li>
+          <li>Every source was checked by hand against its robots.txt before being added.</li>
+          <li>Each Sunday the system takes its three best and three worst reels of the last 30 days and rewrites its own prompt inputs, so measured retention shapes the next script.</li>
+        </ul>
+        <div class="reels" aria-hidden="true">
+          <img src="img/reel1.jpg" alt="" loading="lazy"><img src="img/reel2.jpg" alt="" loading="lazy"><img src="img/reel3.jpg" alt="" loading="lazy"><img src="img/reel4.jpg" alt="" loading="lazy"><img src="img/reel5.jpg" alt="" loading="lazy"><img src="img/reel6.jpg" alt="" loading="lazy">
+        </div>
+      </div>
+    </article>
+
+    <article class="proj" id="dialyzeai">
+      <aside class="side">
+        <img class="mark" src="img/dialyzeai.png" alt="">
+        <h2>DialyzeAI</h2>
+        <p class="role">Satli product, in production at Alta</p>
+        <dl>
+          <dt>Stack</dt><dd>Python, Vertex AI, Gemini, Metabase, PyInstaller</dd>
+          <dt>Client</dt><dd>Alta, a Georgian electronics retailer</dd>
+        </dl>
+        <div class="btns"><a class="btn" href="https://satli.dev/products/dialyzeai">Product page</a></div>
+      </aside>
+      <div class="body">
+        <p class="lead">Call-center QA: every recorded call transcribed and scored on the fields the client defines.</p>
+        <div class="figs">
+          <div><b>1–3% → 100%</b><span>of calls reviewed</span></div>
+          <div><b>~400k</b><span>call minutes processed</span></div>
+          <div><b>11</b><span>change requests in 7 months</span></div>
+        </div>
+        <p>Alta's quality team could listen to 1–3% of its calls. Now every call is transcribed, scored and shown in dashboards. 400,000 minutes is about 6,700 hours, three and a half years of one person listening.</p>
+        <h3>Built for a real customer</h3>
+        <ul>
+          <li>A truth-check gate verifies each AI finding against the transcript before it reaches a report.</li>
+          <li>Optional checks of whether operators gave customers correct information.</li>
+          <li>Credentials are locked to the client's own Google Cloud project, with billing, config migration and an updater built in.</li>
+          <li>Ships as a Windows app with embedded dashboards.</li>
+          <li>Every one of Alta's 11 change requests was answered within a business day and shipped within two. Two of them I delivered before Alta asked.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="proj" id="tekstisai">
+      <aside class="side">
+        <img class="mark" src="img/tekstisai.png" alt="">
+        <h2>TekstisAI</h2>
+        <p class="role">Satli product</p>
+        <dl><dt>Stack</dt><dd>Python, Vertex AI, Gemini</dd></dl>
+        <div class="btns"><a class="btn" href="https://satli.dev/products/tekstisai">Product page</a></div>
+      </aside>
+      <div class="body">
+        <p class="lead">The same engine as DialyzeAI, pointed at text: DMs, support tickets, chats and social comments.</p>
+        <p>It turns them into sentiment, intent, topics and per-agent breakdowns with live dashboards. Both products share one core engine with a separate layer per product, so a fix in one reaches the other.</p>
+      </div>
+    </article>
+
+    <article class="proj" id="zariai">
+      <aside class="side">
+        <img class="mark" src="img/zariai.png" alt="">
+        <h2>ZariAI</h2>
+        <p class="role">Satli product</p>
+        <dl><dt>Languages</dt><dd>Georgian first, 80+ others</dd></dl>
+        <div class="btns"><a class="btn" href="tel:+995322193384">Call it</a><a class="btn" href="https://satli.dev/products/zariai">Product page</a></div>
+      </aside>
+      <div class="body">
+        <p class="lead">An AI phone agent that holds natural, real-time conversations in Georgian.</p>
+        <p>It handles inbound and outbound calls, answers from the client's own knowledge base and can trigger actions during a call. The number on my home page is a live instance: it answers questions about Satli and passes messages to the team.</p>
+        <p>Alongside it I benchmarked Georgian speech recognition systems on clean audio against phone-quality audio (8 kHz G.711).</p>
+      </div>
+    </article>
+
+    <article class="proj" id="catalogueai">
+      <aside class="side">
+        <img class="mark" src="img/catalogueai.png" alt="">
+        <h2>CatalogueAI</h2>
+        <p class="role">Satli product</p>
+        <dl><dt>Stack</dt><dd>Python, Gemini with grounded web search</dd></dl>
+        <div class="btns"><a class="btn" href="https://satli.dev/products/catalogueai">Product page</a></div>
+      </aside>
+      <div class="body">
+        <p class="lead">Give it a list of product models; get back a complete, normalized catalogue with specs.</p>
+        <p>It runs on the client's own infrastructure. For Alta it enriched around 13,000 products with specifications found and checked through grounded web search.</p>
+      </div>
+    </article>
+
+    <article class="proj" id="saqme">
+      <aside class="side">
+        <div class="dot" style="background:var(--sand)">S</div>
+        <h2>Saqme To Do</h2>
+        <p class="role">Open source, 2026</p>
+        <dl><dt>Stack</dt><dd>JavaScript, PowerShell, Cloudflare Workers, MCP</dd></dl>
+        <div class="btns">
+          <a class="btn" href="https://francuza9.github.io/saqme-to-do/">Try it</a>
+          <a class="btn" href="https://github.com/francuza9/saqme-to-do">Code</a>
+        </div>
+      </aside>
+      <div class="body">
+        <p class="lead">Markdown to-do lists that you and your AI can both edit, on desktop and phone.</p>
+        <img class="shot" src="img/saqme-desktop.jpg" alt="Saqme To Do desktop app with a Work list" loading="lazy" style="max-width:22rem">
+        <ul>
+          <li>Claude and other assistants connect through an MCP connector, with one-click setup.</li>
+          <li>The task engine is written twice, PowerShell on Windows and JavaScript in the browser and on the phone. One shared test suite keeps them behaving identically.</li>
+          <li>AI can edit your lists but has a delete budget, so a model can't wipe them.</li>
+          <li>Optional sync runs in your own Cloudflare account. Lists can be shared by single-use link, read-only or read/write.</li>
+          <li>Tests run in CI on every push.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="proj" id="saina">
+      <aside class="side">
+        <div class="dot" style="background:var(--steel)">W</div>
+        <h2>Saïna Mechanical Analysis Tool</h2>
+        <p class="role">Internship at Saïna, France, 2024–2025. Sole engineer, six months</p>
+        <dl><dt>Stack</dt><dd>C++, OpenGL, GLSL, Dear ImGui, Python, CMake</dd></dl>
+      </aside>
+      <div class="body">
+        <p class="lead">A desktop application that parses, analyzes and visualizes ANSYS simulation data, focused on weld seam analysis.</p>
+        <img class="shot" src="img/saina-weldseam.jpg" alt="Weld seam between two parts with numbered interface nodes and coordinate systems">
+        <ul>
+          <li>Parses ANSYS results and load cases, with a Python parser for load-case files.</li>
+          <li>Weld seams: found automatically by part or material name, with their interface nodes, numbering and coordinate systems drawn on the mesh, and editable thickness, type and material.</li>
+          <li>Plugins for fatigue cycles and a materials library, plus load-case groups and points of interest.</li>
+          <li>Selection by node, element, part or sub-assembly, and saved projects.</li>
+          <li>3D renderer written from scratch in OpenGL, about 26,000 lines of C++ in total.</li>
+          <li>Documented with a user manual and four developer manuals, validated with the supervising engineer.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="proj" id="school42">
+      <aside class="side">
+        <div class="dot" style="background:var(--ink);color:#fff">42</div>
+        <h2>École 42</h2>
+        <p class="role">Student since 2023. Common core in seven months</p>
+      </aside>
+      <div class="body">
+        <p class="lead">Peer-reviewed systems projects: every one defended in front of other students who read the code and question it.</p>
+        <div class="repos">
+          <a href="https://github.com/francuza9/ft_transcendence"><b>ft_transcendence</b><span>Team web app, JavaScript</span></a>
+          <a href="https://github.com/francuza9/ft_irc"><b>ft_irc</b><span>Team IRC server in C++</span></a>
+          <a href="https://github.com/francuza9/Cub3D"><b>Cub3D</b><span>3D raycaster in C</span></a>
+          <a href="https://github.com/francuza9/Minishell"><b>Minishell</b><span>A Unix shell in C</span></a>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="foot">
+    <div>
+      <p>Satli is a member of NVIDIA Inception and AWS Activate.</p>
+      <div class="badges">
+        <span class="nv"><img src="img/nvidia-inception.svg" alt="NVIDIA Inception Program member" width="111" height="48"></span>
+        <span class="aws"><img src="img/aws-activate.png" alt="AWS Activate member" width="102" height="28"></span>
+      </div>
+    </div>
+    <nav>
+      <a href="mailto:george.tskitishvili9@gmail.com">george.tskitishvili9@gmail.com</a>
+      <a href="https://www.linkedin.com/in/george-tskitishvili/">LinkedIn</a>
+      <a href="https://github.com/francuza9">GitHub</a>
+    </nav>
+  </footer>
+
+</div>
+</body>
+</html>

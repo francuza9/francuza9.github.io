@@ -4,282 +4,225 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>George Tskitishvili</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231C2430'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' stroke='%2334A86E' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<meta name="description" content="I build AI systems that run unattended in production, and the verification discipline that makes them trustworthy.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%2316191F'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' stroke='%2334A86E' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="description" content="I build AI systems that run unattended in production, and the verification that makes them trustworthy.">
 <meta property="og:title" content="George Tskitishvili">
-<meta property="og:description" content="AI systems that run unattended in production. Call the agent: +995 32 2 193 384.">
+<meta property="og:description" content="AI systems that run unattended in production. Call my AI agent: +995 32 2 193 384.">
+<meta property="og:image" content="https://tskdev.org/img/portrait.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
-  :root {
-    --paper: #F6F7F5;
-    --ink: #1C2430;
-    --muted: #5A6573;
-    --rule: #D3D9D4;
-    --pass: #1F7A4D;
-    --pass-wash: #E4EFE8;
-    --measure: 40rem;
+  /* Hero */
+  .hero {
+    display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 3.5rem; align-items: center;
+    padding: 4rem 0 4rem;
   }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "Schibsted Grotesk", system-ui, sans-serif;
-    font-size: 1.0625rem;
-    line-height: 1.55;
-    font-feature-settings: "tnum" 0;
-  }
-  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
-  a:hover { color: var(--pass); }
-  a:focus-visible { outline: 2px solid var(--pass); outline-offset: 3px; border-radius: 2px; }
+  .hero h1 { font-size: clamp(2.5rem, 5.5vw, 4rem); line-height: 1; letter-spacing: -0.03em; font-weight: 800; margin: 0 0 1.25rem; }
+  .hero .line { font-size: clamp(1.2rem, 2vw, 1.45rem); line-height: 1.35; margin: 0 0 0.9rem; max-width: 34rem; font-weight: 500; }
+  .hero .method { color: var(--muted); margin: 0 0 2rem; max-width: 34rem; }
+  .portrait { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 50%; }
+  .call-note { font-size: 0.9375rem; color: var(--muted); margin: 0.75rem 0 0; max-width: 30rem; }
 
-  .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
+  /* Tiles */
+  .grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.25rem; }
+  .tile { border-radius: 20px; padding: 2rem; overflow: hidden; }
+  .tile h2 { font-size: 1.6rem; line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 0.6rem; font-weight: 800; }
+  .tile p { margin: 0 0 1rem; max-width: 32rem; }
+  .kicker { font-size: 0.9375rem; margin: 0 0 0.4rem; opacity: .75; }
+  .more { font-weight: 500; }
 
-  /* Header */
-  .top {
-    display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
-    padding: 2rem 0 0;
-    font-size: 0.9375rem; color: var(--muted);
-  }
-  .top strong { color: var(--ink); font-weight: 700; }
+  .yvito { grid-column: span 6; background: var(--indigo); color: #fff;
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.5rem; align-items: center; }
+  .yvito .btn.solid { background: var(--sun); color: var(--indigo); }
+  .yvito .btn:hover { background: #fff; color: var(--indigo); border-color: #fff; }
+  .feats { list-style: none; padding: 0; margin: 0 0 1.25rem; display: grid; gap: 0.5rem; }
+  .feats li { padding-left: 1.4rem; position: relative; }
+  .feats li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--sun); }
+  .stat { display: flex; gap: 2rem; margin: 0.25rem 0 0.25rem; }
+  .stat b { display: block; font-size: 2.1rem; line-height: 1; font-weight: 800; color: var(--sun); letter-spacing: -0.02em; }
+  .stat span { font-size: 0.875rem; opacity: .75; }
+  .reels { display: flex; gap: 0.8rem; justify-content: center; }
+  .reels img { width: 30%; max-width: 11rem; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 14px;
+    border: 3px solid var(--indigo-2); box-shadow: 0 18px 40px rgba(0,0,0,.35); }
+  .reels img:nth-child(2) { transform: translateY(-1.25rem); }
+  .reels img:nth-child(3) { transform: translateY(0.75rem); }
 
-  /* Intro */
-  .intro { padding: 4.5rem 0 3rem; max-width: var(--measure); }
-  .intro h1 {
-    font-size: clamp(1.75rem, 3.6vw, 2.5rem);
-    line-height: 1.15; font-weight: 700; letter-spacing: -0.015em;
-    margin: 0 0 1.5rem;
-  }
-  .intro p { margin: 0; color: var(--muted); font-size: 1.125rem; }
-
-  /* The call */
-  .call {
-    border-top: 1px solid var(--ink);
-    border-bottom: 1px solid var(--rule);
-    padding: 2.25rem 0 2.5rem;
-  }
-  .call p { margin: 0; }
-  .call .lead { font-size: 1.125rem; }
-  .number {
-    display: inline-block;
-    font-weight: 800;
-    font-size: clamp(2rem, 9vw, 6.75rem);
-    line-height: 1;
-    letter-spacing: -0.035em;
-    font-feature-settings: "tnum" 1;
-    text-decoration: none;
-    margin: 0.75rem 0 1.25rem;
-    white-space: nowrap;
-  }
-  .number:hover { color: var(--pass); }
-  .call .what { color: var(--muted); max-width: var(--measure); }
-
-  .also {
-    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem;
-    padding: 2rem 0 3.5rem;
-  }
-  .also h2 { font-size: 1.0625rem; font-weight: 700; margin: 0 0 0.35rem; }
-  .also p { margin: 0; color: var(--muted); }
-  .also .links { margin-top: 0.5rem; color: var(--ink); }
-  .also .links a { margin-right: 1rem; }
-
-  /* Work: claim | how to check */
-  .work-head {
-    display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 3rem;
-    border-bottom: 1px solid var(--ink);
-    padding-bottom: 0.6rem;
-    font-size: 0.9375rem; color: var(--muted);
-  }
-  .case {
-    display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 3rem;
-    padding: 2.5rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .case h3 {
-    font-size: 1.5rem; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em;
-    margin: 0 0 0.25rem;
-  }
-  .case .where { color: var(--muted); margin: 0 0 1.1rem; }
-  .case p { margin: 0 0 0.9rem; max-width: var(--measure); }
-  .case p:last-child { margin-bottom: 0; }
-  .figure { font-weight: 700; font-feature-settings: "tnum" 1; }
-
-  .check {
-    background: var(--pass-wash);
-    border-left: 3px solid var(--pass);
-    padding: 1rem 1.1rem;
-    font-size: 0.9375rem;
-    align-self: start;
-  }
-  .check ul { list-style: none; margin: 0; padding: 0; }
-  .check li { padding-left: 1.35rem; position: relative; margin-bottom: 0.55rem; }
-  .check li:last-child { margin-bottom: 0; }
-  .check li::before {
-    content: ""; position: absolute; left: 0; top: 0.42em;
-    width: 0.7rem; height: 0.38rem;
-    border-left: 2px solid var(--pass); border-bottom: 2px solid var(--pass);
-    transform: rotate(-45deg);
-  }
-  .check .badge { display: block; margin-top: 0.35rem; height: 20px; }
-
-
-  .live { display: inline-flex; align-items: center; gap: 0.5rem; }
-  .dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--pass); position: relative; flex: none; }
-  .dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--pass); animation: ping 2.4s ease-out infinite; }
-  @keyframes ping { 0% { transform: scale(1); opacity: .55; } 70%, 100% { transform: scale(2.6); opacity: 0; } }
-  @media (prefers-reduced-motion: reduce) { .dot::after { animation: none; } }
-
-  .coverage { margin: 1.5rem 0 1.4rem; max-width: var(--measure); font-size: 0.9375rem; }
-  .bar-row { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr) 3rem; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+  .alta { grid-column: span 3; background: var(--mint); display: flex; flex-direction: column; }
+  .alta .logo { height: 2rem; width: auto; margin-bottom: 1.5rem; align-self: flex-start; }
+  .bars { margin: 0.5rem 0 1.5rem; }
+  .bar-row { display: grid; grid-template-columns: 3.8rem minmax(0, 1fr) 3.2rem; gap: 0.7rem; align-items: center; margin-bottom: 0.6rem; font-size: 0.9375rem; }
   .bar-row span:first-child { color: var(--muted); }
-  .bar-row span:last-child { font-weight: 700; font-feature-settings: "tnum" 1; text-align: right; }
-  .bar { height: 0.7rem; background: #E6EAE7; border-radius: 1px; overflow: hidden; }
-  .bar i { display: block; height: 100%; background: var(--muted); }
+  .bar-row b { text-align: right; }
+  .bar { height: 0.9rem; background: rgba(22,25,31,.08); border-radius: 999px; overflow: hidden; }
+  .bar i { display: block; height: 100%; border-radius: 999px; background: var(--muted); }
   .bar.after i { background: var(--pass); }
+  .nums { display: flex; gap: 2rem; margin-bottom: 0.25rem; }
+  .nums b { display: block; font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+  .nums span { font-size: 0.875rem; color: var(--muted); }
+  .alta .btns { margin-top: auto; padding-top: 1.25rem; }
+  .alta .btn:hover, .saqme .btn:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
 
-  .flow { list-style: none; margin: 1.5rem 0 0.4rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem 0; font-size: 0.875rem; max-width: var(--measure); }
-  .flow li { display: flex; align-items: center; }
-  .flow li span { border: 1px solid var(--rule); background: #fff; padding: 0.2rem 0.55rem; border-radius: 2px; white-space: nowrap; }
-  .flow li:not(:last-child)::after { content: ""; width: 0.9rem; height: 1px; background: var(--muted); margin: 0 0.15rem; }
-  .flow li.human span { border-color: var(--ink); font-weight: 700; }
-  .loop { font-size: 0.875rem; color: var(--pass); margin: 0 0 1.4rem; max-width: var(--measure); }
+  .saqme { grid-column: span 3; background: var(--sand); padding-bottom: 0; display: flex; flex-direction: column; }
+  .saqme .btn.solid { background: var(--ink); color: #fff; }
+  .saqme .badge { height: 20px; width: auto; margin-top: 0.9rem; align-self: flex-start; }
+  .shots { margin-top: auto; padding-top: 1.75rem; display: flex; align-items: flex-end; gap: 1rem; }
+  .shots .desk { width: 50%; border-radius: 12px 12px 0 0; box-shadow: 0 10px 30px rgba(60,40,10,.18); }
+  .shots .phone { width: 27%; border-radius: 16px 16px 0 0; box-shadow: 0 10px 30px rgba(60,40,10,.18); }
 
-  /* Footer */
-  .foot {
-    display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 3rem;
-    padding: 3rem 0 4rem;
-  }
-  .foot h2 { font-size: 1.0625rem; font-weight: 700; margin: 0 0 0.4rem; }
-  .foot p { margin: 0; color: var(--muted); max-width: var(--measure); }
-  .foot .contact a { display: block; color: var(--ink); }
+  .saina { grid-column: span 6; background: var(--steel); padding: 0;
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; }
+  .saina .text { padding: 2rem; }
+  .saina .pic { min-height: 18rem; background: url("img/saina-weldseam.jpg") center / cover no-repeat; }
+  .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
+  .tags span { font-size: 0.875rem; padding: 0.3rem 0.75rem; border-radius: 999px; background: rgba(255,255,255,.7); }
 
-  @media (max-width: 760px) {
-    .intro { padding: 3rem 0 2.25rem; }
-    .also { grid-template-columns: 1fr; gap: 1.5rem; }
-    .work-head { display: none; }
-    .case, .foot { grid-template-columns: 1fr; gap: 1.25rem; }
-    .top { flex-direction: column; gap: 0.15rem; }
+  /* All projects */
+  .all { padding-top: 4rem; }
+  .all-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 1.25rem; }
+  .all-head h2 { font-size: 1.6rem; margin: 0; letter-spacing: -0.015em; font-weight: 800; }
+  .cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1.25rem; text-decoration: none;
+    display: flex; flex-direction: column; gap: 0.35rem; transition: border-color .15s, transform .15s; }
+  .card:hover { border-color: var(--ink); transform: translateY(-2px); }
+  @media (prefers-reduced-motion: reduce) { .card:hover { transform: none; } }
+  .card .mark { width: 2.5rem; height: 2.75rem; object-fit: contain; margin-bottom: 0.4rem; }
+  .card .dot { width: 2.5rem; height: 2.5rem; border-radius: 12px; margin-bottom: 0.6rem; display: grid; place-items: center; font-weight: 800; }
+  .card b { font-size: 1.0625rem; }
+  .card span { color: var(--muted); font-size: 0.9375rem; line-height: 1.4; }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 1.75rem; padding: 2rem 0 3rem; }
+    .portrait { width: 8.5rem; order: -1; }
+    .yvito, .saina { grid-template-columns: 1fr; }
+    .alta, .saqme { grid-column: span 6; }
+    .tile { padding: 1.5rem; }
+    .saina .text { padding: 1.5rem; }
+    .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <header class="top">
-    <span><strong>George Tskitishvili</strong>, Tbilisi and France</span>
-    <a href="mailto:george.tskitishvili9@gmail.com">george.tskitishvili9@gmail.com</a>
+  <header class="hero">
+    <div>
+      <h1>George Tskitishvili</h1>
+      <p class="line">I build AI systems that run unattended in production, and the verification that makes them trustworthy.</p>
+      <p class="method">I ship with AI coding agents and verify every change with automated tests.</p>
+      <a class="call" href="tel:+995322193384">
+        <span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+        <span><small>Call my AI agent, live now</small><strong>+995 32 2 193 384</strong></span>
+      </a>
+      <p class="call-note">It answers in Georgian, knows Satli's products and can pass a message to the team.</p>
+    </div>
+    <img class="portrait" src="img/portrait.jpg" alt="George Tskitishvili" width="800" height="800">
   </header>
 
-  <section class="intro">
-    <h1>I build AI systems that run unattended in production, and the verification discipline that makes them trustworthy.</h1>
-    <p>I work with AI coding agents to ship more than one engineer normally could, and every change is verified by automated tests. The discipline is the point, not the volume.</p>
-  </section>
+  <main>
+    <div class="grid">
 
-  <section class="call" aria-labelledby="call-label">
-    <p class="lead" id="call-label">Don't take my word for any of this. Call it:</p>
-    <a class="number" href="tel:+995322193384">+995 32 2 193 384</a>
-    <p class="what"><span class="live"><span class="dot" aria-hidden="true"></span>Live now.</span> An AI agent I built answers in Georgian. Ask it about Satli and its products, or leave a message and it passes it to the team.</p>
-  </section>
+      <section class="tile yvito">
+        <div>
+          <p class="kicker">Yvito TV</p>
+          <h2>A video channel that runs itself, and gets better every week</h2>
+          <ul class="feats">
+            <li>Finds stories, writes, fact-checks, voices, animates and renders each reel</li>
+            <li>Publishes to Instagram, TikTok, YouTube and Facebook twice a day</li>
+            <li>Every Sunday it rewrites its own prompts from its best and worst reels</li>
+            <li>My only job: approve or reject one Telegram message</li>
+          </ul>
+          <div class="stat">
+            <div><b>100k+</b><span>views in week one</span></div>
+            <div><b>5 days</b><span>to build</span></div>
+          </div>
+          <div class="btns">
+            <a class="btn solid" href="https://www.youtube.com/@yvito_tv/shorts">Watch on YouTube</a>
+            <a class="btn" href="projects.html#yvito">How it works</a>
+          </div>
+        </div>
+        <div class="reels" aria-hidden="true">
+          <img src="img/reel1.jpg" alt="" loading="lazy">
+          <img src="img/reel3.jpg" alt="" loading="lazy">
+          <img src="img/reel5.jpg" alt="" loading="lazy">
+        </div>
+      </section>
 
-  <section class="also">
-    <div>
-      <h2>Saqme To Do</h2>
-      <p>A to-do app that AI assistants can manage for you. Open source, runs in the browser with nothing to install.</p>
-      <p class="links"><a href="https://francuza9.github.io/saqme-to-do/">Open the demo</a><a href="https://github.com/francuza9/saqme-to-do">Read the code</a></p>
+      <section class="tile alta">
+        <img class="logo" src="img/alta-logo.png" alt="Alta">
+        <h2>Every customer call, reviewed</h2>
+        <p>DialyzeAI transcribes and scores every call at Alta, a Georgian electronics retailer. A truth-check gate verifies each AI finding against the transcript.</p>
+        <div class="bars" role="img" aria-label="Calls reviewed: 1 to 3 percent before, 100 percent after">
+          <div class="bar-row"><span>Before</span><span class="bar"><i style="width:2.5%"></i></span><b>1–3%</b></div>
+          <div class="bar-row"><span>After</span><span class="bar after"><i style="width:100%"></i></span><b>100%</b></div>
+        </div>
+        <div class="nums">
+          <div><b>400k</b><span>call minutes processed</span></div>
+          <div><b>1 day</b><span>to answer a change request</span></div>
+        </div>
+        <div class="btns"><a class="btn" href="projects.html#dialyzeai">Read more</a></div>
+      </section>
+
+      <section class="tile saqme">
+        <p class="kicker">Saqme To Do, open source</p>
+        <h2>A to-do app your AI can run</h2>
+        <p>Markdown lists you and your AI edit together, on desktop and phone. The engine exists in two languages, kept identical by one shared test suite.</p>
+        <div class="btns">
+          <a class="btn solid" href="https://francuza9.github.io/saqme-to-do/">Try it in your browser</a>
+          <a class="btn" href="https://github.com/francuza9/saqme-to-do">Read the code</a>
+        </div>
+        <img class="badge" src="https://github.com/francuza9/saqme-to-do/actions/workflows/tests.yml/badge.svg" alt="Tests passing" width="104" height="20">
+        <div class="shots" aria-hidden="true">
+          <img class="desk" src="img/saqme-desktop.jpg" alt="" loading="lazy">
+          <img class="phone" src="img/saqme-phone.jpg" alt="" loading="lazy">
+        </div>
+      </section>
+
+      <section class="tile saina">
+        <div class="text">
+          <p class="kicker">Saïna, France</p>
+          <h2>Weld seam analysis for engineering simulations</h2>
+          <p>A desktop tool that parses ANSYS results, finds weld seams, manages materials and fatigue cycles, and renders it all in 3D. I was the only engineer, for six months.</p>
+          <div class="tags"><span>C++</span><span>OpenGL</span><span>Plugin architecture</span><span>~26k lines</span></div>
+          <div class="btns"><a class="btn" href="projects.html#saina">Read more</a></div>
+        </div>
+        <div class="pic" role="img" aria-label="Weld seam between two parts, with interface nodes, numbering and coordinate systems"></div>
+      </section>
+
     </div>
-    <div>
-      <h2>Yvito TV</h2>
-      <p>A short-video channel that writes, voices, edits and publishes itself. The view counts are on the channels.</p>
-      <p class="links"><a href="https://www.youtube.com/@yvito_tv/shorts">YouTube</a><a href="https://www.instagram.com/yvito_tv/">Instagram</a><a href="https://www.facebook.com/profile.php?id=61594511499701">Facebook</a></p>
-    </div>
-  </section>
 
-  <div class="work-head" aria-hidden="true">
-    <span>What I built</span>
-    <span>How to check it</span>
-  </div>
-
-  <article class="case">
-    <div>
-      <h3>From 1–3% of calls reviewed to 100%</h3>
-      <p class="where">Call analytics for Alta, a Georgian electronics retailer</p>
-      <p>Alta's quality team could listen to 1–3% of its customer calls. I built a pipeline on Vertex AI and Gemini that transcribes every call and scores it against the company's own quality criteria. Before any AI finding reaches a report, a truth-check gate verifies it against the transcript.</p>
-      <div class="coverage" role="img" aria-label="Share of calls reviewed: 1 to 3 percent before, 100 percent after">
-        <div class="bar-row"><span>Before</span><span class="bar"><i style="width:2%"></i></span><span>1–3%</span></div>
-        <div class="bar-row"><span>After</span><span class="bar after"><i style="width:100%"></i></span><span>100%</span></div>
+    <section class="all" aria-labelledby="all-title">
+      <div class="all-head">
+        <h2 id="all-title">All projects</h2>
+        <a href="projects.html">Full write-ups</a>
       </div>
-      <p>Every call is now reviewed. <span class="figure">About 400,000 call minutes</span> have been processed, roughly 6,700 hours of listening. Over seven months Alta sent 11 change requests; each was answered within a business day and shipped within two.</p>
-    </div>
-    <aside class="check" aria-label="How to check it">
-      <ul>
-        <li>The phone agent above is another Satli product</li>
-        <li>Alta is a named client: <a href="https://alta.ge">alta.ge</a></li>
-        <li>Product page: <a href="https://satli.dev">satli.dev</a></li>
-      </ul>
-    </aside>
-  </article>
-
-  <article class="case">
-    <div>
-      <h3>A video channel that runs itself</h3>
-      <p class="where">Yvito TV, my own project</p>
-      <p>Every reel is researched, written, checked, voiced, rendered and published by the system. A human approves one Telegram message a day; the rest runs on its own.</p>
-      <ol class="flow" aria-label="Pipeline steps">
-        <li><span>Sources</span></li><li><span>Topic</span></li><li><span>Script</span></li><li><span>Fact-check</span></li><li><span>Proofread</span></li><li><span>Voice</span></li><li><span>Render</span></li><li class="human"><span>Human approval</span></li><li><span>Publish ×4</span></li><li><span>Metrics, 14 days</span></li>
-      </ol>
-      <p class="loop">↺ Every Sunday, metrics rewrite the prompts</p>
-      <p>The weekly loop uses the best and worst reels of the past month, so measured retention shapes the next script. It took about five days to build. <span class="figure">Week one: 100,000+ views</span> and around 400 followers.</p>
-    </div>
-    <aside class="check" aria-label="How to check it">
-      <ul>
-        <li>Views and followers are public on <a href="https://www.youtube.com/@yvito_tv/shorts">YouTube</a> and <a href="https://www.instagram.com/yvito_tv/">Instagram</a></li>
-        <li>Happy to walk through the code on a call</li>
-      </ul>
-    </aside>
-  </article>
-
-  <article class="case">
-    <div>
-      <h3>A 3D viewer for engineering simulations</h3>
-      <p class="where">Saïna, France, six-month internship</p>
-      <p>I was the sole engineer on a C++ and OpenGL desktop application for viewing ANSYS simulation results, built for Saïna's engineering team: <span class="figure">about 26,000 lines</span>, including a 3D renderer written from scratch.</p>
-    </div>
-    <aside class="check" aria-label="How to check it">
-      <ul>
-        <li>Details and screenshots on request</li>
-      </ul>
-    </aside>
-  </article>
-
-  <article class="case">
-    <div>
-      <h3>Code you can read</h3>
-      <p class="where">Saqme To Do, open source</p>
-      <p>The same task engine is written twice, in PowerShell for Windows and JavaScript for the browser and phone, and a shared test suite keeps the two behaving identically. AI assistants can edit your lists, with limits on how much they can delete at once.</p>
-    </div>
-    <aside class="check" aria-label="How to check it">
-      <ul>
-        <li><a href="https://github.com/francuza9/saqme-to-do">Clone it</a> and run the tests
-          <img class="badge" src="https://github.com/francuza9/saqme-to-do/actions/workflows/tests.yml/badge.svg" alt="Test status"></li>
-        <li><a href="https://francuza9.github.io/saqme-to-do/">Try it in your browser</a></li>
-      </ul>
-    </aside>
-  </article>
+      <div class="cards">
+        <a class="card" href="projects.html#yvito"><span class="dot" style="background:var(--sun);color:var(--indigo)">Y</span><b>Yvito TV</b><span>Self-running video channel</span></a>
+        <a class="card" href="projects.html#dialyzeai"><img class="mark" src="img/dialyzeai.png" alt=""><b>DialyzeAI</b><span>Call analytics and QA</span></a>
+        <a class="card" href="projects.html#tekstisai"><img class="mark" src="img/tekstisai.png" alt=""><b>TekstisAI</b><span>Analytics for chats, tickets and comments</span></a>
+        <a class="card" href="projects.html#zariai"><img class="mark" src="img/zariai.png" alt=""><b>ZariAI</b><span>Georgian-first AI phone agent</span></a>
+        <a class="card" href="projects.html#catalogueai"><img class="mark" src="img/catalogueai.png" alt=""><b>CatalogueAI</b><span>Product catalogues from a model list</span></a>
+        <a class="card" href="projects.html#saqme"><span class="dot" style="background:var(--sand)">S</span><b>Saqme To Do</b><span>Open-source to-do app for you and your AI</span></a>
+        <a class="card" href="projects.html#saina"><span class="dot" style="background:var(--steel)">W</span><b>Saïna analysis tool</b><span>Weld seams and fatigue on ANSYS data</span></a>
+        <a class="card" href="projects.html#school42"><span class="dot" style="background:var(--ink);color:#fff">42</span><b>École 42</b><span>Systems projects in C and C++</span></a>
+      </div>
+    </section>
+  </main>
 
   <footer class="foot">
     <div>
-      <h2>Worked with</h2>
-      <p>Alta and Saïna as clients and employer. Satli, my company, is part of NVIDIA Inception and AWS Activate. I trained at École 42.</p>
+      <p>I founded Satli, which builds AI products for Georgian businesses. I'm an École 42 student and finished its common core in seven months. Based in Tbilisi, often in France.</p>
+      <div class="badges" aria-label="Satli is a member of NVIDIA Inception and AWS Activate">
+        <span class="nv"><img src="img/nvidia-inception.svg" alt="NVIDIA Inception Program member" width="111" height="48"></span>
+        <span class="aws"><img src="img/aws-activate.png" alt="AWS Activate member" width="102" height="28"></span>
+      </div>
     </div>
-    <div class="contact">
-      <h2>Contact</h2>
+    <nav>
       <a href="mailto:george.tskitishvili9@gmail.com">george.tskitishvili9@gmail.com</a>
-      <a href="https://github.com/francuza9">GitHub</a>
       <a href="https://www.linkedin.com/in/george-tskitishvili/">LinkedIn</a>
-    </div>
+      <a href="https://github.com/francuza9">GitHub</a>
+    </nav>
   </footer>
 
 </div>
