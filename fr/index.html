@@ -24,8 +24,9 @@
 <style>
   /* Hero */
   .hero {
-    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 29rem); gap: 3rem; align-items: center; padding: 3.5rem 0 3.5rem;
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 27rem); column-gap: 3rem; align-items: center; padding: 3.5rem 0 3.5rem;
   }
+  .hero h1 { grid-column: 1 / -1; }
   /* Hero demo */
   .demo { margin: 0; }
   .demo button { display: block; position: relative; width: 100%; padding: 0; border: 0; border-radius: 16px; overflow: hidden; cursor: pointer;
@@ -233,7 +234,8 @@
 
   @media (max-width: 1060px) { .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   @media (max-width: 860px) {
-    .hero { grid-template-columns: 1fr; gap: 1.75rem; padding: 2rem 0 3rem; }
+    .hero { grid-template-columns: 1fr; gap: 0; padding: 2rem 0 3rem; }
+    .demo { margin-top: 1.75rem; }
     .yvito, .saina { grid-template-columns: 1fr; }
     .alta, .saqme { grid-column: span 6; }
     .tile { padding: 1.5rem; }
@@ -269,8 +271,8 @@
   </nav>
 
   <header class="hero">
+    <h1>George Tskitishvili</h1>
     <div>
-      <h1>George Tskitishvili</h1>
       <p class="line">Je conçois des systèmes d’IA qui tournent en production sans supervision, et les vérifications qui les rendent fiables.</p>
       <p class="method">Je code avec des agents IA et je vérifie chaque modification par des tests automatisés.</p>
       <div class="actions">
