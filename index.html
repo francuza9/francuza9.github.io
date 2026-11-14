@@ -81,7 +81,7 @@
   .all { padding-top: 4rem; }
   .all-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 1.25rem; }
   .all-head h2 { font-size: 1.6rem; margin: 0; letter-spacing: -0.015em; font-weight: 800; }
-  .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  .cards { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; }
   .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1.25rem; text-decoration: none;
     display: flex; flex-direction: column; gap: 0.35rem; transition: border-color .15s, transform .15s; }
   .card:hover { border-color: var(--ink); transform: translateY(-2px); }
@@ -91,6 +91,7 @@
   .card b { font-size: 1.0625rem; }
   .card span { color: var(--muted); font-size: 0.9375rem; line-height: 1.4; }
 
+  @media (max-width: 1060px) { .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   @media (max-width: 860px) {
     .hero { grid-template-columns: 1fr; gap: 1.75rem; padding: 2rem 0 3rem; }
     .yvito, .saina { grid-template-columns: 1fr; }
@@ -198,6 +199,7 @@
         <a class="card" href="projects.html#yvito"><img class="mark" src="img/yvito-logo.png" alt="" style="border-radius:10px"><b>Yvito TV</b><span>Self-running video channel</span></a>
         <a class="card" href="projects.html#dialyzeai"><img class="mark" src="img/dialyzeai.png" alt=""><b>DialyzeAI</b><span>Call analytics and QA</span></a>
         <a class="card" href="projects.html#zariai"><img class="mark" src="img/zariai.png" alt=""><b>ZariAI</b><span>Georgian-first AI phone agent</span></a>
+        <a class="card" href="projects.html#vertapi"><img class="mark" src="img/vertapi.svg" alt="" style="border-radius:10px"><b>VertAPI</b><span>Alerts and API over Georgian public registries</span></a>
         <a class="card" href="projects.html#clientops"><span class="dot" style="background:#3A5BC7;color:#fff"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span><b>Client operations</b><span>Onboarding, licensing and billing for Satli clients</span></a>
         <a class="card" href="projects.html#saqme"><img class="mark" src="img/saqme-logo.png" alt=""><b>Saqme To Do</b><span>Open-source to-do app for you and your AI</span></a>
         <a class="card" href="projects.html#saina"><img class="mark" src="img/saina-icon.png" alt=""><b>Saïna analysis tool</b><span>Weld seams and fatigue on ANSYS data</span></a>
