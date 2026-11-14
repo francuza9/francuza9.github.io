@@ -79,6 +79,9 @@ a:focus-visible { outline: 2px solid var(--pass); outline-offset: 3px; border-ra
 .langs summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8125rem; font-weight: 700;
   letter-spacing: 0.02em; border: 1px solid var(--line); border-radius: 999px; padding: 0.25rem 0.55rem 0.25rem 0.65rem; background: #fff; }
 .langs summary::-webkit-details-marker { display: none; }
+.langs img { width: 1.3rem; height: auto; border-radius: 3px; box-shadow: 0 0 0 1px rgba(22,25,31,.12); display: block; }
+.langs summary { padding: 0.35rem 0.55rem 0.35rem 0.6rem; }
+.langs-menu a { display: flex; align-items: center; gap: 0.55rem; }
 .langs summary::after { content: ""; width: 0.35rem; height: 0.35rem; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
   transform: translateY(-2px) rotate(45deg); transition: transform .15s; }
 .langs[open] summary::after { transform: translateY(1px) rotate(-135deg); }
