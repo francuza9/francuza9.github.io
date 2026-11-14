@@ -36,13 +36,12 @@ def href(page, cur, target):
 
 
 def menu(page, cur):
-    current = ' aria-current="page"'
     img = 'img/' if cur == 'en' else '../img/'
     items = ''.join(
-        f'<a href="{href(page, cur, l)}" hreflang="{l}" lang="{l}"{current if l == cur else ""}>'
-        f'<img src="{img}flag-{l}.svg" alt="" width="21" height="14">{NAMES[l]}</a>'
-        for l in LANGS)
-    return (f'<details class="langs"><summary aria-label="{MENU_LABEL[cur]}: {NAMES[cur]}">'
+        f'<a href="{href(page, cur, l)}" hreflang="{l}" lang="{l}" title="{NAMES[l]}">'
+        f'<img src="{img}flag-{l}.svg" alt="{NAMES[l]}" width="21" height="14"></a>'
+        for l in LANGS if l != cur)
+    return (f'<details class="langs"><summary title="{MENU_LABEL[cur]}" aria-label="{MENU_LABEL[cur]}: {NAMES[cur]}">'
             f'<img src="{img}flag-{cur}.svg" alt="{NAMES[cur]}" width="21" height="14"></summary>'
             f'<div class="langs-menu">{items}</div></details>')
 
