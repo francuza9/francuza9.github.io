@@ -653,6 +653,7 @@
   function typeTerm(el) {
     if (!el._lines) el._lines = Array.prototype.map.call(el.children, function (d) { return d.innerHTML; });
     var lines = el._lines, run = (el._run || 0) + 1; el._run = run;
+    if (!el.style.minHeight) el.style.minHeight = el.offsetHeight + 'px';
     el.innerHTML = '';
     var i = 0;
     function next() {
