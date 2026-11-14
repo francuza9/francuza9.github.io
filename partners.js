@@ -25,3 +25,11 @@
   }
   setTimeout(settle, 400);
 })();
+
+// Language menu: close on outside click or Escape.
+(function () {
+  var d = document.querySelector('.langs');
+  if (!d) return;
+  document.addEventListener('click', function (e) { if (d.open && !d.contains(e.target)) d.open = false; });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && d.open) { d.open = false; d.querySelector('summary').focus(); } });
+})();

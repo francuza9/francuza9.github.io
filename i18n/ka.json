@@ -1,9 +1,7 @@
 {
   "_note": "English text -> Georgian. tools/build_ka.py applies this to index.html and projects.html and writes ka/. Strings not listed here and not in 'keep' are reported by the build.",
   "raw": {
-    "<li>Speech recognition is being benchmarked for phone audio in a separate <a href=\"#asrbench\">research project</a>.</li>": "<li>სატელეფონო აუდიოზე მეტყველების ამოცნობის ხარისხი ცალკე <a href=\"#asrbench\">კვლევით პროექტში</a> ფასდება.</li>",
-    "<a class=\"lang\" href=\"ka/\" hreflang=\"ka\" lang=\"ka\" title=\"ქართული\">KA</a>": "<a class=\"lang\" href=\"../\" hreflang=\"en\" lang=\"en\" title=\"English\">EN</a>",
-    "<a class=\"lang\" href=\"ka/projects.html\" hreflang=\"ka\" lang=\"ka\" title=\"ქართული\">KA</a>": "<a class=\"lang\" href=\"../projects.html\" hreflang=\"en\" lang=\"en\" title=\"English\">EN</a>"
+    "<li>Speech recognition is being benchmarked for phone audio in a separate <a href=\"#asrbench\">research project</a>.</li>": "<li>სატელეფონო აუდიოზე მეტყველების ამოცნობის ხარისხი ცალკე <a href=\"#asrbench\">კვლევით პროექტში</a> ფასდება.</li>"
   },
   "keep": [
     "GitHub",
