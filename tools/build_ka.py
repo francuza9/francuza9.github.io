@@ -44,7 +44,9 @@ def main():
                 continue
             if tok.startswith('<style'):
                 out.append(tok.replace('url("img/', 'url("../img/'))
-            elif tok.startswith(('<script', '<!--')):
+            elif tok.startswith('<script'):
+                out.append(PATH.sub(r'\1../\2', tok))
+            elif tok.startswith('<!--'):
                 out.append(tok)
             elif tok.startswith('<'):
                 if not tok.startswith(('<link', '<meta name="viewport"', '<meta charset')):
