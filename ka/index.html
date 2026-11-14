@@ -236,7 +236,11 @@
   @media (max-width: 1060px) { .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   @media (max-width: 860px) {
     .hero { grid-template-columns: 1fr; gap: 0; padding: 2rem 0 3rem; }
-    .demo { margin-top: 1.75rem; }
+    /* On phones the demo sits right under the one-line pitch, above the fold */
+    .hero > div { display: contents; }
+    .hero > div > * { order: 3; }
+    .hero .line { order: 1; }
+    .demo { order: 2; margin: 0.6rem 0 1.75rem; }
     .yvito, .saina { grid-template-columns: 1fr; }
     .alta, .saqme { grid-column: span 6; }
     .tile { padding: 1.5rem; }
