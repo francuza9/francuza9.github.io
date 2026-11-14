@@ -9,15 +9,12 @@ Strings with no translation are listed and left in English, so nothing breaks.
 import hashlib, html, json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PAGES = ['index.html', 'projects.html', 'dialyzeai.html']
+PAGES = ['index.html', 'projects.html', 'dialyzeai.html', 'privacy.html']
 LANGS = ['en', 'ka', 'fr']
 NAMES = {'en': 'English', 'ka': 'ქართული', 'fr': 'Français'}
 MENU_LABEL = {'en': 'Language', 'ka': 'ენა', 'fr': 'Langue'}
 SITE = 'https://tskdev.org/'
-EXTRA_HEAD = {
-    'ka': ('<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;700;800&display=swap" rel="stylesheet">\n'
-           '<style>body, button { font-family: "Schibsted Grotesk", "Noto Sans Georgian", system-ui, sans-serif; }</style>'),
-}
+EXTRA_HEAD = {}
 TOKEN = re.compile(r'(<!--.*?-->|<script\b.*?</script>|<style\b.*?</style>|<[^>]+>)', re.S)
 ATTR = re.compile(r'(\b(?:alt|aria-label|title|content)=")([^"]*)(")')
 PATH = re.compile(r'(\b(?:src|href|poster|data-video|data-poster)=")((?:img|video)/|style\.css|partners\.js)')
@@ -125,7 +122,26 @@ def main():
                 print(f'{lang}/{page}: untranslated, left in English:')
                 for x in dict.fromkeys(missing):
                     print('   ', x)
+    write_sitemap()
     print('built', ', '.join(f'{l}/{p}' for l in data for p in PAGES))
+
+
+def write_sitemap():
+    """sitemap.xml with every page in every language, plus robots.txt pointing at it."""
+    def url(lang, page):
+        return SITE + ('' if lang == 'en' else lang + '/') + ('' if page == 'index.html' else page)
+    out = ['<?xml version="1.0" encoding="UTF-8"?>',
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+    for page in PAGES:
+        if page == 'privacy.html':
+            continue
+        for lang in LANGS:
+            out.append(f'  <url><loc>{url(lang, page)}</loc>')
+            out += [f'    <xhtml:link rel="alternate" hreflang="{l}" href="{url(l, page)}"/>' for l in LANGS]
+            out.append('  </url>')
+    out.append('</urlset>')
+    open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8').write('\n'.join(out) + '\n')
+    open(os.path.join(ROOT, 'robots.txt'), 'w', encoding='utf-8').write(f'User-agent: *\nAllow: /\n\nSitemap: {SITE}sitemap.xml\n')
 
 
 if __name__ == '__main__':

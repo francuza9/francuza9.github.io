@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://tskdev.org/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tskdev.org/"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://tskdev.org/ka/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tskdev.org/fr/"/>
+  </url>
+  <url><loc>https://tskdev.org/ka/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tskdev.org/"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://tskdev.org/ka/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tskdev.org/fr/"/>
+  </url>
+  <url><loc>https://tskdev.org/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tskdev.org/"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://tskdev.org/ka/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tskdev.org/fr/"/>
+  </url>
+  <url><loc>https://tskdev.org/projects.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tskdev.org/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://tskdev.org/ka/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tskdev.org/fr/projects.html"/>
+  </url>
+  <url><loc>https://tskdev.org/ka/projects.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tskdev.org/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://tskdev.org/ka/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tskdev.org/fr/projects.html"/>
+  </url>
+  <url><loc>https://tskdev.org/fr/projects.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tskdev.org/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://tskdev.org/ka/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tskdev.org/fr/projects.html"/>
+  </url>
+  <url><loc>https://tskdev.org/dialyzeai.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tskdev.org/dialyzeai.html"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://tskdev.org/ka/dialyzeai.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tskdev.org/fr/dialyzeai.html"/>
+  </url>
+  <url><loc>https://tskdev.org/ka/dialyzeai.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tskdev.org/dialyzeai.html"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://tskdev.org/ka/dialyzeai.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tskdev.org/fr/dialyzeai.html"/>
+  </url>
+  <url><loc>https://tskdev.org/fr/dialyzeai.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tskdev.org/dialyzeai.html"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://tskdev.org/ka/dialyzeai.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tskdev.org/fr/dialyzeai.html"/>
+  </url>
+</urlset>

@@ -5,7 +5,10 @@
   },
   "keep": [
     "George Tskitishvili",
-    "Nona Baindurashvili"
+    "Nona Baindurashvili",
+    "https://tskdev.org/privacy.html",
+    "noindex, follow",
+    "website"
   ],
   "strings": {
     "I build AI systems that run unattended in production, and the verification that makes them trustworthy.": "Je conçois des systèmes d’IA qui tournent en production sans supervision, et les vérifications qui les rendent fiables.",
@@ -286,6 +289,23 @@
     "Over 7 months Alta sent 11 change requests. Each was answered within a business day and shipped within two.": "En 7 mois, Alta a envoyé 11 demandes d’évolution. Chacune a été traitée en un jour ouvré et livrée en deux.",
     "What's next": "La suite",
     "Checking answers against Alta's catalogue and internal guidelines, so the system can tell not just that an operator quoted a price, but whether the price was right.": "Vérifier les réponses par rapport au catalogue et aux consignes internes d’Alta, pour que le système sache non seulement qu’un conseiller a annoncé un prix, mais aussi si ce prix était juste.",
-    "Python: about 36,000 lines for the shared engine and DialyzeAI itself, and about 32,000 lines of tests.": "Python : environ 36 000 lignes pour le moteur commun et DialyzeAI lui-même, et environ 32 000 lignes de tests."
+    "Python: about 36,000 lines for the shared engine and DialyzeAI itself, and about 32,000 lines of tests.": "Python : environ 36 000 lignes pour le moteur commun et DialyzeAI lui-même, et environ 32 000 lignes de tests.",
+    "Privacy": "Confidentialité",
+    "Privacy · George Tskitishvili": "Confidentialité · George Tskitishvili",
+    "What this website and the AI phone agent collect, and how long it is kept.": "Ce que ce site et l’agent téléphonique IA collectent, et combien de temps c’est conservé.",
+    "← George Tskitishvili": "← George Tskitishvili",
+    "Last updated: 15 November 2026": "Dernière mise à jour : 15 novembre 2026",
+    "This website": "Ce site",
+    "No cookies, no analytics, no ads and no forms.": "Pas de cookies, pas de mesure d’audience, pas de publicité, pas de formulaires.",
+    "YouTube videos load from youtube-nocookie.com only when you press play. From then on, YouTube's privacy policy applies.": "Les vidéos YouTube ne se chargent depuis youtube-nocookie.com que lorsque vous appuyez sur lecture. La politique de confidentialité de YouTube s’applique alors.",
+    "Links to other sites open those sites, which have their own policies.": "Les liens vers d’autres sites ouvrent ces sites, qui ont leurs propres politiques.",
+    "Calls to the AI agent": "Appels à l’agent IA",
+    "When you call +995 32 2 193 384, the call is recorded, transcribed and analysed by AI, together with your phone number. This is used to answer you, to pass your message on, and to improve the agent.": "Lorsque vous appelez le +995 32 2 193 384, l’appel est enregistré, transcrit et analysé par une IA, avec votre numéro de téléphone. Cela sert à vous répondre, à transmettre votre message et à améliorer l’agent.",
+    "Recordings and transcripts are kept for up to 12 months, then deleted.": "Les enregistrements et transcriptions sont conservés 12 mois au maximum, puis supprimés.",
+    "Your rights": "Vos droits",
+    "You can ask what is held about you, and ask for it to be corrected or deleted, by writing to": "Vous pouvez demander quelles données vous concernent, et demander leur correction ou leur suppression, en écrivant à",
+    "Who is responsible": "Responsable",
+    "George Tskitishvili, individual entrepreneur trading as Satli, Tbilisi, Georgia.": "George Tskitishvili, entrepreneur individuel exerçant sous le nom Satli, Tbilissi, Géorgie.",
+    "Fonts, images and videos are served from this site; only the live test-status badge loads from GitHub. The site is hosted on GitHub Pages, which may log visitors' IP addresses for security.": "Les polices, images et vidéos sont servies par ce site ; seul le badge d’état des tests se charge depuis GitHub. Le site est hébergé sur GitHub Pages, qui peut enregistrer les adresses IP des visiteurs pour des raisons de sécurité."
   }
 }
