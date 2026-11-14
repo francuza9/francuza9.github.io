@@ -9,7 +9,7 @@
 
   function show(v) { el.classList.toggle('show', v); }
   function settle() { show(!docked && (window.scrollY < 120 || hover)); }
-  function later() { clearTimeout(timer); timer = setTimeout(settle, 1200); }
+  function later() { clearTimeout(timer); timer = setTimeout(settle, 780); }
 
   window.addEventListener('scroll', function () { if (!docked) show(true); later(); }, { passive: true });
   el.addEventListener('mouseenter', function () { hover = true; });

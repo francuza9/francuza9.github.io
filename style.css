@@ -97,7 +97,7 @@ a:focus-visible { outline: 2px solid var(--pass); outline-offset: 3px; border-ra
 /* Floating partner badges (bottom left, always visible) */
 .partners { position: fixed; left: 1.5rem; bottom: 1.5rem; z-index: 50; display: flex; align-items: center; gap: 0.9rem;
   background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 0.7rem 1rem 0.7rem 1.1rem;
-  box-shadow: 0 14px 36px rgba(22,25,31,.2); transition: opacity .25s ease, transform .3s cubic-bezier(.2,.8,.2,1), visibility .3s; }
+  box-shadow: 0 14px 36px rgba(22,25,31,.2); transition: opacity .16s ease, transform .2s cubic-bezier(.2,.8,.2,1), visibility .2s; }
 .partners.auto:not(.show) { opacity: 0; visibility: hidden; transform: translateY(14px); pointer-events: none; }
 @media (prefers-reduced-motion: reduce) { .partners { transition: opacity .2s, visibility .2s; } .partners.auto:not(.show) { transform: none; } }
 .badges .lbl { font-size: 0.8125rem; font-weight: 600; color: var(--muted); margin-right: 0.25rem; }
