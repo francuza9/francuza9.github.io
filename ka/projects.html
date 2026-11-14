@@ -155,7 +155,6 @@
   .conds b { color: #6D4AE0; }
 
   #dialyzeai .btn.solid { background: #E8365D; color: #fff; border-color: #E8365D; }
-  #tekstisai .btn.solid { background: #0FA3C7; color: #fff; border-color: #0FA3C7; }
   #catalogueai .btn.solid { background: #E0900A; color: #fff; border-color: #E0900A; }
   button.btn { font: inherit; font-size: 0.9375rem; font-weight: 500; cursor: pointer; }
 
@@ -199,11 +198,6 @@
     .slip.in .ring { animation: stamp .38s cubic-bezier(.2,1.5,.4,1) forwards 1.25s; }
     @keyframes stamp { from { opacity: 0; transform: scale(2.2) rotate(-40deg); } to { opacity: 1; transform: scale(1) rotate(-12deg); } }
 
-    /* TekstisAI: messages arrive, then get tagged */
-    .bubbles > div { opacity: 0; }
-    .bubbles em { opacity: 0; }
-    .bubbles.in > div { animation: slideIn .4s ease forwards; animation-delay: calc(var(--i) * 380ms); }
-    .bubbles.in em { animation: popIn .3s cubic-bezier(.2,1.4,.4,1) forwards; animation-delay: calc(var(--i) * 380ms + 650ms); }
 
     /* CatalogueAI: rows load, specs get found */
     .spec > div:not(:first-child) { opacity: 0; }
@@ -262,13 +256,9 @@
   .repos b { display: block; }
   .repos span { opacity: .7; font-size: 0.875rem; }
 
-  /* TekstisAI / CatalogueAI */
-  #tekstisai { background: #DDF2F8; --acc: #0FA3C7; }
+  /* CatalogueAI */
   #catalogueai { background: #FBF0D9; --acc: #E0900A; }
   .bigmark { width: 9rem; height: auto; }
-  .bubbles { display: grid; gap: 0.6rem; width: 100%; max-width: 22rem; }
-  .bubbles div { background: #fff; border-radius: 14px; padding: 0.75rem 1rem; font-size: 0.875rem; box-shadow: 0 8px 24px rgba(15,163,199,.12); display: flex; justify-content: space-between; gap: 1rem; }
-  .bubbles em { font-style: normal; font-weight: 700; color: var(--acc); white-space: nowrap; }
   .spec { background: #fff; border-radius: 16px; padding: 1.25rem; width: 100%; max-width: 22rem; font-size: 0.875rem; box-shadow: 0 10px 28px rgba(224,144,10,.15); }
   .spec div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.45rem 0; border-top: 1px solid #F1E6D2; }
   .spec div:first-child { border-top: 0; font-weight: 700; }
@@ -301,7 +291,7 @@
     <div class="row">
       <a class="home" href="./" aria-label="გიორგი ცქიტიშვილი, მთავარი გვერდი"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg><span>გიორგი ცქიტიშვილი</span></a>
       <nav class="toc" aria-label="პროექტები">
-    <a href="#yvito">Yvito TV</a><a href="#dialyzeai">DialyzeAI</a><a href="#zariai">ZariAI</a><a href="#asrbench">ASR ბენჩმარკი</a><a href="#vertapi">VertAPI</a><a href="#clientops">კლიენტებთან მუშაობა</a><a href="#saqme">Saqme To Do</a><a href="#saina">Saïna · ბორდო</a><a href="#school42">École 42 · ანგულემი</a><a href="#tekstisai">TekstisAI</a><a href="#catalogueai">CatalogueAI</a>
+    <a href="#yvito">Yvito TV</a><a href="#dialyzeai">DialyzeAI</a><a href="#zariai">ZariAI</a><a href="#asrbench">ASR ბენჩმარკი</a><a href="#vertapi">VertAPI</a><a href="#clientops">კლიენტებთან მუშაობა</a><a href="#saqme">Saqme To Do</a><a href="#saina">Saïna · ბორდო</a><a href="#school42">École 42 · ანგულემი</a><a href="#catalogueai">CatalogueAI</a>
       </nav>
     </div>
     <div class="bar-track"><div class="bar-fill"></div></div>
@@ -533,22 +523,6 @@
       </div>
     </article>
 
-    <article class="pc" id="tekstisai">
-      <div>
-        <p class="brand"><img src="../img/tekstisai.png" alt=""><span>TekstisAI · Satli-ს პროდუქტი</span></p>
-        <h2>იგივე ძრავი, ოღონდ ტექსტისთვის</h2>
-        <p class="lead">პირადი შეტყობინებები, მხარდაჭერის ტიკეტები, ჩატები და სოციალური ქსელის კომენტარები იქცევა განწყობად, განზრახვად, თემებად და ოპერატორების მიხედვით ანალიზად, ცოცხალი დაშბორდებით.</p>
-        <ul><li>DialyzeAI-სთან საერთო ძრავი აქვს და თითო პროდუქტს ცალკე ფენა, ამიტომ ერთში გასწორებული შეცდომა მეორეშიც სწორდება.</li></ul>
-        <div class="btns"><button class="btn solid play" type="button" data-video="../video/tekstisai.mp4" data-poster="../video/tekstisai-poster.webp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>ტრეილერის ნახვა</button><a class="btn" href="https://satli.dev/products/tekstisai" target="_blank" rel="noopener">პროდუქტის გვერდი</a></div>
-      </div>
-      <div class="visual">
-        <div class="bubbles" data-anim="bubbles" aria-hidden="true">
-          <div style="--i:1"><span>„მიწოდება ისევ დაგვიანდა“</span><em>ნეგატიური · მიწოდება</em></div>
-          <div style="--i:2"><span>„შავი ფერის გაქვთ?“</span><em>შეკითხვა · მარაგი</em></div>
-          <div style="--i:3"><span>„მადლობა, 5 წუთში მოგვარდა!“</span><em>პოზიტიური · მხარდაჭერა</em></div>
-        </div>
-      </div>
-    </article>
 
     <article class="pc" id="catalogueai">
       <div>
