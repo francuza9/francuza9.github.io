@@ -59,7 +59,7 @@
   .progress .row { display: flex; align-items: center; gap: 1rem; }
   .progress .count { font-size: 0.875rem; color: var(--muted); white-space: nowrap; font-feature-settings: "tnum" 1; min-width: 7.5rem; }
   .progress .count b { color: var(--ink); }
-  .toc { display: flex; gap: 0.4rem; overflow-x: auto; padding: 0 0 0.75rem; scrollbar-width: none; flex: 1; }
+  .toc { display: flex; flex-wrap: nowrap; gap: 0.4rem; overflow-x: auto; padding: 0 0 0.75rem; scrollbar-width: none; flex: 1; min-width: 0; }
   .toc::-webkit-scrollbar { display: none; }
   .toc a { white-space: nowrap; transition: background .15s, color .15s, border-color .15s; }
   .toc a.active { background: var(--ink); color: #fff; border-color: var(--ink); }
