@@ -286,6 +286,6 @@
     "Over 7 months Alta sent 11 change requests. Each was answered within a business day and shipped within two.": "En 7 mois, Alta a envoyé 11 demandes d’évolution. Chacune a été traitée en un jour ouvré et livrée en deux.",
     "What's next": "La suite",
     "Checking answers against Alta's catalogue and internal guidelines, so the system can tell not just that an operator quoted a price, but whether the price was right.": "Vérifier les réponses par rapport au catalogue et aux consignes internes d’Alta, pour que le système sache non seulement qu’un conseiller a annoncé un prix, mais aussi si ce prix était juste.",
-    "Python, about 16,000 lines of application code and 12,000 lines of tests.": "Python, environ 16 000 lignes de code applicatif et 12 000 lignes de tests."
+    "Python: about 36,000 lines for the shared engine and DialyzeAI itself, and about 32,000 lines of tests.": "Python : environ 36 000 lignes pour le moteur commun et DialyzeAI lui-même, et environ 32 000 lignes de tests."
   }
 }
