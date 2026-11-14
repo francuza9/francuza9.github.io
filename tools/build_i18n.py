@@ -35,14 +35,21 @@ def href(page, cur, target):
     return base + page
 
 
+def _flag_version(l):
+    return hashlib.sha1(open(os.path.join(ROOT, 'img', f'flag-{l}.svg'), 'rb').read()).hexdigest()[:8]
+
+
+FLAGV = {l: _flag_version(l) for l in LANGS}
+
+
 def menu(page, cur):
     img = 'img/' if cur == 'en' else '../img/'
     items = ''.join(
         f'<a href="{href(page, cur, l)}" hreflang="{l}" lang="{l}" title="{NAMES[l]}">'
-        f'<img src="{img}flag-{l}.svg" alt="{NAMES[l]}" width="21" height="14"></a>'
+        f'<img src="{img}flag-{l}.svg?v={FLAGV[l]}" alt="{NAMES[l]}" width="21" height="14"></a>'
         for l in LANGS if l != cur)
     return (f'<details class="langs"><summary title="{MENU_LABEL[cur]}" aria-label="{MENU_LABEL[cur]}: {NAMES[cur]}">'
-            f'<img src="{img}flag-{cur}.svg" alt="{NAMES[cur]}" width="21" height="14"></summary>'
+            f'<img src="{img}flag-{cur}.svg?v={FLAGV[cur]}" alt="{NAMES[cur]}" width="21" height="14"></summary>'
             f'<div class="langs-menu">{items}</div></details>')
 
 
