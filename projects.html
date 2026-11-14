@@ -470,5 +470,16 @@
   </footer>
 
 </div>
+<button class="to-top" type="button" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
+<script>
+(function () {
+  var b = document.querySelector('.to-top');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function update() { b.classList.toggle('show', window.scrollY > 400); }
+  window.addEventListener('scroll', update, { passive: true });
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+  update();
+})();
+</script>
 </body>
 </html>
