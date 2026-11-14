@@ -13,7 +13,7 @@ FONT = ('<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian
         '<style>body, button { font-family: "Schibsted Grotesk", "Noto Sans Georgian", system-ui, sans-serif; }</style>')
 TOKEN = re.compile(r'(<!--.*?-->|<script\b.*?</script>|<style\b.*?</style>|<[^>]+>)', re.S)
 ATTR = re.compile(r'(\b(?:alt|aria-label|title|content)=")([^"]*)(")')
-PATH = re.compile(r'(\b(?:src|href|poster|data-video|data-poster)=")((?:img|video)/|style\.css)')
+PATH = re.compile(r'(\b(?:src|href|poster|data-video|data-poster)=")((?:img|video)/|style\.css|partners\.js)')
 
 
 def main():

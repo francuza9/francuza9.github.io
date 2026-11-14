@@ -179,8 +179,6 @@
     "Analytics for chats, tickets and comments": "ჩატების, ტიკეტებისა და კომენტარების ანალიტიკა",
     "Product catalogues from a model list": "პროდუქტების კატალოგები მოდელების სიიდან",
     "I founded Satli, which builds AI products for Georgian businesses. I'm an École 42 student and finished its common core in seven months. Based in Tbilisi, often in France.": "დავაარსე Satli, რომელიც ქართული ბიზნესებისთვის AI პროდუქტებს ქმნის. ვსწავლობ École 42-ში და მისი საბაზისო პროგრამა შვიდ თვეში დავასრულე. ვცხოვრობ თბილისში, ხშირად ვარ საფრანგეთში.",
-    "Satli is a member of NVIDIA Inception and AWS Activate": "Satli არის NVIDIA Inception-ისა და AWS Activate-ის წევრი",
-    "Satli is a member of": "Satli არის წევრი",
     "Back to top": "ზემოთ დაბრუნება",
     "Projects · George Tskitishvili": "პროექტები · გიორგი ცქიტიშვილი",
     "What George Tskitishvili has built: Yvito TV, DialyzeAI, ZariAI, Saqme To Do, a weld seam analysis tool and more.": "რა შექმნა გიორგი ცქიტიშვილმა: Yvito TV, DialyzeAI, ZariAI, Saqme To Do, შედუღების ნაკერების ანალიზის ინსტრუმენტი და სხვა.",
@@ -329,12 +327,13 @@
     "3,349 mAh": "3 349 mAh",
     "Weight": "წონა",
     "171 g": "171 გ",
-    "Satli is a member of NVIDIA Inception and AWS Activate.": "Satli არის NVIDIA Inception-ისა და AWS Activate-ის წევრი.",
     "Video": "ვიდეო",
     "Close": "დახურვა",
     "NVIDIA Inception Program member": "NVIDIA Inception პროგრამის წევრი",
     "AWS Activate member": "AWS Activate-ის წევრი",
     "It starts in Georgian and switches to English, French or Russian if you do. It knows Satli's products and can pass a message to the team.": "საუბარს ქართულად იწყებს, მაგრამ თუ ინგლისურად, ფრანგულად ან რუსულად დაელაპარაკებით, იმ ენაზე გადავა. იცნობს Satli-ს პროდუქტებს და შეუძლია გუნდს შეტყობინება გადასცეს.",
-    "Live now · starts in Georgian": "უკვე მუშაობს · იწყებს ქართულად"
+    "Live now · starts in Georgian": "უკვე მუშაობს · იწყებს ქართულად",
+    "Member of": "პროგრამების წევრი",
+    "Member of NVIDIA Inception and AWS Activate": "NVIDIA Inception-ისა და AWS Activate-ის წევრი"
   }
 }
