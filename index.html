@@ -63,38 +63,79 @@
   }
 
 
-  /* Timeline */
-  .timeline { margin: 0 0 1.25rem; }
-  .tl-head { display: flex; justify-content: space-between; align-items: baseline; margin: 2.5rem 0 0.75rem; }
-  .tl-head h2 { font-size: 1.6rem; margin: 0; letter-spacing: -0.015em; font-weight: 800; }
-  .tl-nav { display: flex; gap: 0.5rem; }
-  .tl-btn { width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 1px solid var(--line); background: #fff; font-size: 1.3rem; line-height: 1; cursor: pointer; color: var(--ink); }
-  .tl-btn:hover { border-color: var(--ink); }
-  .tl-btn:disabled { opacity: .35; cursor: default; border-color: var(--line); }
-  .tl-track { list-style: none; margin: 0; padding: 2.6rem 0.25rem 1rem 0.35rem; display: grid; grid-auto-flow: column; grid-auto-columns: 13.5rem; gap: 1rem;
-    overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: thin; position: relative;
-    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 3rem), transparent 100%); mask-image: linear-gradient(90deg, #000 calc(100% - 3rem), transparent 100%); }
-  @media (prefers-reduced-motion: reduce) { .tl-track { scroll-behavior: auto; } }
-  .tl-track li { position: relative; scroll-snap-align: start; }
-  .tl-track li::before { content: ""; position: absolute; top: -1.3rem; left: -1rem; right: 0; height: 2px; background: var(--line); }
-  .tl-track li:first-child::before { left: 0.6rem; }
-  .ti-year { position: absolute; top: -2.6rem; left: 0.1rem; font-size: 0.8125rem; font-weight: 700; color: var(--muted); }
-  .ti-dot { position: absolute; top: calc(-1.3rem - 6px); left: 0.35rem; width: 14px; height: 14px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 4px var(--paper); }
-  .ti-card { display: flex; flex-direction: column; gap: 0.3rem; height: 100%; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1rem 1.1rem;
-    text-decoration: none; border-top: 3px solid var(--c); transition: transform .15s, box-shadow .15s; }
-  .ti-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(22,25,31,.1); }
-  .ti-head { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.2rem; }
-  .ti-head img, .ti-ico { width: 1.75rem; height: 1.75rem; object-fit: contain; flex: none; }
-  .ti-ico { border-radius: 7px; color: #fff; display: grid; place-items: center; }
-  .ti-head time { font-size: 0.8125rem; color: var(--muted); font-feature-settings: "tnum" 1; }
-  .ti-card b { font-size: 1rem; line-height: 1.25; }
-  .ti-line { font-size: 0.875rem; color: var(--muted); line-height: 1.4; }
+  /* Timeline: drawn rail */
+  .timeline { margin: 2.5rem 0 1.5rem; }
+  .timeline h2 { font-size: 1.6rem; margin: 0 0 0.5rem; letter-spacing: -0.015em; font-weight: 800; }
+  .tl-rail { --row: 6.75rem; --gap: 2.5rem; list-style: none; margin: 0; padding: 0 0 0 2.9rem; position: relative;
+    display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); height: calc(var(--row) * 2 + var(--gap)); }
+  .tl-rail::before { content: ""; position: absolute; left: 0; right: 0; top: calc(50% - 1px); height: 2px; border-radius: 2px;
+    background: linear-gradient(90deg, var(--line), var(--muted) 30%, var(--ink)); transform-origin: left; }
+  .tl-rail li { position: relative; }
+  .tl-rail li::after { content: ""; position: absolute; left: calc(50% - 0.5px); width: 1px; height: 0.85rem; background: var(--c); opacity: .55; }
+  .tl-rail li.up::after { bottom: calc(50% + 7px); transform-origin: bottom; }
+  .tl-rail li.down::after { top: calc(50% + 7px); transform-origin: top; }
+  .ti-pin { position: absolute; left: calc(50% - 7px); top: calc(50% - 7px); width: 14px; height: 14px; border-radius: 50%;
+    background: var(--c); box-shadow: 0 0 0 4px var(--paper); z-index: 1; transition: transform .2s; }
+  .ti-year { position: absolute; left: 0; top: 50%; transform: translate(-50%, -50%); background: var(--paper); padding: 0 0.4rem;
+    font-size: 0.75rem; font-weight: 700; color: var(--muted); font-feature-settings: "tnum" 1; z-index: 1; }
+  .tl-rail li:first-child .ti-year { transform: translate(-100%, -50%); padding-left: 0; }
+  .ti-lab { position: absolute; width: 8.75rem; left: calc(50% - 4.375rem); display: flex; flex-direction: column; align-items: center; gap: 0.2rem;
+    text-align: center; text-decoration: none; padding: 0.45rem 0.55rem; border-radius: 12px; border: 1px solid transparent; z-index: 2;
+    transition: background .18s, border-color .18s, box-shadow .18s; }
+  .up .ti-lab { bottom: calc(50% + 1.5rem); }
+  .down .ti-lab { top: calc(50% + 1.5rem); }
+  .tl-rail li:first-child .ti-lab { left: calc(50% - 1.1rem); align-items: flex-start; text-align: left; }
+  .tl-rail li:last-child .ti-lab { left: auto; right: calc(50% - 1.1rem); align-items: flex-end; text-align: right; }
+  .ti-top { display: flex; align-items: center; gap: 0.4rem; }
+  .ti-top img, .ti-ico { width: 1.4rem; height: 1.4rem; object-fit: contain; flex: none; }
+  .ti-ico { border-radius: 6px; color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 0.7rem; }
+  .ti-top time { font-size: 0.75rem; color: var(--muted); font-feature-settings: "tnum" 1; white-space: nowrap; }
+  .ti-lab b { font-size: 0.875rem; line-height: 1.2; }
+  .ti-line { font-size: 0.8125rem; line-height: 1.35; color: var(--muted); max-height: 0; opacity: 0; overflow: hidden; transition: max-height .25s, opacity .2s; }
+  .ti-lab:hover, .ti-lab:focus-visible { background: #fff; border-color: var(--line); box-shadow: 0 10px 24px rgba(22,25,31,.12); z-index: 3; }
+  .ti-lab:hover .ti-line, .ti-lab:focus-visible .ti-line { max-height: 4rem; opacity: 1; }
+  .tl-rail li:hover .ti-pin { transform: scale(1.3); }
   @media (prefers-reduced-motion: no-preference) {
-    .tl-track .ti-dot { transform: scale(0); }
-    .tl-track.in .ti-dot { animation: dotIn .35s cubic-bezier(.2,1.5,.4,1) forwards; animation-delay: calc(var(--n) * 60ms); }
-    @keyframes dotIn { to { transform: scale(1); } }
+    .tl-rail::before { transform: scaleX(0); }
+    .tl-rail .ti-pin, .tl-rail li::after, .tl-rail .ti-lab, .tl-rail .ti-year { opacity: 0; }
+    .tl-rail.in::before { animation: railDraw 1.7s cubic-bezier(.45,.05,.35,1) forwards; }
+    .tl-rail.in .ti-year { animation: tiFade .4s ease forwards; animation-delay: calc(var(--n) * 115ms - 60ms); }
+    .tl-rail.in .ti-pin { animation: pinPop .45s cubic-bezier(.2,1.6,.4,1) forwards; animation-delay: calc(var(--n) * 115ms); }
+    .tl-rail.in li::after { animation: stemGrow .3s ease-out forwards; animation-delay: calc(var(--n) * 115ms + 120ms); }
+    .tl-rail.in .up .ti-lab { --dy: 10px; }
+    .tl-rail.in .down .ti-lab { --dy: -10px; }
+    .tl-rail.in .ti-lab { animation: labIn .45s cubic-bezier(.2,.8,.2,1) forwards; animation-delay: calc(var(--n) * 115ms + 180ms); }
+    .tl-rail.in li:last-child .ti-pin::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--c);
+      animation: pinPulse 2.2s ease-out infinite; animation-delay: 2.2s; opacity: 0; }
+    @keyframes railDraw { to { transform: scaleX(1); } }
+    @keyframes pinPop { from { opacity: 1; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
+    @keyframes stemGrow { from { opacity: .55; transform: scaleY(0); } to { opacity: .55; transform: scaleY(1); } }
+    @keyframes labIn { from { opacity: 0; transform: translateY(var(--dy, 0)); } to { opacity: 1; transform: none; } }
+    @keyframes tiFade { to { opacity: 1; } }
+    @keyframes pinPulse { 0% { opacity: .5; transform: scale(1); } 100% { opacity: 0; transform: scale(2.8); } }
   }
-  @media (max-width: 860px) { .tl-nav { display: none; } .tl-track { grid-auto-columns: 78%; } .ti-card:hover { transform: none; } }
+  @media (max-width: 860px) {
+    .tl-rail { display: block; height: auto; padding: 0.25rem 0 0.25rem 2.25rem; }
+    .tl-rail::before { left: 0.7rem; right: auto; top: 0; bottom: 0; width: 2px; height: auto; transform-origin: top;
+      background: linear-gradient(180deg, var(--line), var(--muted) 30%, var(--ink)); }
+    .tl-rail li { padding: 0.55rem 0; }
+    .tl-rail li::after { display: none; }
+    .ti-pin { left: calc(-2.25rem + 0.7rem - 6px); top: 1.05rem; width: 12px; height: 12px; }
+    .ti-year, .tl-rail li:first-child .ti-year { position: static; display: block; transform: none; background: none; padding: 0.4rem 0 0.25rem; margin-left: -0.1rem; }
+    .ti-year + .ti-pin { top: calc(1.05rem + 1.55rem); }
+    .ti-lab, .tl-rail li:first-child .ti-lab, .tl-rail li:last-child .ti-lab { position: static; width: auto; align-items: flex-start; text-align: left; padding: 0; }
+    .ti-lab:hover, .ti-lab:focus-visible { background: none; border-color: transparent; box-shadow: none; }
+    .ti-line { max-height: none; opacity: 1; }
+  }
+  @media (max-width: 860px) and (prefers-reduced-motion: no-preference) {
+    .tl-rail.in::before { animation-name: railDrawY; }
+    @keyframes railDrawY { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+    .tl-rail::before { transform: scaleY(0); }
+    .tl-rail.in .up .ti-lab, .tl-rail.in .down .ti-lab { --dy: 8px; }
+    .tl-rail.in .ti-year { animation-delay: calc(var(--n) * 90ms); }
+    .tl-rail.in .ti-pin { animation-delay: calc(var(--n) * 90ms); }
+    .tl-rail.in .ti-lab { animation-delay: calc(var(--n) * 90ms + 80ms); }
+  }
 
   /* Tiles */
   .grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.25rem; }
@@ -223,117 +264,46 @@
       </div>
     </figure>
     <section class="timeline" aria-labelledby="tl-title">
-      <div class="tl-head">
-        <h2 id="tl-title">How I got here</h2>
-        <div class="tl-nav">
-          <button type="button" class="tl-btn" data-dir="-1" aria-label="Earlier">‹</button>
-          <button type="button" class="tl-btn" data-dir="1" aria-label="Later">›</button>
-        </div>
-      </div>
-      <ol class="tl-track" data-anim="timeline">
-        <li style="--c:#16191F;--n:1">
-          <span class="ti-year">2023</span><span class="ti-dot" aria-hidden="true"></span>
-          <a class="ti-card" href="projects.html#school42">
-            <span class="ti-head"><img src="img/42.svg" alt=""><time>Nov 2023</time></span>
-            <b>École 42</b>
-            <span class="ti-line">Started in Angoulême</span>
-          </a>
+      <h2 id="tl-title">How I got here</h2>
+      <ol class="tl-rail" data-anim="timeline">
+        <li class="up" style="--c:#16191F;--n:1"><span class="ti-year">2023</span><span class="ti-pin" aria-hidden="true"></span>
+          <a class="ti-lab" href="projects.html#school42"><span class="ti-top"><img src="img/42.svg" alt=""><time>Nov 2023</time></span><b>École 42</b><span class="ti-line">Started in Angoulême</span></a>
         </li>
-        <li style="--c:#16191F;--n:2">
-          <span class="ti-year">2024</span><span class="ti-dot" aria-hidden="true"></span>
-          <a class="ti-card" href="projects.html#school42">
-            <span class="ti-head"><img src="img/42.svg" alt=""><time>2024</time></span>
-            <b>Common core in 7 months</b>
-            <span class="ti-line">A shell, a raycaster, an IRC server, a web app</span>
-          </a>
+        <li class="down" style="--c:#16191F;--n:2"><span class="ti-year">2024</span><span class="ti-pin" aria-hidden="true"></span>
+          <a class="ti-lab" href="projects.html#school42"><span class="ti-top"><img src="img/42.svg" alt=""><time>2024</time></span><b>Common core in 7 months</b><span class="ti-line">A shell, a raycaster, an IRC server, a web app</span></a>
         </li>
-        <li style="--c:#4A6FB5;--n:3">
-          <span class="ti-year">2025</span><span class="ti-dot" aria-hidden="true"></span>
-          <a class="ti-card" href="projects.html#saina">
-            <span class="ti-head"><img src="img/saina-icon.png" alt=""><time>Feb–Aug 2025</time></span>
-            <b>Saïna, Bordeaux</b>
-            <span class="ti-line">Weld seam analysis in C++, written by hand</span>
-          </a>
+        <li class="up" style="--c:#4A6FB5;--n:3"><span class="ti-year">2025</span><span class="ti-pin" aria-hidden="true"></span>
+          <a class="ti-lab" href="projects.html#saina"><span class="ti-top"><img src="img/saina-icon.png" alt=""><time>Feb–Aug 2025</time></span><b>Saïna, Bordeaux</b><span class="ti-line">Weld seam analysis in C++, written by hand</span></a>
         </li>
-        <li style="--c:#E8365D;--n:4">
-          <span class="ti-year">2026</span><span class="ti-dot" aria-hidden="true"></span>
-          <a class="ti-card" href="projects.html#dialyzeai">
-            <span class="ti-head"><img src="img/dialyzeai.png" alt=""><time>Feb 2026</time></span>
-            <b>First call-analysis prototype</b>
-            <span class="ti-line">Speech-to-text and speaker separation on real calls</span>
-          </a>
+        <li class="down" style="--c:#E8365D;--n:4"><span class="ti-year">2026</span><span class="ti-pin" aria-hidden="true"></span>
+          <a class="ti-lab" href="projects.html#dialyzeai"><span class="ti-top"><img src="img/dialyzeai.png" alt=""><time>Feb 2026</time></span><b>First call-analysis prototype</b><span class="ti-line">Speech-to-text and speaker separation on real calls</span></a>
         </li>
-        <li style="--c:#3A5BC7;--n:5">
-          <span class="ti-dot" aria-hidden="true"></span>
-          <a class="ti-card" href="projects.html#clientops">
-            <span class="ti-head"><span class="ti-ico" style="background:#3A5BC7"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span><time>Apr 2026</time></span>
-            <b>Founded Satli</b>
-            <span class="ti-line">And the tooling to onboard, license and bill clients</span>
-          </a>
+        <li class="up" style="--c:#B044D8;--n:5"><span class="ti-pin" aria-hidden="true"></span>
+          <a class="ti-lab" href="projects.html#clientops"><span class="ti-top"><img src="img/satli.svg" alt=""><time>Apr 2026</time></span><b>Founded Satli</b><span class="ti-line">And the tooling to onboard, license and bill clients</span></a>
         </li>
-        <li style="--c:#E8365D;--n:6">
-          <span class="ti-dot" aria-hidden="true"></span>
-          <a class="ti-card" href="projects.html#dialyzeai">
-            <span class="ti-head"><img src="img/dialyzeai.png" alt=""><time>May 2026</time></span>
-            <b>DialyzeAI live at Alta</b>
-            <span class="ti-line">Every call reviewed, back to January</span>
-          </a>
+        <li class="down" style="--c:#E8365D;--n:6"><span class="ti-pin" aria-hidden="true"></span>
+          <a class="ti-lab" href="projects.html#dialyzeai"><span class="ti-top"><img src="img/dialyzeai.png" alt=""><time>May 2026</time></span><b>DialyzeAI live at Alta</b><span class="ti-line">Every call reviewed, back to January</span></a>
         </li>
-        <li style="--c:#E0900A;--n:7">
-          <span class="ti-dot" aria-hidden="true"></span>
-          <a class="ti-card" href="projects.html#catalogueai">
-            <span class="ti-head"><img src="img/catalogueai.png" alt=""><time>May 2026</time></span>
-            <b>CatalogueAI</b>
-            <span class="ti-line">Product catalogues from a list of models</span>
-          </a>
+        <li class="up" style="--c:#E0900A;--n:7"><span class="ti-pin" aria-hidden="true"></span>
+          <a class="ti-lab" href="projects.html#catalogueai"><span class="ti-top"><img src="img/catalogueai.png" alt=""><time>May 2026</time></span><b>CatalogueAI</b><span class="ti-line">Product catalogues from a list of models</span></a>
         </li>
-        <li style="--c:#0FA3C7;--n:8">
-          <span class="ti-dot" aria-hidden="true"></span>
-          <a class="ti-card" href="projects.html#tekstisai">
-            <span class="ti-head"><img src="img/tekstisai.png" alt=""><time>Jun 2026</time></span>
-            <b>TekstisAI</b>
-            <span class="ti-line">The same engine, for chats and comments</span>
-          </a>
+        <li class="down" style="--c:#0FA3C7;--n:8"><span class="ti-pin" aria-hidden="true"></span>
+          <a class="ti-lab" href="projects.html#tekstisai"><span class="ti-top"><img src="img/tekstisai.png" alt=""><time>Jun 2026</time></span><b>TekstisAI</b><span class="ti-line">The same engine, for chats and comments</span></a>
         </li>
-        <li style="--c:#0E9F6E;--n:9">
-          <span class="ti-dot" aria-hidden="true"></span>
-          <a class="ti-card" href="projects.html#zariai">
-            <span class="ti-head"><img src="img/zariai.png" alt=""><time>Jul 2026</time></span>
-            <b>ZariAI</b>
-            <span class="ti-line">A phone agent that speaks Georgian</span>
-          </a>
+        <li class="up" style="--c:#0E9F6E;--n:9"><span class="ti-pin" aria-hidden="true"></span>
+          <a class="ti-lab" href="projects.html#zariai"><span class="ti-top"><img src="img/zariai.png" alt=""><time>Jul 2026</time></span><b>ZariAI</b><span class="ti-line">A phone agent that speaks Georgian</span></a>
         </li>
-        <li style="--c:#262158;--n:10">
-          <span class="ti-dot" aria-hidden="true"></span>
-          <a class="ti-card" href="projects.html#yvito">
-            <span class="ti-head"><img src="img/yvito-logo.png" alt="" style="border-radius:7px"><time>Sep 2026</time></span>
-            <b>Yvito TV</b>
-            <span class="ti-line">A self-running channel, built in 5 days</span>
-          </a>
+        <li class="down" style="--c:#262158;--n:10"><span class="ti-pin" aria-hidden="true"></span>
+          <a class="ti-lab" href="projects.html#yvito"><span class="ti-top"><img src="img/yvito-logo.png" alt="" style="border-radius:6px"><time>Sep 2026</time></span><b>Yvito TV</b><span class="ti-line">A self-running channel, built in 5 days</span></a>
         </li>
-        <li style="--c:#B65CE3;--n:11">
-          <span class="ti-dot" aria-hidden="true"></span>
-          <a class="ti-card" href="projects.html#saqme">
-            <span class="ti-head"><img src="img/saqme-logo.png" alt=""><time>Oct 2026</time></span>
-            <b>Saqme To Do</b>
-            <span class="ti-line">Open source, run by your AI</span>
-          </a>
+        <li class="up" style="--c:#B65CE3;--n:11"><span class="ti-pin" aria-hidden="true"></span>
+          <a class="ti-lab" href="projects.html#saqme"><span class="ti-top"><img src="img/saqme-logo.png" alt=""><time>Oct 2026</time></span><b>Saqme To Do</b><span class="ti-line">Open source, run by your AI</span></a>
         </li>
-        <li style="--c:#1B2A8A;--n:12">
-          <span class="ti-dot" aria-hidden="true"></span>
-          <a class="ti-card" href="projects.html#vertapi">
-            <span class="ti-head"><img src="img/vertapi.svg" alt="" style="border-radius:7px"><time>Nov 2026</time></span>
-            <b>VertAPI</b>
-            <span class="ti-line">Alerts and an API over public registries</span>
-          </a>
+        <li class="down" style="--c:#1B2A8A;--n:12"><span class="ti-pin" aria-hidden="true"></span>
+          <a class="ti-lab" href="projects.html#vertapi"><span class="ti-top"><img src="img/vertapi.svg" alt="" style="border-radius:6px"><time>Nov 2026</time></span><b>VertAPI</b><span class="ti-line">Alerts and an API over public registries</span></a>
         </li>
-        <li style="--c:#6D4AE0;--n:13">
-          <span class="ti-dot" aria-hidden="true"></span>
-          <a class="ti-card" href="projects.html#asrbench">
-            <span class="ti-head"><span class="ti-ico" style="background:#6D4AE0;font-weight:800;font-size:.8rem">ka</span><time>Nov 2026</time></span>
-            <b>Georgian ASR benchmark</b>
-            <span class="ti-line">Speech recognition on phone audio</span>
-          </a>
+        <li class="up" style="--c:#6D4AE0;--n:13"><span class="ti-pin" aria-hidden="true"></span>
+          <a class="ti-lab" href="projects.html#asrbench"><span class="ti-top"><span class="ti-ico" style="background:#6D4AE0">ka</span><time>Nov 2026</time></span><b>Georgian ASR benchmark</b><span class="ti-line">Speech recognition on phone audio</span></a>
         </li>
       </ol>
     </section>
@@ -418,7 +388,7 @@
         <a class="card" href="projects.html#zariai"><img class="mark" src="img/zariai.png" alt=""><b>ZariAI</b><span>Georgian-first AI phone agent</span></a>
         <a class="card" href="projects.html#asrbench"><span class="dot" style="background:#6D4AE0;color:#fff">ka</span><b>Georgian ASR benchmark</b><span>Speech recognition on phone audio, in progress</span></a>
         <a class="card" href="projects.html#vertapi"><img class="mark" src="img/vertapi.svg" alt="" style="border-radius:10px"><b>VertAPI</b><span>Alerts and API over Georgian public registries</span></a>
-        <a class="card" href="projects.html#clientops"><span class="dot" style="background:#3A5BC7;color:#fff"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span><b>Client operations</b><span>Onboarding, licensing and billing for Satli clients</span></a>
+        <a class="card" href="projects.html#clientops"><img class="mark" src="img/satli.svg" alt=""><b>Client operations</b><span>Onboarding, licensing and billing for Satli clients</span></a>
         <a class="card" href="projects.html#saqme"><img class="mark" src="img/saqme-logo.png" alt=""><b>Saqme To Do</b><span>Open-source to-do app for you and your AI</span></a>
         <a class="card" href="projects.html#saina"><img class="mark" src="img/saina-icon.png" alt=""><b>Saïna analysis tool</b><span>Weld seams and fatigue on ANSYS data</span></a>
         <a class="card" href="projects.html#school42"><img class="mark" src="img/42.svg" alt=""><b>École 42</b><span>Systems projects in C and C++</span></a>
@@ -469,16 +439,6 @@
   <span class="nv"><img src="img/nvidia-inception.svg" alt="NVIDIA Inception Program" width="74" height="32"></span>
   <span class="aws"><img src="img/aws-activate.png" alt="AWS Activate" width="70" height="19"></span>
 </aside>
-<script>
-(function () {
-  var t = document.querySelector('.tl-track'); if (!t) return;
-  var btns = document.querySelectorAll('.tl-btn');
-  function step() { var li = t.querySelector('li'); return li ? li.getBoundingClientRect().width + 16 : 240; }
-  btns.forEach(function (b) { b.addEventListener('click', function () { t.scrollBy({ left: step() * 2 * (+b.dataset.dir), behavior: 'smooth' }); }); });
-  function upd() { btns[0].disabled = t.scrollLeft < 4; btns[1].disabled = t.scrollLeft + t.clientWidth > t.scrollWidth - 4; }
-  t.addEventListener('scroll', upd, { passive: true }); window.addEventListener('resize', upd); upd();
-})();
-</script>
 <button class="to-top" type="button" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
 <script>
 (function () {
