@@ -318,6 +318,16 @@
     "AI systems that run unattended in production: Yvito TV, DialyzeAI at Alta, and an AI phone agent you can call right now at +995 32 2 193 384.": "Des systèmes d’IA qui tournent en production sans supervision : Yvito TV, DialyzeAI chez Alta et un agent téléphonique IA à appeler dès maintenant au +995 32 2 193 384.",
     "What George Tskitishvili has built: Yvito TV, DialyzeAI, ZariAI, VertAPI, Saqme To Do, a weld seam analysis tool and more.": "Ce que George Tskitishvili a construit : Yvito TV, DialyzeAI, ZariAI, VertAPI, Saqme To Do, un outil d’analyse de soudures et plus encore.",
     "How Alta went from reviewing 1–3% of its calls by hand to 100% with DialyzeAI, with every AI finding checked against the transcript.": "Comment Alta est passé d’un contrôle manuel de 1 à 3 % de ses appels à 100 % avec DialyzeAI, chaque conclusion de l’IA étant vérifiée sur la transcription.",
-    "For visitors in the EU, the UK and Switzerland, Clarity sets no cookies, so each page view is recorded on its own. Elsewhere it sets cookies (such as _clck and _clsk) to link the pages of one visit. Microsoft processes this data under the": "Pour les visiteurs de l’UE, du Royaume-Uni et de Suisse, Clarity ne dépose aucun cookie : chaque page vue est enregistrée séparément. Ailleurs, il dépose des cookies (comme _clck et _clsk) pour relier les pages d’une même visite. Microsoft traite ces données conformément à la"
+    "For visitors in the EU, the UK and Switzerland, Clarity sets no cookies, so each page view is recorded on its own. Elsewhere it sets cookies (such as _clck and _clsk) to link the pages of one visit. Microsoft processes this data under the": "Pour les visiteurs de l’UE, du Royaume-Uni et de Suisse, Clarity ne dépose aucun cookie : chaque page vue est enregistrée séparément. Ailleurs, il dépose des cookies (comme _clck et _clsk) pour relier les pages d’une même visite. Microsoft traite ces données conformément à la",
+    "An engine that turns web pages into finished short videos": "Un moteur qui transforme des pages web en vidéos courtes prêtes à publier",
+    "It finds a story, writes the script, checks every fact against the source, voices it, animates a host and posts to four platforms. Yvito TV, a Georgian channel, is the experiment I run on it.": "Il trouve une info, écrit le script, vérifie chaque fait auprès de la source, fait la voix, anime un présentateur et publie sur quatre plateformes. Yvito TV, une chaîne géorgienne, est l’expérience que je mène avec.",
+    "Finds a story, writes it, checks every fact against the source, voices and animates it": "Trouve une info, l’écrit, vérifie chaque fait auprès de la source, la met en voix et l’anime",
+    "Every week it grades its own reels and feeds the best and worst openings back into the writing": "Chaque semaine, il note ses propres vidéos et renvoie les meilleures et les pires accroches à l’écriture",
+    "Rules, then top score": "Des règles, puis le meilleur score",
+    "Rank the month's reels: the 3 best and 3 worst openings go back into the writing": "Classement des vidéos du mois : les 3 meilleures et les 3 pires accroches reviennent dans l’écriture",
+    "per reel in API calls": "par vidéo en appels d’API",
+    "planted errors, all caught": "erreurs glissées exprès, toutes détectées",
+    "1 tap": "1 clic",
+    "a day, the only human step": "par jour, la seule étape humaine"
   }
 }

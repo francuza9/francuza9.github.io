@@ -397,6 +397,16 @@
     "AI systems that run unattended in production: Yvito TV, DialyzeAI at Alta, and an AI phone agent you can call right now at +995 32 2 193 384.": "AI სისტემები, რომლებიც ადამიანის ჩარევის გარეშე მუშაობს: Yvito TV, DialyzeAI ალტაში და AI სატელეფონო აგენტი, რომელსაც ახლავე შეგიძლიათ დაურეკოთ: +995 32 2 193 384.",
     "What George Tskitishvili has built: Yvito TV, DialyzeAI, ZariAI, VertAPI, Saqme To Do, a weld seam analysis tool and more.": "რა შექმნა გიორგი ცქიტიშვილმა: Yvito TV, DialyzeAI, ZariAI, VertAPI, Saqme To Do, შედუღების ნაკერების ანალიზის ინსტრუმენტი და სხვა.",
     "How Alta went from reviewing 1–3% of its calls by hand to 100% with DialyzeAI, with every AI finding checked against the transcript.": "როგორ გადავიდა ალტა ზარების 1–3%-ის ხელით შემოწმებიდან DialyzeAI-ით 100%-ზე, სადაც AI-ის ყოველი დასკვნა ტრანსკრიპტს ედარება.",
-    "For visitors in the EU, the UK and Switzerland, Clarity sets no cookies, so each page view is recorded on its own. Elsewhere it sets cookies (such as _clck and _clsk) to link the pages of one visit. Microsoft processes this data under the": "ევროკავშირის, დიდი ბრიტანეთისა და შვეიცარიის ვიზიტორებისთვის Clarity cookie-ებს არ იყენებს, ამიტომ თითოეული გვერდის ნახვა ცალკე იწერება. სხვაგან ის იყენებს cookie-ებს (მაგალითად _clck და _clsk), რათა ერთი ვიზიტის გვერდები ერთმანეთს დაუკავშიროს. Microsoft ამ მონაცემებს ამუშავებს"
+    "For visitors in the EU, the UK and Switzerland, Clarity sets no cookies, so each page view is recorded on its own. Elsewhere it sets cookies (such as _clck and _clsk) to link the pages of one visit. Microsoft processes this data under the": "ევროკავშირის, დიდი ბრიტანეთისა და შვეიცარიის ვიზიტორებისთვის Clarity cookie-ებს არ იყენებს, ამიტომ თითოეული გვერდის ნახვა ცალკე იწერება. სხვაგან ის იყენებს cookie-ებს (მაგალითად _clck და _clsk), რათა ერთი ვიზიტის გვერდები ერთმანეთს დაუკავშიროს. Microsoft ამ მონაცემებს ამუშავებს",
+    "An engine that turns web pages into finished short videos": "ძრავა, რომელიც ვებგვერდებს მზა მოკლე ვიდეოებად აქცევს",
+    "It finds a story, writes the script, checks every fact against the source, voices it, animates a host and posts to four platforms. Yvito TV, a Georgian channel, is the experiment I run on it.": "პოულობს ამბავს, წერს სცენარს, ყოველ ფაქტს წყაროსთან ამოწმებს, ახმოვანებს, წამყვანს აანიმირებს და ოთხ პლატფორმაზე აქვეყნებს. Yvito TV, ქართული არხი, ის ექსპერიმენტია, რომელსაც ამ ძრავაზე ვატარებ.",
+    "Finds a story, writes it, checks every fact against the source, voices and animates it": "პოულობს ამბავს, წერს, ყოველ ფაქტს წყაროსთან ამოწმებს, ახმოვანებს და აანიმირებს",
+    "Every week it grades its own reels and feeds the best and worst openings back into the writing": "ყოველ კვირას საკუთარ რილსებს აფასებს და საუკეთესო და ყველაზე სუსტ დასაწყისებს ისევ სცენარის წერას აწვდის",
+    "Rules, then top score": "წესები, შემდეგ საუკეთესო ქულა",
+    "Rank the month's reels: the 3 best and 3 worst openings go back into the writing": "თვის რილსების რეიტინგი: 3 საუკეთესო და 3 ყველაზე სუსტი დასაწყისი ისევ წერაში ბრუნდება",
+    "per reel in API calls": "API-ის ხარჯი ერთ რილსზე",
+    "planted errors, all caught": "განზრახ ჩადებული შეცდომა, ყველა დაიჭირა",
+    "1 tap": "1 დაჭერა",
+    "a day, the only human step": "დღეში, ერთადერთი ადამიანური ნაბიჯი"
   }
 }
