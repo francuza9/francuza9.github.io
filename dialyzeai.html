@@ -93,7 +93,7 @@
 
     <h2>What I built</h2>
     <ul>
-      <li><b>Transcription that works in Georgian.</b>Georgian is a low-resource language, so I tested several open and commercial speech models on Alta's own calls before choosing. Gemini on Vertex AI came out at about 2% word error rate in those tests.</li>
+      <li><b>Transcription that works in Georgian.</b>Georgian is a low-resource language, so I tested several open and commercial speech models on Alta's own calls before choosing. The model I chose came out at about 2% word error rate in those tests.</li>
       <li><b>Scoring on the client's own criteria.</b>Alta's QA team defines what a good call looks like, and every call is scored on those fields, with optional checks of whether the operator gave the customer correct information.</li>
       <li><b>A truth-check gate.</b>Before a finding reaches a report, a separate step checks it against the transcript. A finding the transcript doesn't support doesn't get through. This is what makes the numbers usable by people who weren't on the call.</li>
       <li><b>Delivered inside the client's own cloud.</b>It ships as a signed Windows app with built-in dashboards, running in Alta's own Google Cloud project. Build identity, fingerprints and prompt hashes mean neither the app nor its prompts can change silently.</li>
