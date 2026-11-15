@@ -67,7 +67,7 @@
     "george.tskitishvili9@gmail.com",
     "https://tskdev.org/",
     "https://tskdev.org/dialyzeai.html",
-    "https://tskdev.org/img/og.png",
+    "https://tskdev.org/img/og-card.png",
     "https://tskdev.org/privacy.html",
     "https://tskdev.org/projects.html",
     "invoice and acceptance act ready",
@@ -394,6 +394,9 @@
     "I use Microsoft Clarity to see how the site is used. It records clicks, scrolling and mouse movement on these pages, along with your device, browser, screen size and approximate location, and can replay a visit. It sees nothing outside this site, and text typed into pages is masked.": "საიტის გამოყენების სანახავად ვიყენებ Microsoft Clarity-ს. ის იწერს დაწკაპუნებებს, სქროლს და მაუსის მოძრაობას ამ გვერდებზე, ასევე თქვენს მოწყობილობას, ბრაუზერს, ეკრანის ზომას და მიახლოებით მდებარეობას, და შეუძლია ვიზიტის ხელახლა ჩვენება. ის ვერაფერს ხედავს ამ საიტის გარეთ, ხოლო გვერდებზე აკრეფილი ტექსტი დაფარულია.",
     "For visitors in the EU, the UK and Switzerland, Clarity sets no cookies, so each page view is recorded on its own. Elsewhere it sets cookies (such as _clck and _clsk) to link the pages of one visit. Microsoft processes this data under the ": "ევროკავშირის, დიდი ბრიტანეთისა და შვეიცარიის ვიზიტორებისთვის Clarity cookie-ებს არ იყენებს, ამიტომ თითოეული გვერდის ნახვა ცალკე იწერება. სხვაგან ის იყენებს cookie-ებს (მაგალითად _clck და _clsk), რათა ერთი ვიზიტის გვერდები ერთმანეთს დაუკავშიროს. Microsoft ამ მონაცემებს ამუშავებს ",
     "Microsoft Privacy Statement": "Microsoft-ის კონფიდენციალურობის განაცხადის შესაბამისად",
-    "Turn off analytics in this browser": "ანალიტიკის გამორთვა ამ ბრაუზერში"
+    "Turn off analytics in this browser": "ანალიტიკის გამორთვა ამ ბრაუზერში",
+    "AI systems that run unattended in production: Yvito TV, DialyzeAI at Alta, and an AI phone agent you can call right now at +995 32 2 193 384.": "AI სისტემები, რომლებიც ადამიანის ჩარევის გარეშე მუშაობს: Yvito TV, DialyzeAI ალტაში და AI სატელეფონო აგენტი, რომელსაც ახლავე შეგიძლიათ დაურეკოთ: +995 32 2 193 384.",
+    "What George Tskitishvili has built: Yvito TV, DialyzeAI, ZariAI, VertAPI, Saqme To Do, a weld seam analysis tool and more.": "რა შექმნა გიორგი ცქიტიშვილმა: Yvito TV, DialyzeAI, ZariAI, VertAPI, Saqme To Do, შედუღების ნაკერების ანალიზის ინსტრუმენტი და სხვა.",
+    "How Alta went from reviewing 1–3% of its calls by hand to 100% with DialyzeAI, with every AI finding checked against the transcript.": "როგორ გადავიდა ალტა ზარების 1–3%-ის ხელით შემოწმებიდან DialyzeAI-ით 100%-ზე, სადაც AI-ის ყოველი დასკვნა ტრანსკრიპტს ედარება."
   }
 }
