@@ -128,8 +128,6 @@
     "Best story per slot": "Meilleur sujet par créneau",
     "I pick, if it's close": "Je tranche si c’est serré",
     "Write": "Écrire",
-    "Story · Claude": "Récit · Claude",
-    "Punch-up · Claude": "Relecture punchy · Claude",
     "Caption": "Légende",
     "Produce": "Produire",
     "Lip sync": "Synchro labiale",
@@ -175,7 +173,6 @@
     "An open benchmark of Georgian ASR models, open and commercial, on clean audio versus real telephone audio, because phone calls are much harder than the clean recordings models are usually tested on.": "Un benchmark ouvert des modèles ASR géorgiens, open source et commerciaux, sur audio propre et sur vrai audio téléphonique, car les appels sont bien plus difficiles que les enregistrements propres sur lesquels les modèles sont habituellement testés.",
     "The same recordings tested clean at 16 kHz, through a simulated phone line (8 kHz, G.711 μ-law) and on real consented calls.": "Les mêmes enregistrements testés en propre à 16 kHz, via une ligne téléphonique simulée (8 kHz, G.711 μ-law) et sur de vrais appels, avec consentement.",
     "One harness: dataset loaders, a model registry, Georgian text normalisation and error metrics, so every model is scored the same way.": "Un seul banc de test : chargeurs de données, registre de modèles, normalisation du texte géorgien et métriques d’erreur, pour que chaque modèle soit noté de la même façon.",
-    "Planned: a write-up of the results, then fine-tuning a NeMo FastConformer model for Georgian telephone speech.": "Prévu : une publication des résultats, puis le fine-tuning d’un modèle NeMo FastConformer sur la parole téléphonique géorgienne.",
     "The same speech as clean 16 kHz audio and as 8 kHz telephone audio": "La même parole en audio propre 16 kHz et en audio téléphonique 8 kHz",
     "Clean": "Propre",
     "Phone line": "Ligne téléphonique",
@@ -210,7 +207,6 @@
     "Terminal: onboarding a new client": "Terminal : intégration d’un nouveau client",
     "Saqme To Do · open source": "Saqme To Do · open source",
     "Markdown to-do lists you and your AI edit together, on desktop and phone.": "Des listes de tâches Markdown que vous et votre IA modifiez ensemble, sur ordinateur et téléphone.",
-    "Claude and other assistants connect through an MCP connector, set up in one click.": "Claude et les autres assistants se connectent via un connecteur MCP, installé en un clic.",
     "The engine is written twice, PowerShell and JavaScript, kept identical by one shared test suite.": "Le moteur est écrit deux fois, en PowerShell et en JavaScript, maintenus identiques par une même suite de tests.",
     "AI has a delete budget, so a model can't wipe your lists.": "L’IA a un quota de suppressions, un modèle ne peut donc pas effacer vos listes.",
     "Optional sync in your own Cloudflare account; lists can be shared by single-use link.": "Synchronisation optionnelle dans votre propre compte Cloudflare ; les listes se partagent par lien à usage unique.",
@@ -328,6 +324,10 @@
     "Fact-check": "Vérification des faits",
     "Voice · TTS": "Voix · TTS",
     "For Alta it enriched around 13,000 products using AI with grounded web search.": "Pour Alta, il a enrichi environ 13 000 produits grâce à l’IA et une recherche web sourcée.",
-    "Georgian is a low-resource language, so I tested several open and commercial speech models on Alta's own calls before choosing. The model I chose came out at about 2% word error rate in those tests.": "Le géorgien dispose de peu de données, j’ai donc testé plusieurs modèles de reconnaissance vocale, open source et commerciaux, sur les propres appels d’Alta avant de choisir. Le modèle retenu a obtenu environ 2 % de taux d’erreur sur les mots dans ces tests."
+    "Georgian is a low-resource language, so I tested several open and commercial speech models on Alta's own calls before choosing. The model I chose came out at about 2% word error rate in those tests.": "Le géorgien dispose de peu de données, j’ai donc testé plusieurs modèles de reconnaissance vocale, open source et commerciaux, sur les propres appels d’Alta avant de choisir. Le modèle retenu a obtenu environ 2 % de taux d’erreur sur les mots dans ces tests.",
+    "Story · writer agent": "Récit · agent rédacteur",
+    "Punch-up · style agent": "Relecture punchy · agent de style",
+    "Planned: a write-up of the results, then fine-tuning an open model for Georgian telephone speech.": "Prévu : une publication des résultats, puis le fine-tuning d’un modèle ouvert sur la parole téléphonique géorgienne.",
+    "AI assistants connect through an MCP connector, set up in one click.": "Les assistants IA se connectent via un connecteur MCP, installé en un clic."
   }
 }
