@@ -9,7 +9,7 @@ Strings with no translation are listed and left in English, so nothing breaks.
 import hashlib, html, json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PAGES = ['index.html', 'projects.html', 'dialyzeai.html', 'privacy.html']
+PAGES = ['index.html', 'projects.html', 'dialyzeai.html', 'reelline.html', 'privacy.html']
 LANGS = ['en', 'ka', 'fr']
 NAMES = {'en': 'English', 'ka': 'ქართული', 'fr': 'Français'}
 MENU_LABEL = {'en': 'Language', 'ka': 'ენა', 'fr': 'Langue'}

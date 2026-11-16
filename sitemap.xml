@@ -45,4 +45,19 @@
     <xhtml:link rel="alternate" hreflang="ka" href="https://tskdev.org/ka/dialyzeai.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://tskdev.org/fr/dialyzeai.html"/>
   </url>
+  <url><loc>https://tskdev.org/reelline.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tskdev.org/reelline.html"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://tskdev.org/ka/reelline.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tskdev.org/fr/reelline.html"/>
+  </url>
+  <url><loc>https://tskdev.org/ka/reelline.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tskdev.org/reelline.html"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://tskdev.org/ka/reelline.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tskdev.org/fr/reelline.html"/>
+  </url>
+  <url><loc>https://tskdev.org/fr/reelline.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tskdev.org/reelline.html"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://tskdev.org/ka/reelline.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tskdev.org/fr/reelline.html"/>
+  </url>
 </urlset>
